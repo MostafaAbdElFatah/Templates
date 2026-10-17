@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Services Component (components/services.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Services Section Container
+   -------------------------------------------------------------------------- */
+.services {
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Two-Column Layout (Services Grid + Decorative Image)
+   -------------------------------------------------------------------------- */
+.services__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .services__content {
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Services Items Grid (2 Columns on Desktop)
+   -------------------------------------------------------------------------- */
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 600px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 30px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Individual Service Item Card
+   -------------------------------------------------------------------------- */
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Icon Box
+   -------------------------------------------------------------------------- */
+.service-item__icon {
+  flex-shrink: 0;
+  color: var(--color-primary, #10cab7);
+  font-size: 2rem;
+  margin-top: 4px;
+  transition: transform var(--transition-fast, 200ms ease);
+}
+
+.service-item:hover .service-item__icon {
+  transform: scale(1.1);
+}
+
+/* --------------------------------------------------------------------------
+   6. Content (Title & Description)
+   -------------------------------------------------------------------------- */
+.service-item__body {
+  flex: 1;
+}
+
+.service-item__title {
+  margin: 0 0 12px;
+  color: var(--color-text, #2c3539);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.service-item__desc {
+  margin: 0;
+  color: var(--color-text-muted, #777777);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
+   7. Decorative Poster Image with Dark Accent Backdrop
+   -------------------------------------------------------------------------- */
+.services__image-wrapper {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .services__image-wrapper {
+    display: flex;
+  }
+}
+
+.services__image-card {
+  position: relative;
+  width: 260px;
+  height: 360px;
+  background-color: #f6f6f6;
+  background-image: url(../../images/snowy-mountain.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(29, 22, 22, 0.07);
+}
+
+/* Dark accent shape extending behind the card on the right */
+.services__image-card::after {
+  --img-padding: 80px;
+
+  content: "";
+  position: absolute;
+  top: calc(var(--img-padding) / -2);
+  right: -30px;
+  width: 100px;
+  height: calc(100% + var(--img-padding));
+  background-color: #2c3e50;
+  border-radius: 4px;
+  z-index: -1;
+}

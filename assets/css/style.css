@@ -35,5 +35,13 @@
 /* 11. Section Heading (Reusable Component) */
 @import "components/section-heading.css";
 
+/* 12. Services Component */
+@import "components/services.css";
+
+/* 13. Portfolio Component */
+@import "components/portfolio.css";
+
+
+
 
 

@@ -35,8 +35,9 @@
                     <li>
                         <a href="#home" aria-current="page">Home</a>
                     </li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -108,17 +109,142 @@
                     <h2>Services</h2>
                     <p>Don't be busy, be productive</p>
                 </div>
-                <!-- Services content -->
+                <!-- Services Content Grid -->
+                <div class="services__content">
+                    <div class="services__grid">
+                        <!-- Service 1: Graphic Design -->
+                        <article class="service-item">
+                            <div class="service-item__icon" aria-hidden="true">
+                                <i class="fa-solid fa-print"></i>
+                            </div>
+                            <div class="service-item__body">
+                                <h3 class="service-item__title">Graphic Design</h3>
+                                <p class="service-item__desc">
+                                    Graphic design is the process of visual communication and problem-solving using one or more of typography, photography and illustration.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Service 2: Web Design -->
+                        <article class="service-item">
+                            <div class="service-item__icon" aria-hidden="true">
+                                <i class="fa-solid fa-window-maximize"></i>
+                            </div>
+                            <div class="service-item__body">
+                                <h3 class="service-item__title">Web Design</h3>
+                                <p class="service-item__desc">
+                                    Web design encompasses many different skills and disciplines in the production and maintenance of websites.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Service 3: UI & UX -->
+                        <article class="service-item">
+                            <div class="service-item__icon" aria-hidden="true">
+                                <i class="fa-solid fa-bezier-curve"></i>
+                            </div>
+                            <div class="service-item__body">
+                                <h3 class="service-item__title">UI &amp; UX</h3>
+                                <p class="service-item__desc">
+                                    Process of enhancing user satisfaction with a product by improving the usability, accessibility, and pleasure provided in the interaction.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Service 4: Web Development -->
+                        <article class="service-item">
+                            <div class="service-item__icon" aria-hidden="true">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <div class="service-item__body">
+                                <h3 class="service-item__title">Web Development</h3>
+                                <p class="service-item__desc">
+                                    Web development is a broad term for the work involved in developing a web site for the Internet or an intranet.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Decorative Image Card -->
+                    <div class="services__image-wrapper" aria-hidden="true">
+                        <div class="services__image-card"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="services" id="Portfolio" aria-labelledby="services-title">
+        <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Portfolio</h2>
-                    <p>If you do it right, itwill last forever</p>
+                    <h2 id="portfolio-title">Portfolio</h2>
+                    <p>If you do it right, it will last forever</p>
                 </div>
-                <!-- Services content -->
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio__grid">
+                    <!-- Project 1 -->
+                    <article class="portfolio-card">
+                        <div class="portfolio-card__media">
+                            <img class="portfolio-card__img" 
+                                 src="assets/images/portfolio-1.jpg" 
+                                 alt="Project 1 preview"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="portfolio-card__placeholder" aria-hidden="true" style="display: none;">
+                                <i class="fa-solid fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__body">
+                            <h3 class="portfolio-card__title">Project Here</h3>
+                            <p class="portfolio-card__desc">
+                                My creative ability is very difficult to measure because it can manifest in so many surprising and.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="portfolio-card">
+                        <div class="portfolio-card__media">
+                            <img class="portfolio-card__img" 
+                                 src="assets/images/portfolio-2.jpg" 
+                                 alt="Project 2 preview"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="portfolio-card__placeholder" aria-hidden="true" style="display: none;">
+                                <i class="fa-solid fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__body">
+                            <h3 class="portfolio-card__title">Project Here</h3>
+                            <p class="portfolio-card__desc">
+                                My creative ability is very difficult to measure because it can manifest in so many surprising and.
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="portfolio-card">
+                        <div class="portfolio-card__media">
+                            <img class="portfolio-card__img" 
+                                 src="assets/images/portfolio-3.jpg" 
+                                 alt="Project 3 preview"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="portfolio-card__placeholder" aria-hidden="true" style="display: none;">
+                                <i class="fa-solid fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__body">
+                            <h3 class="portfolio-card__title">Project Here</h3>
+                            <p class="portfolio-card__desc">
+                                My creative ability is very difficult to measure because it can manifest in so many surprising and.
+                            </p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 

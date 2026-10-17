@@ -25,6 +25,7 @@
     --container-padding: 15px;
     --header-padding: 20px;
     --header-height: 74px;
+    --section-padding: clamp(3.5rem, 7vw, 5rem);
 
     /* Dropdown Tokens */
     --dropdown-width: 200px;
