@@ -2,20 +2,26 @@
    Main Stylesheet Entry Point (style.css)
    ========================================================================== */
 
-/* 1. Cross-Browser Normalization */
+/* 1. External Web Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap");
+
+/* 2. Cross-Browser Normalization */
 @import "normalize.css";
 
-/* 2. Global Foundations & Design Tokens */
+/* 3. Vendor Styles (Font Awesome Icons) */
+@import "all.min.css";
+
+/* 4. Global Foundations & Design Tokens */
 @import "base.css";
 
-/* 3. Reusable Page Structure & Layout */
+/* 5. Reusable Page Structure & Layout */
 @import "layout.css";
 
-/* 4. Header Component */
+/* 6. Header Component */
 @import "components/header.css";
 
-/* 5. Navigation Component */
+/* 7. Navigation Component */
 @import "components/navigation.css";
 
-/* 6. Dropdown Component */
+/* 8. Dropdown Component */
 @import "components/dropdown.css";
