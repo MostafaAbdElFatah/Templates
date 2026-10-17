@@ -14,7 +14,7 @@
 /* --------------------------------------------------------------------------
    2. Main Big Faded Title
    -------------------------------------------------------------------------- */
-.section-heading > h2 {
+.section-heading > h2:first-child {
   margin: 0;
   color: var(--color-heading-faded, #ebeced);
   font-size: clamp(3.5rem, 9vw, 6.25rem); /* 56px to 100px */
@@ -27,7 +27,7 @@
 /* --------------------------------------------------------------------------
    3. Subtitle Overlapping Slightly Below Title
    -------------------------------------------------------------------------- */
-.section-heading > h2 + p {
+.section-heading > h2:first-child + p {
   margin: -30px 0 0;
   color: var(--color-text-muted, #797979);
   font-size: clamp(1rem, 2vw, 1.25rem);
@@ -39,11 +39,11 @@
    4. Responsive Adjustments for Mobile
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  .section-heading > h2 {
+  .section-heading > h2:first-child {
     letter-spacing: -1.5px;
   }
 
-  .section-heading > h2 + p {
+  .section-heading > h2:first-child + p {
     margin-top: -20px;
   }
 }
