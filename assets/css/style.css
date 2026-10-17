@@ -32,4 +32,8 @@
 /* 10. Features Component */
 @import "components/features.css";
 
+/* 11. Section Heading (Reusable Component) */
+@import "components/section-heading.css";
+
+
 
