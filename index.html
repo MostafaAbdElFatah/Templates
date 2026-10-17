@@ -4,29 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Template 1</title>
+
     <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
-
     <header class="site-header">
         <div class="container">
-            <a class="logo" href="/" aria-label="Template 1 - Home">
+            <!-- Brand -->
+            <a class="logo" href="#home" aria-label="Template 1 home">
                 <span>Template</span>
                 <img src="assets/images/logo.png" alt="">
             </a>
 
+            <!-- Main navigation -->
             <nav class="main-nav" aria-label="Main navigation">
-                <button type="button" class="menu-icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav-list">
+                <button type="button" class="menu-icon" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="main-nav-list">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+
                 <ul class="nav-list" id="main-nav-list">
-                    <li><a href="#home" aria-current="page">Home</a></li>
+                    <li>
+                        <a href="#home" aria-current="page">Home</a>
+                    </li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -35,39 +43,30 @@
         </div>
     </header>
 
-    <script>
-        // Progressive Enhancement for Mobile/Touch & Keyboard Accessibility
-        const menuToggle = document.querySelector('.menu-icon');
-        const navList = document.querySelector('.nav-list');
-        const nav = document.querySelector('.main-nav');
+    <main>
+        <!-- Home content -->
+        <section id="home" aria-label="Home">
+            <div>
+                <h1>Hello There!</h1>
+                <p>We are Leon - Super Creative & Minimal
+                    Agency weD lemplate</p>
+            </div>
+        </section>
 
-        if (menuToggle && navList) {
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-                navList.classList.toggle('is-open', !isExpanded);
-            });
+        <section id="about">
+            <!-- About content -->
+        </section>
 
-            // Close dropdown when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!nav.contains(e.target)) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    navList.classList.remove('is-open');
-                }
-            });
+        <section id="services">
+            <!-- Services content -->
+        </section>
 
-            // Close dropdown on Escape key and return focus to toggle
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && (navList.classList.contains('is-open') || menuToggle.getAttribute('aria-expanded') === 'true')) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    navList.classList.remove('is-open');
-                    menuToggle.focus();
-                }
-            });
-        }
-    </script>
+        <section id="contact">
+            <!-- Contact content -->
+        </section>
+    </main>
 
+    <!-- <script src="assets/js/main.js" defer></script> -->
 </body>
 
 </html>
