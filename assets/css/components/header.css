@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Header Component (components/header.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Site Header
+   -------------------------------------------------------------------------- */
+.site-header {
+    padding: var(--header-padding);
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Logo Branding
+   -------------------------------------------------------------------------- */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.logo:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: 4px;
+}
+
+.logo > img {
+    width: 60px;
+    height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. Responsive Header Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 12px;
+    }
+
+    .site-header .container {
+        gap: 12px;
+    }
+
+    .logo > img {
+        width: 44px;
+    }
+}
