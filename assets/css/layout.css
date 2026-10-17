@@ -43,31 +43,4 @@
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   2. Home Section Layout
-   -------------------------------------------------------------------------- */
 
-#home {
-  background-image: url("../images/mountain.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  height: 40vh;
-}
-
-#home div {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-#home div h1 {
-  margin: 0;
-  color: var(--color-primary);
-}
-
-#home div p {
-  margin: 0;
-}

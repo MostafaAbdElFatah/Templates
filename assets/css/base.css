@@ -9,6 +9,7 @@
     /* Color Palette */
     --color-primary: #10cab7;
     --color-text: #333333;
+    --color-text-muted: #797979;
     --color-background: #ffffff;
     --color-page: #eeeeee;
     --color-border: #eeeeee;
@@ -22,6 +23,7 @@
     /* Structural Spacing */
     --container-padding: 15px;
     --header-padding: 20px;
+    --header-height: 74px;
 
     /* Dropdown Tokens */
     --dropdown-width: 200px;
