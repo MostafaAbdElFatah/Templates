@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Features Component (components/features.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Features Section Wrapper
+   -------------------------------------------------------------------------- */
+.features {
+    padding: clamp(3rem, 6vw, 4rem) 0;
+    background-color: var(--color-page, #f6f6f6);
+}
+
+/* --------------------------------------------------------------------------
+   2. Responsive Grid Container
+   -------------------------------------------------------------------------- */
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   3. Feature Card
+   -------------------------------------------------------------------------- */
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 8px;
+    transition: transform var(--transition-normal, 300ms ease), box-shadow var(--transition-normal, 300ms ease);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Icon Box
+   -------------------------------------------------------------------------- */
+.feature-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--color-primary, #10cab7);
+    font-size: 3.25rem;
+    transition: transform var(--transition-fast, 200ms ease);
+}
+
+.feature-card:hover .feature-card__icon {
+    transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   5. Title (Heading 3)
+   -------------------------------------------------------------------------- */
+.feature-card__title {
+    margin: 0 0 16px;
+    color: var(--color-text, #2c3539);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Description Text
+   -------------------------------------------------------------------------- */
+.feature-card__text {
+    margin: 0;
+    color: var(--color-text-muted, #777777);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    max-width: 300px;
+    text-wrap: pretty;
+}
