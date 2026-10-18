@@ -124,12 +124,3 @@
     border-right: 1px solid var(--color-border);
 }
 
-/* --------------------------------------------------------------------------
-   7. Motion Preferences
-   -------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    .nav-list,
-    .nav-list a {
-        transition: none;
-    }
-}

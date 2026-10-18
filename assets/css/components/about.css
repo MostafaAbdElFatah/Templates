@@ -34,7 +34,7 @@
 
 .about__lead {
   margin: 0 0 1.25rem;
-  color: #2c4755;
+  color: var(--color-secondary);
   font-size: clamp(0.8rem, 0.8rem + 0.8vw, 1.5rem);
   font-weight: 800;
   line-height: 2.15;

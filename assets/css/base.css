@@ -8,6 +8,7 @@
 :root {
     /* Color Palette */
     --color-primary: #10cab7;
+    --color-secondary: #2c4755;
     --color-text: #333333;
     --color-text-muted: #797979;
     --color-heading-faded: #ebeced;
@@ -90,8 +91,22 @@ a {
 /* --------------------------------------------------------------------------
    4. Global Accessibility & Motion Preferences
    -------------------------------------------------------------------------- */
+:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
