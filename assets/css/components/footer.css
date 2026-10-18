@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Footer Component (components/footer.css)
+   ========================================================================== */
+
+.footer {
+  background-color: #2c4755;
+  padding: 30px 15px;
+  text-align: center;
+  color: var(--color-background, #ffffff);
+  font-size: 1.125rem;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer span {
+  color: var(--color-primary);
+  font-weight: 800;
+}
