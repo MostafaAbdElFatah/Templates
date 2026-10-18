@@ -16,9 +16,9 @@
   margin-bottom: 100px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .about__content {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 60px;
   }
 }
@@ -68,7 +68,7 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .about__image-wrapper {
     margin-bottom: 0;
     padding-right: var(
@@ -118,3 +118,12 @@
   border-radius: 4px;
   z-index: -1;
 }
+
+/* Hide decorative shapes on mobile (< 768px) and keep them on tablet and desktop */
+@media (max-width: 767px) {
+  .about__image-card::before,
+  .about__image-card::after {
+    display: none;
+  }
+}
+
