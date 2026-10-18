@@ -5,10 +5,10 @@
 /* --------------------------------------------------------------------------
    1. Portfolio Section Wrapper
    -------------------------------------------------------------------------- */
-.portfolio {
+/* .portfolio {
     padding: clamp(3.5rem, 7vw, 5rem) 0;
-    background-color: var(--color-page, #f6f6f6);
-}
+    background-color: var(--color-surface);
+} */
 
 
 

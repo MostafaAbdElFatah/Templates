@@ -108,8 +108,7 @@
   position: relative;
   width: 260px;
   height: 360px;
-  background-color: #f6f6f6;
-  background-image: url(../../images/snowy-mountain.jpg);
+  background: var(--color-surface) url(../../images/snowy-mountain.jpg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -118,9 +117,7 @@
 }
 
 /* Dark accent shape extending behind the card on the right */
-.services__image-card::after {
-  --img-padding: 80px;
-
+.services__image-card::before {
   content: "";
   position: absolute;
   top: calc(var(--img-padding) / -2);

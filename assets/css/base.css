@@ -12,6 +12,7 @@
     --color-text-muted: #797979;
     --color-heading-faded: #ebeced;
     --color-background: #ffffff;
+    --color-surface: #f6f6f6;
     --color-page: #eeeeee;
     --color-border: #eeeeee;
     --color-hover: #f5fffd;
@@ -26,6 +27,7 @@
     --header-padding: 20px;
     --header-height: 74px;
     --section-padding: clamp(3.5rem, 7vw, 5rem);
+    --img-padding: 80px;
 
     /* Dropdown Tokens */
     --dropdown-width: 200px;

@@ -1,0 +1,70 @@
+/* About section */
+
+.about {
+  padding: var(--section-padding) 0;
+  background-color: var(--color-background);
+}
+
+/* Image and copy sit side by side on larger screens. */
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .about__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem;
+  }
+}
+
+/* Decorative image panel */
+.about__image {
+  width: min(100%, 25.625rem);
+  height: 26.875rem;
+  margin-inline: auto;
+  background: var(--color-surface); /*url("../../images/mountain.jpg") center / cover no-repeat;*/
+  box-shadow: 0 0.5rem 1.125rem rgb(0 0 0 / 10%);
+}
+
+/* Dark accent shape extending behind the card on the right */
+.about__image::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--img-padding) / -2);
+  left: -30px;
+  width: 100px;
+  height: calc(100% + var(--img-padding));
+  background-color: red;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+/* Text content */
+.about__text {
+  max-width: 43.75rem;
+}
+
+.about__lead {
+  margin: 0 0 1.25rem;
+  color: #2c4755;
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  font-weight: 800;
+  line-height: 2.15;
+}
+
+.about__divider {
+  width: 50%;
+  margin: 0;
+  border: 0;
+  border-top: 2px solid var(--color-primary);
+}
+
+.about__desc {
+  margin: 1rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 2;
+}
