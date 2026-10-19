@@ -25,7 +25,7 @@
       var(--landing-overlay-mid) 80%,
       var(--landing-overlay-bottom) 100%
     ),
-    url("../../images/mountain.jpg");
+    url("../../images/backgrounds/landing.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
