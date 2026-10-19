@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Template 1</title>
+    <title>Template 2</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -17,29 +17,30 @@
     <header class="site-header">
         <div class="container">
             <!-- Brand -->
-            <a class="logo" href="#home" aria-label="Template 1 home">
-                <span>Template</span>
+            <a class="logo" href="#home" aria-label="Template 2 home">
                 <img src="assets/images/logo/logo.png" alt="">
+                <span>Template</span>
             </a>
 
             <!-- Main navigation -->
             <nav class="main-nav" aria-label="Main navigation">
-                <button type="button" class="menu-icon" aria-label="Open navigation menu" aria-expanded="false"
-                    aria-controls="main-nav-list">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                 <i class="fas fa-bars toggle-menu"></i>
 
                 <ul class="nav-list" id="main-nav-list">
                     <li>
-                        <a href="#home" aria-current="page">Home</a>
+                        <a class="active" href="#home" aria-current="page">Home</a>
                     </li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+
+                <div class="search">
+                    <i class="fas fa-search"></i>
+                </div>
             </nav>
         </div>
     </header>

@@ -7,12 +7,12 @@
    -------------------------------------------------------------------------- */
 :root {
     /* Color Palette */
-    --color-primary: #10cab7;
+    --color-primary: #33C7F5;
     --color-secondary: #2c4755;
-    --color-text: #333333;
-    --color-text-muted: #797979;
+    --color-text: #fbf8f8;
+    --color-text-muted: #7e7a7a;
     --color-heading-faded: #ebeced;
-    --color-background: #ffffff;
+    --color-background: #000;
     --color-surface: #f6f6f6;
     --color-page: #eeeeee;
     --color-border: #eeeeee;
@@ -29,12 +29,6 @@
     --header-height: 74px;
     --section-padding: clamp(3.5rem, 7vw, 5rem);
     --img-padding: 80px;
-
-    /* Dropdown Tokens */
-    --dropdown-width: 200px;
-    --dropdown-gap: 15px;
-    --dropdown-radius: 12px;
-    --dropdown-shadow: 0 12px 30px rgb(0 0 0 / 10%);
 
     /* Transitions & Motion */
     --transition-fast: 200ms ease;
