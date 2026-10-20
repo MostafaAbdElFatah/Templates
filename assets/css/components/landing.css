@@ -45,7 +45,10 @@
   flex: 0 1 55%;
   min-width: 0;
   margin: 0;
-  padding: var(--header-container-padding);
+  /* Box stays flush-left; the text lines up with the header's logo */
+  padding-block: var(--header-container-padding);
+  padding-inline-start: var(--content-inset);
+  padding-inline-end: var(--header-container-padding);
   box-sizing: border-box;
   background-color: var(--color-primary-transparent);
   box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
@@ -59,20 +62,12 @@
 
   .landing__intro {
     flex: 0 0 80%;
-    width: 100%;
-    padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .landing {
-    box-sizing: border-box;
-  }
-
   .landing__intro {
     flex: 0 0 100%;
-    width: 100%;
-    padding: 1.5rem;
   }
 }
 
@@ -80,11 +75,13 @@
    3. Title (Heading 1)
    -------------------------------------------------------------------------- */
 .landing__title {
+  margin: 0 0 0.4em;
   color: var(--color-text);
-  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  /* Fluid: ~28px on small phones -> 56px on large screens */
+  font-size: clamp(1.75rem, 1rem + 3.5vw, 3.5rem);
   font-weight: 800;
-  line-height: 1px;
-  letter-spacing: -0.5px;
+  line-height: 1.1;
+  text-wrap: balance;
 }
 
 /* --------------------------------------------------------------------------
@@ -96,14 +93,22 @@
   -webkit-line-clamp: 4;
   line-clamp: 4;
   overflow: hidden;
+  margin: 0;
   color: var(--color-text);
-  font-size: clamp(1.0625rem, 2vw, 1.25rem);
-  text-wrap: balance;
+  /* Fluid: ~15px on small phones -> 20px on large screens */
+  font-size: clamp(0.9375rem, 0.8rem + 0.6vw, 1.25rem);
   text-shadow: 0 1px 2px rgb(255 255 255 / 85%);
-  line-height: 1.2;
-  text-align: justify;
+  line-height: 1.5;
+  text-align: left;
   font-weight: 400;
   letter-spacing: 0px;
+}
+
+/* Justify only where lines are long enough to avoid big word gaps */
+@media (min-width: 992px) {
+  .landing__subtitle {
+    text-align: justify;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -112,16 +117,21 @@
 
 .landing .change-background {
   position: absolute;
+  z-index: 1;
   top: calc(50% + var(--header-container-padding));
-  transform: translateY(-50%);
+  cursor: pointer;
 }
 
+/* Centre each arrow inside the gutter between the page edge and the
+   text edge (--content-inset), so it never overlaps the landing text */
 .landing .left {
-  left: 30px;
+  left: calc(var(--content-inset) / 2);
+  transform: translate(-50%, -50%);
 }
 
 .landing .right {
-  right: 30px;
+  right: calc(var(--content-inset) / 2);
+  transform: translate(50%, -50%);
 }
 
 @media (max-width: 768px) {

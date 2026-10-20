@@ -40,6 +40,21 @@
     var(--container-padding) + var(--header-padding)
   );
 
+  /* Container width (overridden per breakpoint in layout.css) */
+  --container-width: 100%;
+
+  /* Distance from the page edge to the header's content edge.
+     Shared by the header and the landing text so they always line up.
+     (100% resolves against the element's containing block = page width) */
+  --content-inset: calc(
+    var(--header-padding) +
+      max(
+        0px,
+        (100% - 2 * var(--header-padding) - var(--container-width)) / 2
+      ) +
+      var(--container-padding)
+  );
+
   /* Transitions & Motion */
   --transition-fast: 200ms ease;
   --transition-normal: 300ms ease;
@@ -48,6 +63,13 @@
   --focus-ring-color: var(--color-primary);
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
+}
+
+/* Tighter outer spacing on small phones (header + landing follow it) */
+@media (max-width: 480px) {
+  :root {
+    --header-padding: 12px;
+  }
 }
 
 /* --------------------------------------------------------------------------

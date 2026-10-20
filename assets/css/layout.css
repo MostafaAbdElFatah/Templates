@@ -6,28 +6,28 @@
    1. Responsive Container
    -------------------------------------------------------------------------- */
 .container {
-  width: 100%;
+  width: var(--container-width);
   margin-inline: auto;
   padding-inline: var(--container-padding);
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .container {
-    width: 750px;
+  :root {
+    --container-width: 750px;
   }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .container {
-    width: 970px;
+  :root {
+    --container-width: 970px;
   }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .container {
-    width: 1170px;
+  :root {
+    --container-width: 1170px;
   }
 }

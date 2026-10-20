@@ -9,11 +9,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: var(--header-padding);
-
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   padding: var(--header-padding);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   z-index: 100;
 }
 
@@ -75,10 +73,6 @@
    3. Responsive Header Adjustments
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
-  .site-header {
-    padding: 12px;
-  }
-
   .site-header .container {
     gap: 12px;
   }
