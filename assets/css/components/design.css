@@ -10,11 +10,13 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* //padding: clamp(5rem, 12vw, 8rem) 0; */
   background-color: var(--color-surface);
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../images/backgrounds/space-alt-05.jpg") center/cover;
+
+  container-type: size; /* lets children use cqh, which is 1% of this element's height */
+  height: 600px;
 }
 
 .design .image,
@@ -32,7 +34,11 @@
    3. Image 
    -------------------------------------------------------------------------- */
 .design .image {
-  bottom: -10px;
+  position: relative;
+  display: flex;
+  justify-content: center; /* centers the img horizontally */
+  align-self: flex-end; /* sits on the bottom edge of .design */
+  transform: translateY(12%); /* always hides 35% of the image below the edge */
 }
 
 /* --------------------------------------------------------------------------
@@ -54,3 +60,36 @@
   background-color: var(--color-primary-transparent);
   box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
 }
+
+.design .text h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 800;
+  white-space: nowrap; /* forces one line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* shows "..." if it's too long */
+}
+
+.design .text ul li {
+  padding: 3px 0;
+}
+
+.design ul li::before {
+  content: "\f108";
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  margin-inline-end: 0.75rem;
+}
+
+.design ul li:nth-child(1)::before {
+  content: "\f3cd";
+} /* mobile */
+.design ul li:nth-child(2)::before {
+  content: "\f53f";
+} /* paintbrush */
+.design ul li:nth-child(3)::before {
+  content: "\f121";
+} /* code */
+.design ul li:nth-child(4)::before {
+  content: "\f108";
+} /* chrome */

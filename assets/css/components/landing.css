@@ -26,7 +26,7 @@
       var(--landing-overlay) 80%,
       var(--landing-overlay) 100%
     ),
-    url("../../images/backgrounds/bg2.jpeg");
+    url("../../images/backgrounds/bg.jpeg");
 
   background-size: cover;
   background-position: center;
@@ -80,7 +80,7 @@
   /* Fluid: ~28px on small phones -> 56px on large screens */
   font-size: clamp(1.75rem, 1rem + 3.5vw, 3.5rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 0.2;
   text-wrap: balance;
 }
 
@@ -98,7 +98,7 @@
   /* Fluid: ~15px on small phones -> 20px on large screens */
   font-size: clamp(0.9375rem, 0.8rem + 0.6vw, 1.25rem);
   text-shadow: 0 1px 2px rgb(255 255 255 / 85%);
-  line-height: 1.5;
+  line-height: 1.2;
   text-align: left;
   font-weight: 400;
   letter-spacing: 0px;
