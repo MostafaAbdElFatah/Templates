@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Features Component (components/features.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Features Section Wrapper
+   -------------------------------------------------------------------------- */
+.design {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* //padding: clamp(5rem, 12vw, 8rem) 0; */
+  background-color: var(--color-surface);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../images/backgrounds/space-alt-05.jpg") center/cover;
+}
+
+.design .image,
+.design .text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   2. Responsive Grid Container
+   -------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------
+   3. Image 
+   -------------------------------------------------------------------------- */
+.design .image {
+  bottom: -10px;
+}
+
+/* --------------------------------------------------------------------------
+   4. text Box
+   -------------------------------------------------------------------------- */
+
+.design .text {
+  position: relative;
+  align-self: center;
+
+  flex: 0 1 50%;
+  min-width: 0;
+  margin: 0;
+  /* Box stays flush-left; the text lines up with the header's logo */
+  padding-block: var(--header-container-padding);
+  padding-inline-start: var(--content-inset);
+  padding-inline-end: var(--header-container-padding);
+  box-sizing: border-box;
+  background-color: var(--color-primary-transparent);
+  box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
+}

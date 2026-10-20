@@ -29,8 +29,8 @@
 /* 9. Landing Component */
 @import "components/landing.css";
 
-/* 10. Features Component */
-@import "components/features.css";
+/* 10. design Component */
+@import "components/design.css";
 
 /* 11. Section Heading (Reusable Component) */
 @import "components/section-heading.css";
