@@ -1,129 +1,20 @@
 /* About section */
 
 .about {
-  padding: var(--section-padding) 0;
-  /* background-color: var(--color-background); */
-}
-
-/* --------------------------------------------------------------------------
-   2. Main Two-Column Layout (Services Grid + Decorative Image)
-   -------------------------------------------------------------------------- */
-.about__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 100px;
-}
-
-@media (min-width: 991px) {
-  .about__content {
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   3. Text content
-   -------------------------------------------------------------------------- */
-
-/* Text content */
-/* .about__text {
-  flex-basis: calc(60% - 20px);
-} */
-
-.about__lead {
-  margin: 0 0 1.25rem;
-  color: var(--color-secondary);
-  font-size: clamp(0.8rem, 0.8rem + 0.8vw, 1.5rem);
-  font-weight: 800;
-  line-height: 2.15;
-}
-
-.about__divider {
-  width: 50%;
-  margin: 0;
-  border: 0;
-  border-top: 2px solid var(--color-primary);
-}
-
-.about__desc {
-  margin: 1rem 0 0;
-  color: var(--color-text-muted);
-  font-size: clamp(0.5rem, 0.85rem + 0.35vw, 1.125rem);
-  line-height: 2;
-}
-
-/* --------------------------------------------------------------------------
-   4. Decorative Poster Image with Dark Accent Backdrop
-   -------------------------------------------------------------------------- */
-
-.about__image-wrapper {
-  --shape-overhang: 20px; /* a bit more than the 94px ::before overhang */
-
+  padding: var(--section-padding);
+  padding-bottom: 0;
+  overflow: hidden;
   display: flex;
-  isolation: isolate;
-  margin-top: 50px;
-  margin-bottom: 40px; /* room for the ::after that extends below the card */
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (min-width: 991px) {
-  .about__image-wrapper {
-    margin-bottom: 0;
-    padding-right: var(
-      --shape-overhang
-    ); /* pushes the text away from the right-hand shape */
-  }
+/* --------------------------------------------------------------------------
+   2. Mockup Image
+   -------------------------------------------------------------------------- */
+
+.about img {
+  margin-top: -10%;
+  transform: translateY(30%);
+  max-width: 100%;
 }
-
-.about__image-card {
-  position: relative;
-  width: 260px;
-  height: 360px;
-  background: var(--color-surface) url(../../images/mountain.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-  box-shadow: 0 12px 30px rgba(29, 22, 22, 0.2);
-}
-
-/* Dark accent shape extending behind the card on the right */
-.about__image-card::before {
-  --width: 150px;
-  content: "";
-  position: absolute;
-  top: -20px;
-  right: calc(var(--width) / -1.6);
-  width: var(--width);
-  height: calc(80%);
-  border-radius: 4px;
-  border-left: 80px solid var(--color-primary);
-  border-bottom: 50px solid var(--color-primary);
-  z-index: -1;
-}
-
-/* Dark accent shape extending behind the card on the right */
-.about__image-card::after {
-  --about-img-padding: calc(var(--img-padding) + 50px);
-
-  content: "";
-  position: absolute;
-  top: calc(var(--about-img-padding) / -2);
-  left: -30px;
-  width: 100px;
-  height: calc(100% + var(--about-img-padding));
-  background-color: var(--color-surface);
-  border-radius: 4px;
-  z-index: -1;
-}
-
-/* Hide decorative shapes on mobile (< 768px) and keep them on tablet and desktop */
-@media (max-width: 767px) {
-  .about__image-card::before,
-  .about__image-card::after {
-    display: none;
-  }
-}
-
