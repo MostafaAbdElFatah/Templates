@@ -6,52 +6,84 @@
    1. Section Container & Background with Light Gradient Overlay
    -------------------------------------------------------------------------- */
 .landing {
-  /* Gradient controls: very light at top, decreasing light towards the bottom */
-  --landing-overlay-top: rgb(255 255 255 / 100%);
-  --landing-overlay-mid: rgb(255 255 255 / 50%);
-  --landing-overlay-bottom: rgba(123, 119, 119, 0.2);
+  /* Landing overlay */
+  --landing-overlay: rgba(0, 0, 0, 0.1);
 
-  position: relative;
-  min-height: calc(70vh - var(--header-height, 74px));
+  min-width: 100%;
+  min-height: 100vh;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(2rem, 5vw, 4rem) var(--container-padding);
+  position: relative;
+
+  justify-content: flex-start; /* Left aligned */
   background-color: var(--color-surface);
+  padding-top: 120px;
+
   background-image:
     linear-gradient(
       to bottom,
-      var(--landing-overlay-top) 0%,
-      var(--landing-overlay-mid) 80%,
-      var(--landing-overlay-bottom) 100%
+      var(--landing-overlay) 0%,
+      var(--landing-overlay) 80%,
+      var(--landing-overlay) 100%
     ),
     url("../../images/backgrounds/landing.jpg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  text-align: center;
+  z-index: 10;
 }
 
 /* --------------------------------------------------------------------------
    2. Intro Content Box
    -------------------------------------------------------------------------- */
+
 .landing__intro {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 520px;
-  margin-inline: auto;
+  align-self: center;
+
+  flex: 0 1 55%;
+  min-width: 0;
+  margin: 0;
+  padding: var(--header-container-padding);
+  box-sizing: border-box;
+  background-color: var(--color-primary-transparent);
+  box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .landing {
+    box-sizing: border-box;
+    min-height: 70vh;
+  }
+
+  .landing__intro {
+    flex: 0 0 80%;
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing {
+    box-sizing: border-box;
+  }
+
+  .landing__intro {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 1.5rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
    3. Title (Heading 1)
    -------------------------------------------------------------------------- */
 .landing__title {
-  margin: 0 0 16px;
-  color: var(--color-primary);
+  color: var(--color-text);
   font-size: clamp(2.25rem, 5vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1px;
   letter-spacing: -0.5px;
 }
 
@@ -59,25 +91,65 @@
    4. Subtitle / Description Text
    -------------------------------------------------------------------------- */
 .landing__subtitle {
-  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
   color: var(--color-text);
   font-size: clamp(1.0625rem, 2vw, 1.25rem);
-  font-weight: 500;
-  line-height: 1.2;
   text-wrap: balance;
   text-shadow: 0 1px 2px rgb(255 255 255 / 85%);
+  line-height: 1.2;
+  text-align: justify;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
 /* --------------------------------------------------------------------------
-   5. Responsive Adjustments
+   5. left / right arraw
    -------------------------------------------------------------------------- */
-@media (max-width: 480px) {
-  .landing {
-    min-height: calc(50vh);
-    padding-block: 3rem;
-  }
 
-  .landing__title {
-    margin-bottom: 12px;
+.landing .change-background {
+  position: absolute;
+  top: calc(50% + var(--header-container-padding));
+  transform: translateY(-50%);
+}
+
+.landing .left {
+  left: 30px;
+}
+
+.landing .right {
+  right: 30px;
+}
+
+@media (max-width: 768px) {
+  .landing .change-background {
+    display: none;
   }
+}
+
+/* --------------------------------------------------------------------------
+   6. bullets
+   -------------------------------------------------------------------------- */
+.landing .bullets {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.landing .bullets li {
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.landing .bullets li.active {
+  background-color: var(--color-primary);
+  border: none;
 }

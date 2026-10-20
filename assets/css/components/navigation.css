@@ -53,6 +53,19 @@
   border-bottom: 2px solid var(--color-primary);
 }
 
+/* The checkbox does the work, so keep it invisible (but focusable) */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .main-nav .toggle-menu { display: none; }
+  .main-nav > ul { display: flex; }
+}
 @media (max-width: 768px) {
   .main-nav > ul {
     display: none;
@@ -65,11 +78,7 @@
   .main-nav .toggle-menu:hover + ul {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: hsl(0deg 0% 0% / 50%);
+
   }
 }
 
