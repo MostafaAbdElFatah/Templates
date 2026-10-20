@@ -39,6 +39,7 @@
   --header-height: 74px;
   --section-padding: clamp(3.5rem, 7vw, 5rem);
   --img-padding: 80px;
+  --feature-section-height: 600px; /* shared by .design and .showcase */
   --header-container-padding: calc(
     var(--container-padding) + var(--header-padding)
   );

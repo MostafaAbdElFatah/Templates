@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  height: 600px;
+  height: var(--feature-section-height);
   background-color: var(--color-surface);
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

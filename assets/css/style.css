@@ -41,12 +41,15 @@
 /* 13. Portfolio Component */
 @import "components/portfolio.css";
 
-/* 14. About Component */
+/* 14. Showcase (Video) Component */
+@import "components/showcase.css";
+
+/* 15. About Component */
 @import "components/about.css";
 
-/* 15. Contact Component */
+/* 16. Contact Component */
 @import "components/contact.css";
 
-/* 16. Footer Component */
+/* 17. Footer Component */
 @import "components/footer.css";
 
