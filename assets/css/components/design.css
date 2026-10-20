@@ -1,22 +1,20 @@
 /* ==========================================================================
-   Features Component (components/features.css)
+   Design Component (components/design.css)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Features Section Wrapper
+   1. Design Section Wrapper
    -------------------------------------------------------------------------- */
 .design {
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  height: 600px;
   background-color: var(--color-surface);
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../images/backgrounds/space-alt-05.jpg") center/cover;
-
-  container-type: size; /* lets children use cqh, which is 1% of this element's height */
-  height: 600px;
 }
 
 .design .image,
@@ -27,69 +25,114 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. Responsive Grid Container
-   -------------------------------------------------------------------------- */
-
-/* --------------------------------------------------------------------------
-   3. Image 
+   2. Mockup Image
    -------------------------------------------------------------------------- */
 .design .image {
-  position: relative;
   display: flex;
-  justify-content: center; /* centers the img horizontally */
-  align-self: flex-end; /* sits on the bottom edge of .design */
-  transform: translateY(12%); /* always hides 35% of the image below the edge */
+  justify-content: center;
+  align-self: flex-end;
+  transform: translateY(12%);
+}
+
+.design .image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* --------------------------------------------------------------------------
-   4. text Box
+   3. Text Box
    -------------------------------------------------------------------------- */
-
 .design .text {
-  position: relative;
   align-self: center;
-
   flex: 0 1 50%;
   min-width: 0;
   margin: 0;
-  /* Box stays flush-left; the text lines up with the header's logo */
   padding-block: var(--header-container-padding);
-  padding-inline-start: var(--content-inset);
-  padding-inline-end: var(--header-container-padding);
+  padding-inline-start: var(--header-container-padding);
+  padding-inline-end: var(--content-inset);
   box-sizing: border-box;
   background-color: var(--color-primary-transparent);
   box-shadow: 0 100px 100px rgba(0, 0, 0, 0.1);
 }
 
 .design .text h2 {
-  margin: 0;
+  margin: 0 0 20px;
   color: var(--color-text);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
   font-weight: 800;
-  white-space: nowrap; /* forces one line */
-  overflow: hidden;
-  text-overflow: ellipsis; /* shows "..." if it's too long */
+  line-height: 1.3;
+}
+
+.design .text ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .design .text ul li {
-  padding: 3px 0;
+  color: var(--color-text);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
 }
 
-.design ul li::before {
+.design .text ul li::before {
   content: "\f108";
   font-family: "Font Awesome 7 Free";
   font-weight: 900;
   margin-inline-end: 0.75rem;
 }
 
-.design ul li:nth-child(1)::before {
+.design .text ul li:nth-child(1)::before {
   content: "\f3cd";
 } /* mobile */
-.design ul li:nth-child(2)::before {
+.design .text ul li:nth-child(2)::before {
   content: "\f53f";
 } /* paintbrush */
-.design ul li:nth-child(3)::before {
+.design .text ul li:nth-child(3)::before {
   content: "\f121";
 } /* code */
-.design ul li:nth-child(4)::before {
+.design .text ul li:nth-child(4)::before {
   content: "\f108";
-} /* chrome */
+} /* desktop */
+
+/* --------------------------------------------------------------------------
+   4. Responsive Adjustments (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .design {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    padding-top: 50px;
+  }
+
+  /* 1. Text is placed first (on top) */
+  .design .text {
+    order: 1;
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 24px;
+    box-shadow: none;
+  }
+
+  .design .text h2 {
+    font-size: 1.25rem;
+  }
+
+  /* 2. Image is placed below the text */
+  .design .image {
+    order: 2;
+    flex: 0 0 auto;
+    width: 100%;
+    align-self: flex-end;
+    transform: translateY(12%);
+    margin-top: 30px;
+  }
+
+  .design .image img {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
