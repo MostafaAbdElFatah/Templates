@@ -62,7 +62,7 @@
 .section-heading > h2 + p {
   max-width: 400px;
   margin: 0 auto;
-  color: var(--color-text-muted, #777777);
+  color: var(--color-text-gray, #777777);
   font-size: clamp(0.875rem, 1.2vw, 0.95rem);
   font-weight: 400;
   line-height: 2;
