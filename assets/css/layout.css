@@ -11,6 +11,10 @@
   padding-inline: var(--container-padding);
 }
 
+.bg-white {
+  background-color: var(--color-white, #ffffff);
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   :root {

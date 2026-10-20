@@ -1,49 +1,88 @@
 /* ==========================================================================
    Section Heading Component (components/section-heading.css)
-   Reusable across: Services, Portfolio, About, Contact
+   Reusable across: Services, Portfolio, About, Pricing, Contact, etc.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Heading Wrapper
+   1. Heading Wrapper & Component Variables
    -------------------------------------------------------------------------- */
 .section-heading {
+  --heading-margin-bottom: clamp(3rem, 6vw, 5rem);
+  --heading-title-margin-bottom: 40px;
+  --heading-line-offset: -20px;
+  --heading-circle-size: 14px;
   text-align: center;
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  margin-bottom: var(--heading-margin-bottom);
 }
 
 /* --------------------------------------------------------------------------
-   2. Main Big Faded Title
+   2. Main Title
    -------------------------------------------------------------------------- */
-.section-heading > h2:first-child {
-  margin: 0;
-  color: var(--color-heading-faded, #ebeced);
-  font-size: clamp(3.5rem, 9vw, 6.25rem); /* 56px to 100px */
-  font-weight: 800;
-  letter-spacing: -3px;
-  text-transform: capitalize;
-  line-height: 1;
-}
-
-/* --------------------------------------------------------------------------
-   3. Subtitle Overlapping Slightly Below Title
-   -------------------------------------------------------------------------- */
-.section-heading > h2:first-child + p {
-  margin: -30px 0 0;
-  color: var(--color-text-muted, #797979);
-  font-size: clamp(1rem, 2vw, 1.25rem);
+.section-heading > h2 {
+  position: relative;
+  width: fit-content; /* box = text width */
+  margin: 0 auto var(--heading-title-margin-bottom); /* keeps it centered */
+  color: var(--color-dark, #333333);
+  font-size: clamp(2rem, 3.5vw, 2.5rem); /* ~32px to 40px */
   font-weight: 400;
-  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+/* Horizontal line under heading */
+.section-heading > h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: var(--heading-line-offset);
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background-color: var(--color-dark, #333333);
+}
+
+/* Centered circle on the line */
+.section-heading > h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: var(--heading-line-offset);
+  transform: translate(-50%, 50%);
+  width: var(--heading-circle-size);
+  height: var(--heading-circle-size);
+  border-radius: 50%;
+  border: 2px solid var(--color-dark, #333333);
+  background-color: var(--color-white, #ffffff);
 }
 
 /* --------------------------------------------------------------------------
-   4. Responsive Adjustments for Mobile
+   3. Subtitle / Description Below Title
+   -------------------------------------------------------------------------- */
+.section-heading > h2 + p {
+  max-width: 400px;
+  margin: 0 auto;
+  color: var(--color-text-muted, #777777);
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+  font-weight: 400;
+  line-height: 2;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Adjustments
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  .section-heading > h2:first-child {
-    letter-spacing: -1.5px;
+  .section-heading {
+    --heading-margin-bottom: 3rem;
   }
 
-  .section-heading > h2:first-child + p {
-    margin-top: -20px;
+  .section-heading > h2::before {
+    width: 100px;
+  }
+
+  .section-heading > h2 + p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    padding-inline: 15px;
   }
 }

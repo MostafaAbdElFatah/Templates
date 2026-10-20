@@ -16,10 +16,12 @@
   );
 
   --color-secondary: #2c4755;
+  --color-dark: #333333;
   --color-text: #fbf8f8;
-  --color-text-muted: #7e7a7a;
+  --color-text-muted: #777777;
   --color-heading-faded: #ebeced;
   --color-background: #000;
+  --color-white: #ffffff;
   --color-surface: #f6f6f6;
   --color-page: #eeeeee;
   --color-border: #eeeeee;
@@ -91,7 +93,7 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
-  /* background-color: var(--color-background); */
+  background-color: var(--color-background);
 }
 
 /* --------------------------------------------------------------------------
