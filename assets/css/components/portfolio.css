@@ -136,10 +136,12 @@
 
 .portfolio .more {
   display: block;
-  margin: 30px auto;
+  margin: auto;
+  margin-top: 60px;
   width: fit-content;
+  border-radius: 10px;
   background-color: var(--color-primary);
-  padding: 15px 20px;
+  padding: 10px 20px;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 800;
