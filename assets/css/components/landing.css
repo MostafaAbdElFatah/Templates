@@ -26,7 +26,7 @@
       var(--landing-overlay) 80%,
       var(--landing-overlay) 100%
     ),
-    url("../../images/backgrounds/bg.jpeg");
+    url("../../images/backgrounds/landing.jpg");
 
   background-size: cover;
   background-position: center;

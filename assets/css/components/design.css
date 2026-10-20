@@ -113,12 +113,30 @@
     order: 1;
     flex: 0 0 auto;
     width: 100%;
-    padding: 24px;
+    padding: 30px 20px;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .design .text h2 {
-    font-size: 1.25rem;
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    overflow: visible;
+    text-overflow: unset;
+    text-align: center;
+  }
+
+  .design .text ul {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start; /* keeps icon aligned neatly with list label */
   }
 
   /* 2. Image is placed below the text */
