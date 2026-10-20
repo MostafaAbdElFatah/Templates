@@ -1,23 +1,137 @@
 /* ==========================================================================
    Dropdown Component (components/dropdown.css)
+   Mobile-only, CSS-only dropdown menu.
+   Opens when hovering (or tapping) the .toggle-menu icon, and stays open
+   while the cursor is over the panel or a link inside it has focus.
    ========================================================================== */
-/* Mobile dropdown */
-/* Hover on the toggle button opens the menu (mobile widths) */
+
 @media (max-width: 767px) {
-  /* Bridge the gap between button and panel so it doesn't close
-     while the cursor moves down to the links */
+  /* --------------------------------------------------------------------------
+     1. Local Tokens
+     -------------------------------------------------------------------------- */
+  .main-nav {
+    --dd-toggle-size: 42px;
+    --dd-gap: 14px;
+    /* Distance from the nav's right edge to the toggle's right edge
+       (search width + search margin) - used to aim the caret */
+    --dd-toggle-offset: 80px;
+    --dd-radius: 18px;
+    --dd-bg: rgb(12 16 24 / 72%);
+    --dd-border: rgb(255 255 255 / 10%);
+    --dd-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* --------------------------------------------------------------------------
+     2. Toggle Button (glass pill, morphs into an X)
+     -------------------------------------------------------------------------- */
+  .main-nav .toggle-menu {
+    display: grid;
+    place-items: center;
+    width: var(--dd-toggle-size);
+    height: var(--dd-toggle-size);
+    padding: 0;
+    font-size: 18px;
+    color: var(--color-text);
+    border: 1px solid var(--dd-border);
+    border-radius: 50%;
+    background: rgb(255 255 255 / 6%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition:
+      color var(--transition-normal),
+      background-color var(--transition-normal),
+      border-color var(--transition-normal),
+      box-shadow var(--transition-normal),
+      transform 0.5s var(--dd-ease);
+  }
+
+  .main-nav .toggle-menu:hover,
+  .main-nav:has(> ul:hover, > ul:focus-within) .toggle-menu {
+    --fa: "\f00d"; /* swap bars glyph for xmark */
+    color: var(--color-primary);
+    border-color: rgb(var(--color-primary-rgb) / 60%);
+    background: rgb(var(--color-primary-rgb) / 12%);
+    box-shadow:
+      0 0 0 4px rgb(var(--color-primary-rgb) / 12%),
+      0 8px 24px rgb(var(--color-primary-rgb) / 30%);
+    transform: rotate(90deg);
+  }
+
+  /* --------------------------------------------------------------------------
+     3. Dropdown Panel (closed state)
+     -------------------------------------------------------------------------- */
+  .main-nav > ul {
+    position: absolute;
+    top: calc(100% + var(--dd-gap));
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: min(260px, calc(100vw - 32px));
+    padding: 10px;
+    border: 1px solid var(--dd-border);
+    border-radius: var(--dd-radius);
+    background:
+      linear-gradient(
+        160deg,
+        rgb(var(--color-primary-rgb) / 14%) 0%,
+        transparent 45%
+      ),
+      var(--dd-bg);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow:
+      0 24px 48px -12px rgb(0 0 0 / 60%),
+      inset 0 1px 0 rgb(255 255 255 / 8%);
+    counter-reset: dd-item;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px) scale(0.94);
+    transform-origin: top right;
+    transition:
+      opacity 0.3s var(--dd-ease),
+      transform 0.45s var(--dd-ease),
+      visibility 0s linear 0.45s;
+  }
+
+  /* Invisible bridge so the panel doesn't close while the cursor
+     travels from the toggle down to the links */
   .main-nav > ul::before {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    top: -14px;
-    height: 14px;
+    bottom: 100%;
+    height: calc(var(--dd-gap) + 4px);
   }
 
-  /* Open panel: hovering the button OR the panel itself */
+  /* Caret pointing at the toggle */
+  .main-nav > ul::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: calc(var(--dd-toggle-offset) + var(--dd-toggle-size) / 2 - 6px);
+    width: 12px;
+    height: 12px;
+    background: rgb(var(--color-primary-rgb) / 18%);
+    border-top: 1px solid var(--dd-border);
+    border-left: 1px solid var(--dd-border);
+    border-radius: 3px 0 0 0;
+    transform: rotate(45deg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  /* --------------------------------------------------------------------------
+     4. Open State (hover toggle, hover panel, or keyboard focus inside)
+     -------------------------------------------------------------------------- */
   .main-nav .toggle-menu:hover ~ ul,
-  .main-nav > ul:hover {
+  .main-nav > ul:hover,
+  .main-nav > ul:focus-within {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -25,48 +139,132 @@
     transition-delay: 0s;
   }
 
-  /* Staggered links */
+  /* --------------------------------------------------------------------------
+     5. Menu Items (staggered reveal)
+     -------------------------------------------------------------------------- */
+  .main-nav > ul > li {
+    counter-increment: dd-item;
+    opacity: 0;
+    transform: translateX(14px);
+    transition:
+      opacity 0.3s var(--dd-ease),
+      transform 0.4s var(--dd-ease);
+  }
+
   .main-nav .toggle-menu:hover ~ ul > li,
-  .main-nav > ul:hover > li {
+  .main-nav > ul:hover > li,
+  .main-nav > ul:focus-within > li {
     opacity: 1;
     transform: none;
   }
 
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(1),
-  .main-nav > ul:hover > li:nth-child(1) {
-    transition-delay: 0.14s;
-  }
+  .main-nav > ul:hover > li:nth-child(1),
+  .main-nav > ul:focus-within > li:nth-child(1) { transition-delay: 0.08s; }
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(2),
-  .main-nav > ul:hover > li:nth-child(2) {
-    transition-delay: 0.2s;
-  }
+  .main-nav > ul:hover > li:nth-child(2),
+  .main-nav > ul:focus-within > li:nth-child(2) { transition-delay: 0.13s; }
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(3),
-  .main-nav > ul:hover > li:nth-child(3) {
-    transition-delay: 0.26s;
-  }
+  .main-nav > ul:hover > li:nth-child(3),
+  .main-nav > ul:focus-within > li:nth-child(3) { transition-delay: 0.18s; }
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(4),
-  .main-nav > ul:hover > li:nth-child(4) {
-    transition-delay: 0.32s;
-  }
+  .main-nav > ul:hover > li:nth-child(4),
+  .main-nav > ul:focus-within > li:nth-child(4) { transition-delay: 0.23s; }
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(5),
-  .main-nav > ul:hover > li:nth-child(5) {
-    transition-delay: 0.38s;
-  }
+  .main-nav > ul:hover > li:nth-child(5),
+  .main-nav > ul:focus-within > li:nth-child(5) { transition-delay: 0.28s; }
   .main-nav .toggle-menu:hover ~ ul > li:nth-child(6),
-  .main-nav > ul:hover > li:nth-child(6) {
-    transition-delay: 0.44s;
+  .main-nav > ul:hover > li:nth-child(6),
+  .main-nav > ul:focus-within > li:nth-child(6) { transition-delay: 0.33s; }
+
+  /* --------------------------------------------------------------------------
+     6. Links
+     -------------------------------------------------------------------------- */
+  .main-nav > ul > li > a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: rgb(255 255 255 / 82%);
+    overflow: hidden;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      transform 0.35s var(--dd-ease);
   }
 
-  /* Hamburger becomes an X while open */
-  .main-nav:has(.toggle-menu:hover, > ul:hover) .bars {
-    background: transparent;
+  /* Index number: 01, 02, ... */
+  .main-nav > ul > li > a::before {
+    content: counter(dd-item, decimal-leading-zero);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgb(255 255 255 / 35%);
+    font-variant-numeric: tabular-nums;
+    transition: color var(--transition-fast);
   }
-  .main-nav:has(.toggle-menu:hover, > ul:hover) .bars::before {
-    top: 0;
-    transform: rotate(45deg);
+
+  /* Sliding arrow on the right */
+  .main-nav > ul > li > a::after {
+    content: "\2192";
+    margin-left: auto;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      opacity var(--transition-fast),
+      transform 0.35s var(--dd-ease);
   }
-  .main-nav:has(.toggle-menu:hover, > ul:hover) .bars::after {
-    top: 0;
-    transform: rotate(-45deg);
+
+  .main-nav > ul > li > a:hover,
+  .main-nav > ul > li > a:focus-visible {
+    color: var(--color-primary);
+    background-color: rgb(var(--color-primary-rgb) / 10%);
+    border-bottom: 0;
+    transform: translateX(4px);
+  }
+
+  .main-nav > ul > li > a:hover::before,
+  .main-nav > ul > li > a:focus-visible::before {
+    color: var(--color-primary);
+  }
+
+  .main-nav > ul > li > a:hover::after,
+  .main-nav > ul > li > a:focus-visible::after {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Active page */
+  .main-nav > ul > li > a.active {
+    color: #fff;
+    border-bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgb(var(--color-primary-rgb) / 35%),
+      rgb(var(--color-primary-rgb) / 8%)
+    );
+    box-shadow: inset 3px 0 0 var(--color-primary);
+  }
+
+  .main-nav > ul > li > a.active::before {
+    color: var(--color-primary);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Small Phones
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .main-nav {
+    --dd-toggle-size: 36px;
+    --dd-toggle-offset: 45px; /* search: 30px width + 15px margin */
+  }
+
+  .main-nav .toggle-menu {
+    font-size: 15px;
   }
 }

@@ -6,28 +6,20 @@
    1. Navigation Wrapper & Component Variables
    -------------------------------------------------------------------------- */
 .main-nav {
+  position: relative;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 /* --------------------------------------------------------------------------
-   2. Navigation Toggle menu
+   2. Navigation Toggle menu (hidden on desktop, styled in dropdown.css)
    -------------------------------------------------------------------------- */
 
 .main-nav .toggle-menu {
+  display: none;
   font-size: 22px;
   padding: 30px 10px;
-}
-
-@media (min-width: 768px) {
-  .main-nav .toggle-menu {
-    display: none;
-  }
-
-  .main-nav > ul {
-    display: block;
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -51,35 +43,6 @@
 .main-nav > ul > li > a:hover {
   color: var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
-}
-
-/* The checkbox does the work, so keep it invisible (but focusable) */
-.nav-toggle {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* Desktop */
-@media (min-width: 768px) {
-  .main-nav .toggle-menu { display: none; }
-  .main-nav > ul { display: flex; }
-}
-@media (max-width: 768px) {
-  .main-nav > ul {
-    display: none;
-  }
-
-  .main-nav .toggle-menu {
-    display: block;
-  }
-
-  .main-nav .toggle-menu:hover + ul {
-    display: flex;
-    flex-direction: column;
-
-  }
 }
 
 /* --------------------------------------------------------------------------
