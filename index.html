@@ -474,20 +474,98 @@
         </section>
 
         <!-- =================================================================
-              pricing section
+             Pricing Section
              ================================================================= -->
-        <section class="pricing bg-white" aria-label="pricing">
+        <section class="pricing bg-white" id="pricing" aria-labelledby="pricing-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="about-title">pricing</h2>
+                    <h2 id="pricing-title">Pricing</h2>
                     <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit,
                         eget tincidunt.</p>
                 </div>
-                <div class="plans">
-                    <div class="plan">
-                        
-                    </div>
+                <div class="pricing__grid">
+                    <article class="pricing__plan" aria-labelledby="pricing-basic">
+                        <h3 class="pricing__name" id="pricing-basic">Basic</h3>
+                        <p class="pricing__price" aria-label="$19 per month">
+                            <span aria-hidden="true">$</span><strong aria-hidden="true">19</strong>
+                            <span aria-hidden="true">/mo</span>
+                        </p>
+                        <ul class="pricing__features">
+                            <li>Feature No 1</li>
+                            <li>Extra Feature</li>
+                            <li>Feature No 2</li>
+                            <li>Feature</li>
+                        </ul>
+                        <a class="pricing__action" href="#contact">Buy Now</a>
+                    </article>
+                    <article class="pricing__plan" aria-labelledby="pricing-premium">
+                        <h3 class="pricing__name" id="pricing-premium">Premium</h3>
+                        <p class="pricing__price" aria-label="$29 per month">
+                            <span aria-hidden="true">$</span><strong aria-hidden="true">29</strong>
+                            <span aria-hidden="true">/mo</span>
+                        </p>
+                        <ul class="pricing__features">
+                            <li>Feature No 1</li>
+                            <li>Extra Feature</li>
+                            <li>Feature No 2</li>
+                            <li>Feature</li>
+                        </ul>
+                        <a class="pricing__action" href="#contact">Buy Now</a>
+                    </article>
+                    <article class="pricing__plan" aria-labelledby="pricing-pro">
+                        <h3 class="pricing__name" id="pricing-pro">Pro</h3>
+                        <p class="pricing__price" aria-label="$39 per month">
+                            <span aria-hidden="true">$</span><strong aria-hidden="true">39</strong>
+                            <span aria-hidden="true">/mo</span>
+                        </p>
+                        <ul class="pricing__features">
+                            <li>Feature No 1</li>
+                            <li>Extra Feature</li>
+                            <li>Feature No 2</li>
+                            <li>Feature</li>
+                        </ul>
+                        <a class="pricing__action" href="#contact">Buy Now</a>
+                    </article>
+                    <article class="pricing__plan" aria-labelledby="pricing-platinum">
+                        <h3 class="pricing__name" id="pricing-platinum">Platinum</h3>
+                        <p class="pricing__price" aria-label="$49 per month">
+                            <span aria-hidden="true">$</span><strong aria-hidden="true">49</strong>
+                            <span aria-hidden="true">/mo</span>
+                        </p>
+                        <ul class="pricing__features">
+                            <li>Feature No 1</li>
+                            <li>Extra Feature</li>
+                            <li>Feature No 2</li>
+                            <li>Feature</li>
+                        </ul>
+                        <a class="pricing__action" href="#contact">Buy Now</a>
+                    </article>
                 </div>
+                <div class="pricing__contact">
+                    <p>Contact us if you have a special request</p>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        <!-- =================================================================
+             Newsletter Section
+             ================================================================= -->
+        <section class="newsletter" id="newsletter" aria-label="Newsletter subscription">
+            <div class="container newsletter__layout">
+                <form class="newsletter__form">
+                    <label class="newsletter__visually-hidden" for="newsletter-email">Your email</label>
+                    <i class="fa-regular fa-envelope newsletter__icon" aria-hidden="true"></i>
+                    <input class="newsletter__field" id="newsletter-email" name="email" type="email"
+                        placeholder="Your email" autocomplete="email" aria-describedby="newsletter-note" required>
+                    <button class="newsletter__submit" type="submit" disabled>Subscribe</button>
+                    <span class="newsletter__visually-hidden" id="newsletter-note">
+                        This newsletter form is a visual preview and is not connected to a subscription service.
+                    </span>
+                </form>
+                <p class="newsletter__description">
+                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit,
+                    eget tincidunt.
+                </p>
             </div>
         </section>
         <!-- =================================================================

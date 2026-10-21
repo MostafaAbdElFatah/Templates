@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Newsletter Component (components/newsletter.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Newsletter Section and Layout
+   -------------------------------------------------------------------------- */
+.newsletter {
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+  background:
+    linear-gradient(
+      rgb(var(--color-overlay-rgb) / 78%),
+      rgb(var(--color-overlay-rgb) / 78%)
+    ),
+    url("../../images/backgrounds/space-alt-09.jpg") center 48% / cover
+      no-repeat;
+  color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   2. Subscription Form
+   -------------------------------------------------------------------------- */
+.newsletter__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+.newsletter__form {
+  display: flex;
+  min-width: 0;
+  min-height: 3.5rem;
+  align-items: center;
+  border: 1px solid rgb(255 255 255 / 85%);
+}
+
+.newsletter__icon {
+  flex: 0 0 auto;
+  margin-inline: 1rem;
+  color: var(--color-white);
+}
+
+.newsletter__field {
+  width: 100%;
+  min-width: 0;
+  min-height: 3.5rem;
+  padding: 0.75rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+  font: inherit;
+}
+
+.newsletter__field::placeholder {
+  color: var(--color-white);
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.newsletter__field:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: -3px;
+}
+
+.newsletter__submit {
+  flex: 0 0 auto;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  background: var(--color-primary);
+  color: var(--color-dark);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.newsletter__submit:disabled {
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   3. Supporting Text and Accessibility
+   -------------------------------------------------------------------------- */
+.newsletter__description {
+  margin: 0;
+  color: var(--color-white);
+  line-height: 1.7;
+}
+
+.newsletter__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .newsletter__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter__icon {
+    margin-inline: 0.75rem;
+  }
+
+  .newsletter__submit {
+    padding-inline: 0.875rem;
+  }
+}

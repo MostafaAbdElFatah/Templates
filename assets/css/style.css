@@ -59,8 +59,14 @@
 /* 19. Quote Banner Component */
 @import "components/quote-banner.css";
 
-/* 20. Contact Component */
+/* 20. Pricing Component */
+@import "components/pricing.css";
+
+/* 21. Contact Component */
 @import "components/contact.css";
 
-/* 21. Footer Component */
+/* 22. Newsletter Component */
+@import "components/newsletter.css";
+
+/* 23. Footer Component */
 @import "components/footer.css";
