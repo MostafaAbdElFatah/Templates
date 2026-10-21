@@ -63,26 +63,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. Button
-   -------------------------------------------------------------------------- */
-.showcase__btn {
-  display: inline-block;
-  padding: 8px 25px;
-  background-color: #1e1e1e;
-  color: var(--color-white);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.showcase__btn:hover {
-  background-color: #000;
-}
-
-/* --------------------------------------------------------------------------
-   6. Small screens: the Design section switches to auto height here,
+   5. Small screens: the Design section switches to auto height here,
       so the showcase grows with its content instead.
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
@@ -93,7 +74,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. Reduced motion: hide the video, keep the poster as a still background
+   6. Reduced motion: hide the video, keep the poster as a still background
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .showcase__video {

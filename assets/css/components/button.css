@@ -47,6 +47,15 @@
   background-color: #20b8e7;
 }
 
+.button--dark {
+  background-color: #1e1e1e;
+  color: var(--color-white);
+}
+
+.button--dark:hover {
+  background-color: #000;
+}
+
 .button--outline {
   border-color: var(--color-primary);
   background-color: transparent;
