@@ -50,9 +50,14 @@
 /* 16. Stats Component */
 @import "components/stats.css";
 
-/* 17. Contact Component */
+/* 17. Testimonials Component */
+@import "components/testimonials.css";
+
+/* 18. Skills Component */
+@import "components/skills.css";
+
+/* 19. Contact Component */
 @import "components/contact.css";
 
-/* 18. Footer Component */
+/* 20. Footer Component */
 @import "components/footer.css";
-

@@ -1,0 +1,71 @@
+/* ==========================================================================
+   Skills Component (components/skills.css)
+   ========================================================================== */
+
+.skills__intro {
+  max-width: 32rem;
+  margin: 2rem auto 3.25rem;
+  color: #707070;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.skills__list {
+  display: grid;
+  gap: 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.skill__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.skill__track {
+  position: relative;
+  height: 1.875rem;
+  background: #dedcdd;
+}
+
+.skill__value {
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  left: var(--skill-level);
+  transform: translateX(-50%);
+  padding: 0.2rem 0.4rem;
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.skill__value::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.25rem solid transparent;
+  border-top-color: var(--color-dark);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.skill__fill {
+  display: block;
+  width: var(--skill-level);
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #08bde9 0,
+    #08bde9 2.25rem,
+    #20c6ed 2.25rem,
+    #20c6ed 4.5rem
+  );
+}
