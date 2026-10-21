@@ -328,7 +328,9 @@
             <div class="container">
                 <div class="section-heading">
                     <h2 id="about-title">About</h2>
-                    <p>Less is more work Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis iusto odio animi quidem reprehenderit cum laborum sint dolor ducimus inventore molestias vel quos, debitis numquam minima enim porro dolore!</p>
+                    <p>Less is more work Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse omnis iusto odio
+                        animi quidem reprehenderit cum laborum sint dolor ducimus inventore molestias vel quos, debitis
+                        numquam minima enim porro dolore!</p>
                 </div>
             </div>
             <img src="assets/images/mockups/about.png" alt="Mobile">
@@ -472,33 +474,67 @@
         </section>
 
         <!-- =================================================================
+              pricing section
+             ================================================================= -->
+        <section class="pricing bg-white" aria-label="pricing">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 id="about-title">pricing</h2>
+                    <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit,
+                        eget tincidunt.</p>
+                </div>
+                <div class="plans">
+                    <div class="plan">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =================================================================
              Contact Section
              ================================================================= -->
         <section class="contact" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section-heading">
-                    <h2 id="contact-title">Contact</h2>
-                    <p>We are born to create</p>
+                    <h2 id="contact-title">Contact Us</h2>
+                    <p>Have a project in mind? Tell us a little about it.</p>
                 </div>
 
-                <div class="contact__content">
-                    <h3 class="contact__heading">Feel free to drop us a line at:</h3>
-                    <a href="mailto:leonagency@mail.com?subject=Contact" class="contact__email">leonagency@mail.com</a>
+                <div class="contact__layout">
+                    <form class="contact__form" aria-describedby="contact-form-note">
+                        <label class="contact__label--visually-hidden" for="contact-name">Your name</label>
+                        <input class="contact__field" id="contact-name" name="name" type="text"
+                            placeholder="Your name" autocomplete="name" required>
 
-                    <div class="contact__social">
-                        <span class="contact__social-label">Find us on social networks:</span>
-                        <div class="contact__social-links">
-                            <a href="#" class="contact__social-link" aria-label="Website">
-                                <i class="fa-solid fa-earth-africa"></i>
-                            </a>
-                            <a href="#" class="contact__social-link" aria-label="Google Plus">
-                                <i class="fa-brands fa-google-plus-g" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" class="contact__social-link" aria-label="Twitter">
-                                <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                        <label class="contact__label--visually-hidden" for="contact-email">Your email</label>
+                        <input class="contact__field" id="contact-email" name="email" type="email"
+                            placeholder="Your email" autocomplete="email" required>
+
+                        <label class="contact__label--visually-hidden" for="contact-message">Your message</label>
+                        <textarea class="contact__field contact__field--message" id="contact-message" name="message"
+                            placeholder="Your message" required></textarea>
+                        <button class="contact__submit" type="submit" disabled>Send Message</button>
+                    </form>
+
+                    <aside class="contact__details" aria-label="Contact details">
+                        <div class="contact__details-group">
+                            <h3 class="contact__details-heading">Get in touch</h3>
+                            <a class="contact__detail-link" href="tel:+00123456789">+00 123.456.789</a>
+                            <a class="contact__detail-link" href="tel:+00123456789">+00 123.456.789</a>
+                            <a class="contact__detail-link" href="mailto:leonagency@mail.com?subject=Contact">
+                                leonagency@mail.com
                             </a>
                         </div>
-                    </div>
+                        <div class="contact__details-group">
+                            <h3 class="contact__details-heading">Where we are</h3>
+                            <address class="contact__address">
+                                Awesome Address 17<br>
+                                New York, NYC<br>
+                                123-4567-890<br>
+                                USA
+                            </address>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -507,8 +543,37 @@
     <!-- =================================================================
          Footer Section
          ================================================================= -->
-    <footer class="footer">
-        <p>&copy; 2019 - <span>Leon</span>,All Right Reserved</p>
+    <footer class="footer" id="footer">
+        <div class="footer__content">
+            <a class="footer__logo" href="#home" aria-label="Kasper home">
+                <img src="assets/images/logo/logo.png" alt="Kasper">
+            </a>
+            <h2 class="footer__title">Explore</h2>
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a class="footer__link" href="#home">Home</a>
+                <a class="footer__link" href="#services">Services</a>
+                <a class="footer__link" href="#portfolio">Portfolio</a>
+                <a class="footer__link" href="#about">About</a>
+                <a class="footer__link" href="#contact">Contact</a>
+            </nav>
+            <nav class="footer__social" aria-label="Social media">
+                <a class="footer__social-link" href="https://www.facebook.com/" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a class="footer__social-link" href="https://x.com/" aria-label="X">
+                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="footer__social-link" href="https://www.instagram.com/" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a class="footer__social-link" href="https://www.linkedin.com/" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+            </nav>
+            <p class="footer__copyright">
+                &copy; 2014 - <span>Kasper</span>, All Rights Reserved
+            </p>
+        </div>
     </footer>
 
     <!-- <script src="assets/js/main.js" defer></script> -->

@@ -3,97 +3,164 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Contact Section Wrapper
+   1. Contact Section and Heading
    -------------------------------------------------------------------------- */
 .contact {
-  padding: var(--section-padding) 0;
-  background-color: var(--color-background);
+  padding-block: var(--section-padding);
+  background-color: var(--color-white);
+  color: var(--color-dark);
+}
+
+.contact .section-heading > h2 {
+  color: var(--color-dark);
+}
+
+.contact .section-heading > h2::before {
+  background-color: var(--color-dark);
 }
 
 /* --------------------------------------------------------------------------
-   2. Centered Content Container
+   2. Contact Form and Details Layout
    -------------------------------------------------------------------------- */
-.contact__content {
-  text-align: center;
-  max-width: 800px;
-  margin-inline: auto;
+.contact__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(14rem, 0.8fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
 }
 
 /* --------------------------------------------------------------------------
-   3. Heading / Prompt
+   3. Contact Form Fields
    -------------------------------------------------------------------------- */
-.contact__heading {
-  margin: 0 0 1rem;
-  color: var(--color-secondary);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -1.5px;
+.contact__form {
+  display: grid;
+  gap: 1.25rem;
 }
 
-/* --------------------------------------------------------------------------
-   4. Email Link
-   -------------------------------------------------------------------------- */
-.contact__email {
-  display: inline-block;
-  margin-bottom: 2rem;
-  color: var(--color-primary);
-  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  text-decoration: none;
-  transition: opacity var(--transition-fast);
+.contact__field {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-white);
+  color: var(--color-dark);
+  font: inherit;
 }
 
-.contact__email:hover {
-  opacity: 0.85;
+.contact__field::placeholder {
+  color: #666;
+  opacity: 1;
+  text-transform: uppercase;
 }
 
-.contact__email:focus-visible {
+.contact__field:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
-  border-radius: 4px;
+}
+
+.contact__field--message {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.contact__label--visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
 
 /* --------------------------------------------------------------------------
-   5. Social Media Bar
+   4. Form Preview Notice and Submit Button
    -------------------------------------------------------------------------- */
-.contact__social {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+
+
+.contact__submit {
+  justify-self: end;
+  min-width: 10rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.5rem;
+  border: 0;
+  background: var(--color-primary);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 50px;
+}
+
+.contact__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+/* --------------------------------------------------------------------------
+   5. Contact Details
+   -------------------------------------------------------------------------- */
+.contact__details {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contact__details-heading {
+  margin: 0 0 1.25rem;
+  color: var(--color-dark);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact__detail-link,
+.contact__address {
+  display: block;
+  color: #707070;
   font-size: 1rem;
-  color: var(--color-text);
+  overflow-wrap: anywhere;
+  line-height: 1.8;
 }
 
-.contact__social-label {
-  color: var(--color-text);
-  font-weight: 400;
+.contact__detail-link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 0.25em;
+  transition: color var(--transition-fast);
 }
 
-.contact__social-links {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.contact__social-link {
-  color: var(--color-secondary);
-  font-size: 1.125rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.contact__social-link:hover {
+.contact__detail-link:hover {
   color: var(--color-primary);
-  transform: translateY(-2px);
 }
 
-.contact__social-link:focus-visible {
+.contact__detail-link:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring-color);
   outline-offset: var(--focus-ring-offset);
   border-radius: 4px;
+}
+
+.contact__address {
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact__details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__submit {
+    justify-self: stretch;
+  }
 }
