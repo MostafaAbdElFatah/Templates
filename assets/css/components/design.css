@@ -13,7 +13,10 @@
   height: var(--feature-section-height);
   background-color: var(--color-surface);
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    linear-gradient(
+      rgb(var(--color-overlay-rgb) / 50%),
+      rgb(var(--color-overlay-rgb) / 50%)
+    ),
     url("../../images/backgrounds/space-alt-05.jpg") center/cover;
 }
 

@@ -10,6 +10,7 @@
   --color-primary: #33c7f5;
   --color-primary-rgb: 51 199 245;
   --color-primary-alpha: 0.5;
+  --color-overlay-rgb: 11 13 31;
 
   --color-primary-transparent: rgb(
     var(--color-primary-rgb) / var(--color-primary-alpha)

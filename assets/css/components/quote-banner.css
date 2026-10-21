@@ -11,7 +11,10 @@
   padding: clamp(4rem, 8vw, 6rem) var(--container-padding);
   place-items: center;
   background:
-    linear-gradient(rgb(11 13 31 / 68%), rgb(11 13 31 / 68%)),
+    linear-gradient(
+      rgb(var(--color-overlay-rgb) / 68%),
+      rgb(var(--color-overlay-rgb) / 68%)
+    ),
     url("../../images/backgrounds/bg2.jpeg") center 42% / cover no-repeat;
   color: var(--color-white);
   text-align: center;
@@ -31,6 +34,26 @@
   font-weight: 700;
   line-height: 1.55;
   text-transform: uppercase;
+}
+
+.quote-banner__text::before,
+.quote-banner__text::after {
+  display: inline-block;
+  color: var(--color-primary);
+  font-family: "Font Awesome 7 Free";
+  font-size: 0.8em;
+  font-weight: 900;
+  vertical-align: 0.1em;
+}
+
+.quote-banner__text::before {
+  margin-inline-end: 0.5em;
+  content: "\f10d";
+}
+
+.quote-banner__text::after {
+  margin-inline-start: 0.5em;
+  content: "\f10e";
 }
 
 .quote-banner__author {

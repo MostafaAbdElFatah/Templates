@@ -10,7 +10,10 @@
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
   background:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    linear-gradient(
+      rgb(var(--color-overlay-rgb) / 70%),
+      rgb(var(--color-overlay-rgb) / 70%)
+    ),
     url("../../images/backgrounds/stats.png") center / cover no-repeat;
   text-align: center;
 }

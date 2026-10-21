@@ -6,9 +6,6 @@
    1. Section Container & Background with Light Gradient Overlay
    -------------------------------------------------------------------------- */
 .landing {
-  /* Landing overlay */
-  --landing-overlay: rgba(0, 0, 0, 0.1);
-
   min-width: 100%;
   min-height: 100vh;
 
@@ -22,9 +19,9 @@
   background-image:
     linear-gradient(
       to bottom,
-      var(--landing-overlay) 0%,
-      var(--landing-overlay) 80%,
-      var(--landing-overlay) 100%
+      rgb(var(--color-overlay-rgb) / 10%) 0%,
+      rgb(var(--color-overlay-rgb) / 10%) 80%,
+      rgb(var(--color-overlay-rgb) / 10%) 100%
     ),
     url("../../images/backgrounds/landing.jpg");
 
