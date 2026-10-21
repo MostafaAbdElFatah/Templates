@@ -56,8 +56,11 @@
 /* 18. Skills Component */
 @import "components/skills.css";
 
-/* 19. Contact Component */
+/* 19. Quote Banner Component */
+@import "components/quote-banner.css";
+
+/* 20. Contact Component */
 @import "components/contact.css";
 
-/* 20. Footer Component */
+/* 21. Footer Component */
 @import "components/footer.css";

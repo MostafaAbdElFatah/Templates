@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Quote Banner Component (components/quote-banner.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Full-Width Banner Background
+   -------------------------------------------------------------------------- */
+.quote-banner {
+  display: grid;
+  min-height: 18rem;
+  padding: clamp(4rem, 8vw, 6rem) var(--container-padding);
+  place-items: center;
+  background:
+    linear-gradient(rgb(11 13 31 / 68%), rgb(11 13 31 / 68%)),
+    url("../../images/backgrounds/bg2.jpeg") center 42% / cover no-repeat;
+  color: var(--color-white);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. Featured Quote
+   -------------------------------------------------------------------------- */
+.quote-banner__content {
+  width: min(100%, 76rem);
+  margin: 0;
+}
+
+.quote-banner__text {
+  margin: 0;
+  font-size: clamp(1.125rem, 1.7vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.quote-banner__author {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .quote-banner {
+    min-height: 15rem;
+    padding-block: 3.5rem;
+  }
+
+  .quote-banner__text {
+    font-size: 1rem;
+  }
+}

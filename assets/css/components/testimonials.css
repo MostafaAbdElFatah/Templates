@@ -2,6 +2,9 @@
    Testimonials Component (components/testimonials.css)
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. Testimonials and Skills Section Layout
+   -------------------------------------------------------------------------- */
 .testimonials-skills {
   padding-block: var(--section-padding);
 }
@@ -12,6 +15,9 @@
   gap: clamp(3rem, 7vw, 6rem);
 }
 
+/* --------------------------------------------------------------------------
+   2. Shared Section Headings
+   -------------------------------------------------------------------------- */
 .testimonials__heading,
 .skills__heading {
   margin: 0;
@@ -23,6 +29,9 @@
   text-transform: uppercase;
 }
 
+/* --------------------------------------------------------------------------
+   3. Testimonials Introduction
+   -------------------------------------------------------------------------- */
 .testimonials__intro {
   max-width: 32rem;
   margin: 2rem auto 3.25rem;
@@ -31,6 +40,9 @@
   text-align: center;
 }
 
+/* --------------------------------------------------------------------------
+   4. Testimonial List
+   -------------------------------------------------------------------------- */
 .testimonials__list {
   display: grid;
   gap: 2rem;
@@ -43,6 +55,9 @@
   gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
+/* --------------------------------------------------------------------------
+   5. Testimonial Avatar
+   -------------------------------------------------------------------------- */
 .testimonial__avatar {
   display: grid;
   width: clamp(4.5rem, 7vw, 6rem);
@@ -56,6 +71,9 @@
   overflow: hidden;
 }
 
+/* --------------------------------------------------------------------------
+   6. Testimonial Quote and Author
+   -------------------------------------------------------------------------- */
 .testimonial__content {
   min-width: 0;
   padding-bottom: 1rem;
@@ -77,6 +95,9 @@
   text-align: right;
 }
 
+/* --------------------------------------------------------------------------
+   7. Testimonial Pagination
+   -------------------------------------------------------------------------- */
 .testimonials__pagination {
   display: flex;
   justify-content: center;
@@ -96,6 +117,9 @@
   background: var(--color-primary);
 }
 
+/* --------------------------------------------------------------------------
+   8. Responsive Adjustments
+   -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
   .testimonials-skills > .container {
     grid-template-columns: 1fr;
@@ -105,8 +129,8 @@
 
 @media (max-width: 420px) {
   .testimonial {
-    grid-template-columns: 3.75rem minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .testimonial__avatar {
