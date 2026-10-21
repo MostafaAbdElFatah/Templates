@@ -78,7 +78,6 @@
    4. Form Preview Notice and Submit Button
    -------------------------------------------------------------------------- */
 
-
 .contact__submit {
   justify-self: end;
   min-width: 10rem;
@@ -142,11 +141,27 @@
   }
 
   .contact__details {
-    grid-template-columns: 1fr;
+    order: -1;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 480px) {
+  .contact__details {
+    order: -1;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .contact__details .contact__details-group {
+    place-items: center;
+  }
+
+  .contact__details .contact__details-group .contact__address {
+    text-align: center;
+  }
+
   .contact__submit {
     justify-self: stretch;
     min-width: 0;

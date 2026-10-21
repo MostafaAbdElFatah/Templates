@@ -43,6 +43,7 @@
 .pricing__price > span:first-child {
   grid-column: 1;
   grid-row: 1;
+  align-self: start;
   justify-self: end;
   margin-right: 0.5rem;
   font-size: 1rem;
