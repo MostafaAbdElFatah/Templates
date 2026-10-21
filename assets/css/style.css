@@ -47,9 +47,12 @@
 /* 15. About Component */
 @import "components/about.css";
 
-/* 16. Contact Component */
+/* 16. Stats Component */
+@import "components/stats.css";
+
+/* 17. Contact Component */
 @import "components/contact.css";
 
-/* 17. Footer Component */
+/* 18. Footer Component */
 @import "components/footer.css";
 
