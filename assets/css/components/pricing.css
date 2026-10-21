@@ -85,31 +85,11 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. Plan Actions
+   4. Plan Actions and Special Requests
    -------------------------------------------------------------------------- */
 .pricing__action {
-  display: inline-block;
   min-width: 7.25rem;
   margin-top: 1.5rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--color-primary);
-  color: var(--color-dark);
-  font-size: 0.875rem;
-  text-align: center;
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.pricing__action:hover {
-  background-color: var(--color-primary);
-  color: var(--color-dark);
-}
-
-.pricing__action:focus-visible,
-.pricing__contact a:focus-visible {
-  outline: var(--focus-ring-width) solid var(--focus-ring-color);
-  outline-offset: var(--focus-ring-offset);
 }
 
 /* --------------------------------------------------------------------------
@@ -125,20 +105,8 @@
   color: var(--color-gray);
 }
 
-.pricing__contact a {
-  display: inline-block;
+.pricing__contact-action {
   min-width: 7rem;
-  padding: 0.75rem 1.25rem;
-  background-color: var(--color-primary);
-  color: var(--color-dark);
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-align: center;
-  transition: background-color var(--transition-fast);
-}
-
-.pricing__contact a:hover {
-  background-color: #20b8e7;
 }
 
 /* --------------------------------------------------------------------------

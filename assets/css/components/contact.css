@@ -83,20 +83,7 @@
   justify-self: end;
   min-width: 10rem;
   min-height: 3.25rem;
-  padding: 0.85rem 1.5rem;
-  border: 0;
-  background: var(--color-primary);
-  color: var(--color-text);
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
   margin-top: 50px;
-}
-
-.contact__submit:disabled {
-  cursor: not-allowed;
-  opacity: 0.72;
 }
 
 /* --------------------------------------------------------------------------
@@ -162,5 +149,6 @@
 @media (max-width: 480px) {
   .contact__submit {
     justify-self: stretch;
+    min-width: 0;
   }
 }

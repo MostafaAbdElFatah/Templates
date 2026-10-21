@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Button Component (components/button.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Button Styles
+   -------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+/* --------------------------------------------------------------------------
+   2. Button Variants
+   -------------------------------------------------------------------------- */
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.button--primary:hover:not(:disabled) {
+  background-color: #20b8e7;
+}
+
+.button--outline {
+  border-color: var(--color-primary);
+  background-color: transparent;
+  color: var(--color-dark);
+}
+
+.button--outline:hover {
+  background-color: var(--color-primary);
+}
+
+.button--uppercase {
+  font-weight: 700;
+  text-transform: uppercase;
+}

@@ -17,56 +17,59 @@
 /* 5. Reusable Page Structure & Layout */
 @import "layout.css";
 
-/* 6. Header Component */
+/* 6. Shared Button Component */
+@import "components/button.css";
+
+/* 7. Header Component */
 @import "components/header.css";
 
-/* 7. Navigation Component */
+/* 8. Navigation Component */
 @import "components/navigation.css";
 
-/* 8. Dropdown Component */
+/* 9. Dropdown Component */
 @import "components/dropdown.css";
 
-/* 9. Landing Component */
+/* 10. Landing Component */
 @import "components/landing.css";
 
-/* 10. design Component */
+/* 11. design Component */
 @import "components/design.css";
 
-/* 11. Section Heading (Reusable Component) */
+/* 12. Section Heading (Reusable Component) */
 @import "components/section-heading.css";
 
-/* 12. Services Component */
+/* 13. Services Component */
 @import "components/services.css";
 
-/* 13. Portfolio Component */
+/* 14. Portfolio Component */
 @import "components/portfolio.css";
 
-/* 14. Showcase (Video) Component */
+/* 15. Showcase (Video) Component */
 @import "components/showcase.css";
 
-/* 15. About Component */
+/* 16. About Component */
 @import "components/about.css";
 
-/* 16. Stats Component */
+/* 17. Stats Component */
 @import "components/stats.css";
 
-/* 17. Testimonials Component */
+/* 18. Testimonials Component */
 @import "components/testimonials.css";
 
-/* 18. Skills Component */
+/* 19. Skills Component */
 @import "components/skills.css";
 
-/* 19. Quote Banner Component */
+/* 20. Quote Banner Component */
 @import "components/quote-banner.css";
 
-/* 20. Pricing Component */
+/* 21. Pricing Component */
 @import "components/pricing.css";
 
-/* 21. Contact Component */
+/* 22. Contact Component */
 @import "components/contact.css";
 
-/* 22. Newsletter Component */
+/* 23. Newsletter Component */
 @import "components/newsletter.css";
 
-/* 23. Footer Component */
+/* 24. Footer Component */
 @import "components/footer.css";
