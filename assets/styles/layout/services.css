@@ -75,7 +75,7 @@
 
 .service-item__title {
   margin: 0 0 12px;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-size: 1.125rem;
   font-weight: 800;
   letter-spacing: -0.2px;
@@ -83,7 +83,7 @@
 
 .service-item__desc {
   margin: 0;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.8;
@@ -102,12 +102,12 @@
   position: relative;
   width: 260px;
   height: 360px;
-  background: var(--color-surface) url(../../images/snowy-mountain.jpg);
+  background: var(--color-bg-surface) url(../../images/snowy-mountain.jpg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   border-radius: 4px;
-  box-shadow: 0 12px 30px rgba(29, 22, 22, 0.07);
+  box-shadow: var(--shadow-image-subtle);
 }
 
 /* Dark accent shape extending behind the card on the right */

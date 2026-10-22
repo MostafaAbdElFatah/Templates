@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Global defaults (base/globals.css)
+   Depends on: tokens/semantic-*.css
+   ========================================================================== */
+
+body {
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

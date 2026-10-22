@@ -7,8 +7,6 @@
    -------------------------------------------------------------------------- */
 .main-nav {
     position: relative;
-    --menu-bg: var(--color-background);
-    --accent: var(--color-primary);
 }
 
 /* --------------------------------------------------------------------------
@@ -26,11 +24,11 @@
     margin: 0;
     cursor: pointer;
     font: inherit;
-    color: inherit;
+    color: var(--color-navigation-text);
 }
 
 .menu-icon:focus-visible {
-    outline: var(--focus-ring-width) solid var(--accent);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
     border-radius: 4px;
 }
@@ -39,7 +37,7 @@
     display: block;
     height: 3px;
     margin-bottom: 5px;
-    background-color: var(--color-text);
+    background-color: var(--color-navigation-text);
     transition: width var(--transition-normal);
 }
 
@@ -58,4 +56,3 @@
 .menu-icon[aria-expanded="true"] span:nth-child(2) {
     width: 100%;
 }
-

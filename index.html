@@ -7,10 +7,14 @@
 
     <title>Template 1</title>
 
+    <script src="assets/js/theme.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Work+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -21,6 +25,15 @@
                 <span>Template</span>
                 <img src="assets/images/logo.png" alt="">
             </a>
+
+            <label>
+                <span class="visually-hidden">Color theme</span>
+                <select class="theme-select" id="theme-select">
+                    <option value="system">System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </label>
 
             <!-- Main navigation -->
             <nav class="main-nav" aria-label="Main navigation">
@@ -333,7 +346,6 @@
         <p>&copy; 2019 - <span>Leon</span>,All Right Reserved</p>
     </footer>
 
-    <!-- <script src="assets/js/main.js" defer></script> -->
 </body>
 
 </html>

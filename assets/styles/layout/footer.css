@@ -6,7 +6,7 @@
   background-color: var(--color-secondary);
   padding: 30px 15px;
   text-align: center;
-  color: var(--color-background, #ffffff);
+  color: var(--color-text-inverse);
   font-size: 1.125rem;
 }
 
@@ -17,6 +17,6 @@
 }
 
 .footer span {
-  color: var(--color-primary);
+  color: var(--color-brand-secondary);
   font-weight: 800;
 }

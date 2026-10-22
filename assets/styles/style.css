@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Main Stylesheet Entry Point (style.css)
+   ========================================================================== */
+
+/* 0. Cascade Layer Order
+   Declared first so the order is fixed no matter how files are imported.
+   Weakest (left) → strongest (right). */
+@layer reset, tokens, base, layout, components, pages, utilities;
+
+/* 1. Reset (Cross-Browser Normalization) */
+@import url("base/reset.css") layer(reset);
+
+/* 2. Design Tokens */
+@import url("tokens/primitives.css") layer(tokens);
+@import url("tokens/semantic-light.css") layer(tokens);
+@import url("tokens/semantic-dark.css") layer(tokens);
+@import url("tokens/components.css") layer(tokens);
+@import url("tokens/spacing.css") layer(tokens);
+@import url("tokens/typography.css") layer(tokens);
+
+/* 3. Global Foundations */
+@import url("base/globals.css") layer(base);
+@import url("base/typography.css") layer(base);
+
+/* 4. Reusable Page Structure & Layout */
+@import url("layout/container.css") layer(layout);
+@import url("layout/grid.css") layer(layout);
+@import url("layout/header.css") layer(layout);
+
+/* 5. Button Component */
+@import url("components/button.css") layer(components);
+
+/* 6. Card Component */
+@import url("components/card.css") layer(components);
+
+/* 7. Input Component */
+@import url("components/input.css") layer(components);
+
+/* 8. Home Page */
+@import url("pages/home.css") layer(pages);
+
+/* 9. Utilities (Highest Priority) */
+@import url("utilities/visually-hidden.css") layer(utilities);

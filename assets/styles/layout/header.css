@@ -10,11 +10,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-header);
 
   padding: var(--header-padding);
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-navigation-bg);
+  border-bottom: 1px solid var(--color-border-subtle);
   z-index: 100;
 }
 
@@ -32,7 +32,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: var(--color-text);
+  color: var(--color-navigation-text);
   font-weight: 650;
   text-decoration: none;
 }
@@ -48,6 +48,22 @@
   height: auto;
 }
 
+.theme-select {
+  max-width: 112px;
+  min-height: 40px;
+  padding: 6px 28px 6px 10px;
+  color: var(--color-text-primary);
+  background-color: var(--color-form-bg);
+  border: 1px solid var(--color-form-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.theme-select:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
 /* --------------------------------------------------------------------------
    3. Responsive Header Adjustments
    -------------------------------------------------------------------------- */
@@ -57,10 +73,17 @@
   }
 
   .site-header .container {
-    gap: 12px;
+    gap: 8px;
   }
 
   .logo > img {
     width: 44px;
+  }
+
+  .theme-select {
+    max-width: 98px;
+    min-height: 36px;
+    padding-inline: 6px 22px;
+    font-size: 0.875rem;
   }
 }

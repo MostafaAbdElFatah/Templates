@@ -7,7 +7,7 @@
    -------------------------------------------------------------------------- */
 .features {
     padding: clamp(3rem, 6vw, 4rem) 0;
-    background-color: var(--color-surface);
+    background-color: var(--color-bg-surface);
 }
 
 /* --------------------------------------------------------------------------
@@ -59,7 +59,7 @@
    -------------------------------------------------------------------------- */
 .feature-card__title {
     margin: 0 0 16px;
-    color: var(--color-text);
+    color: var(--color-text-primary);
     font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: -0.2px;
@@ -70,7 +70,7 @@
    -------------------------------------------------------------------------- */
 .feature-card__text {
     margin: 0;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     font-size: 0.9375rem;
     line-height: 1.8;
     max-width: 300px;
