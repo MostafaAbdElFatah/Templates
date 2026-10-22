@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Main Entry (main.css)
+   Single stylesheet entry point: declares cascade layers and imports.
+   Depends on: every file below
+   ========================================================================== */
+
+/* Declared once up front: layer priority comes from this list, not from import
+   order, so later layers always win regardless of selector specificity. */
+@layer reset, vendor, tokens, base, layout, components, pages, utilities;
+
+/* ---------- Reset ---------- */
+/* Lowest priority so every other layer can override browser normalization */
+@import url("base/normalize.css") layer(reset);
+
+/* ---------- Vendor ---------- */
+/* Below our own layers so base/globals.css can customize vendor output without !important */
+@import url("vendor/fontawesome/css/all.min.css") layer(vendor);
+
+/* ---------- Tokens ---------- */
+/* Within one layer, source order decides ties: primitives must exist before
+   semantic files alias them, and dark must follow light because
+   [data-theme="dark"] and :root have equal specificity. */
+@import url("tokens/primitives.css") layer(tokens);
+@import url("tokens/semantic-light.css") layer(tokens);
+@import url("tokens/semantic-dark.css") layer(tokens);
+@import url("tokens/components.css") layer(tokens);
+@import url("tokens/spacing.css") layer(tokens);
+@import url("tokens/typography.css") layer(tokens);
+@import url("tokens/motion.css") layer(tokens);
+
+/* ---------- Base ---------- */
+/* Element defaults sit above tokens/vendor and below any class-based styling */
+@import url("base/globals.css") layer(base);
+
+/* ---------- Layout ---------- */
+/* Structural wrappers load before components so components can adjust inside them */
+@import url("layout/container.css") layer(layout);
+@import url("layout/header.css") layer(layout);
+@import url("layout/footer.css") layer(layout);
+
+/* ---------- Components ---------- */
+/* Reusable blocks; dropdown follows navigation because it styles the nav's open state */
+@import url("components/navigation.css") layer(components);
+@import url("components/dropdown.css") layer(components);
+@import url("components/section-heading.css") layer(components);
+
+/* ---------- Pages ---------- */
+/* Page-specific sections can override shared components when a page needs it */
+@import url("pages/home/landing.css") layer(pages);
+@import url("pages/home/features.css") layer(pages);
+@import url("pages/home/services.css") layer(pages);
+@import url("pages/home/portfolio.css") layer(pages);
+@import url("pages/home/about.css") layer(pages);
+@import url("pages/home/contact.css") layer(pages);
+
+/* ---------- Utilities ---------- */
+/* Highest layer so a utility class always wins over component styles */
+@import url("utilities/visually-hidden.css") layer(utilities);

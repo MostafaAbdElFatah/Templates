@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Motion Tokens (tokens/motion.css)
+   Shared transition timings.
+   Depends on: nothing
+   ========================================================================== */
+
+:root {
+  /* ---------- Transitions ---------- */
+  /* Two speeds only, so interactions across the site feel consistent */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+}

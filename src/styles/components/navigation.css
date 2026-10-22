@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Navigation (components/navigation.css)
+   Nav wrapper and animated hamburger toggle.
+   Depends on: tokens/components.css (--nav-fg), tokens/motion.css
+   ========================================================================== */
+
+/* ---------- Wrapper ---------- */
+/* Positioning context for the absolutely placed .nav-list dropdown */
+.main-nav {
+  position: relative;
+}
+
+/* ---------- Hamburger toggle ---------- */
+/* Resets button defaults so it renders the same as a plain span */
+.menu-icon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  color: var(--nav-fg);
+  font: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon:focus-visible {
+  border-radius: 4px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: var(--nav-fg);
+  transition: width var(--transition-normal);
+}
+
+.menu-icon span:first-child,
+.menu-icon span:last-child {
+  width: 100%;
+}
+
+/* Shorter middle bar hints that the icon is interactive */
+.menu-icon span:nth-child(2) {
+  width: 60%;
+}
+
+/* ---------- Open / hover state ---------- */
+.main-nav:hover .menu-icon span:nth-child(2),
+.main-nav:focus-within .menu-icon span:nth-child(2),
+.menu-icon[aria-expanded="true"] span:nth-child(2) {
+  width: 100%;
+}

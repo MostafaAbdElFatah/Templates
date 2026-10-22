@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Header (layout/header.css)
+   Fixed site header with logo and theme selector.
+   Depends on: tokens/components.css (--header-*, --nav-fg, --input-*),
+               tokens/spacing.css, layout/container.css
+   ========================================================================== */
+
+/* ---------- Site header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Above page content and the dropdown's stacking context */
+  z-index: 100;
+  width: 100%;
+  padding: var(--header-padding);
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  box-shadow: var(--header-shadow);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--nav-fg);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+/* Rounded ring follows the logo shape instead of a hard rectangle */
+.logo:focus-visible {
+  border-radius: 4px;
+}
+
+.logo > img {
+  width: 60px;
+  height: auto;
+}
+
+/* ---------- Theme selector ---------- */
+.theme-select {
+  max-width: 112px;
+  /* 40px keeps the touch target comfortable */
+  min-height: 40px;
+  padding: 6px 28px 6px 10px;
+  color: var(--input-fg);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 12px;
+  }
+
+  .site-header .container {
+    gap: 8px;
+  }
+
+  .logo > img {
+    width: 44px;
+  }
+
+  .theme-select {
+    max-width: 98px;
+    min-height: 36px;
+    padding-inline: 6px 22px;
+    font-size: 0.875rem;
+  }
+}

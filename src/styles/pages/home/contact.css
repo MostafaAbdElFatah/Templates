@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Contact (pages/home/contact.css)
+   Home contact: prompt, large email link and social icons.
+   Depends on: tokens/semantic-*.css, tokens/spacing.css, tokens/motion.css
+   ========================================================================== */
+
+/* ---------- Section ---------- */
+.contact {
+  padding: var(--section-padding) 0;
+  background-color: var(--color-bg-page);
+}
+
+/* Narrow column keeps the oversized email readable on wide screens */
+.contact__content {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* ---------- Heading ---------- */
+.contact__heading {
+  margin: 0 0 1rem;
+  color: var(--color-text-primary);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+/* ---------- Email link ---------- */
+.contact__email {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--color-text-accent);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.contact__email:hover {
+  opacity: 0.85;
+}
+
+.contact__email:focus-visible {
+  border-radius: 4px;
+}
+
+/* ---------- Social bar ---------- */
+.contact__social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+}
+
+.contact__social-label {
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.contact__social-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 1.125rem;
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.contact__social-link:hover {
+  color: var(--color-text-accent);
+  transform: translateY(-2px);
+}
+
+.contact__social-link:focus-visible {
+  border-radius: 4px;
+}

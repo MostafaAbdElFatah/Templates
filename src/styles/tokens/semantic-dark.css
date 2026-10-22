@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Semantic Tokens: Dark (tokens/semantic-dark.css)
+   Dark theme values: explicit [data-theme="dark"] plus an OS-preference fallback.
+   Depends on: tokens/primitives.css, tokens/semantic-light.css (must load after it)
+   ========================================================================== */
+
+/* ---------- Explicit dark theme ---------- */
+/* Same specificity as :root in semantic-light.css, so this file must load
+   after it for <html data-theme="dark"> to win. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg-page: var(--gray-950);
+  --color-bg-surface: var(--gray-900);
+  /* One step above the page so alternating sections stay distinguishable */
+  --color-bg-surface-subtle: var(--gray-900);
+  --color-bg-elevated: var(--gray-850);
+  --color-bg-sunken: var(--gray-950);
+  --color-bg-hover: var(--gray-850);
+  --color-bg-pressed: var(--gray-800);
+  --color-bg-inverse: var(--gray-100);
+  --color-bg-disabled: var(--gray-850);
+
+  --color-text-primary: var(--gray-100);
+  --color-text-secondary: var(--gray-500);
+  --color-text-muted: var(--gray-600);
+  --color-text-disabled: var(--gray-800);
+  --color-text-inverse: var(--gray-950);
+  /* sky-300 instead of sky-500 so links pass 4.5:1 on elevated surfaces too */
+  --color-text-link: var(--sky-300);
+  --color-text-accent: var(--sky-300);
+  --color-text-on-primary: var(--white);
+  --color-text-on-warning: var(--gray-950);
+  --color-text-on-danger: var(--gray-950);
+  --color-text-on-success: var(--gray-950);
+
+  --color-border-subtle: var(--gray-850);
+  --color-border-default: var(--gray-800);
+  --color-border-strong: var(--gray-700);
+  /* Lighter than light mode so controls keep 3:1 against elevated surfaces */
+  --color-border-control: var(--gray-600);
+
+  --color-primary: var(--blue-600);
+  /* Lighten on hover in dark mode; darkening would vanish into the background */
+  --color-primary-hover: color-mix(in srgb, var(--blue-600), var(--white) 12%);
+  --color-accent: var(--blue-500);
+  --color-focus-ring: var(--sky-500);
+  --color-focus-ring-soft: color-mix(in srgb, var(--sky-500) 45%, transparent);
+
+  --color-secondary: var(--slate-700);
+  --color-text-on-secondary: var(--white);
+  --color-text-accent-on-secondary: var(--sky-300);
+
+  /* Lighter *-text shades keep status text readable on dark surfaces */
+  --color-danger: var(--red-500);
+  --color-danger-text: var(--red-400);
+  --color-danger-bg: color-mix(in srgb, var(--red-500) 18%, transparent);
+  --color-danger-ring-soft: color-mix(in srgb, var(--red-500) 45%, transparent);
+  --color-success: var(--teal-500);
+  --color-success-text: var(--teal-400);
+  --color-success-bg: color-mix(in srgb, var(--teal-500) 18%, transparent);
+  --color-warning: var(--amber-500);
+  --color-warning-text: var(--amber-500);
+  --color-warning-bg: color-mix(in srgb, var(--amber-500) 18%, transparent);
+  --color-info: var(--sky-500);
+  --color-info-text: var(--sky-500);
+  --color-info-bg: color-mix(in srgb, var(--sky-500) 18%, transparent);
+
+  --color-overlay-hover: rgb(255 255 255 / 10%);
+  --color-overlay-glass: rgb(255 255 255 / 12%);
+  /* Darken the hero photo instead of whitening it so light text stays readable */
+  --color-overlay-hero-start: rgb(0 0 0 / 50%);
+  --color-overlay-hero-mid: rgb(0 0 0 / 50%);
+  --color-overlay-hero-end: rgb(0 0 0 / 50%);
+  --color-text-glow: rgb(0 0 0 / 50%);
+
+  /* Stronger shadow alpha because low-alpha black is invisible on dark surfaces */
+  --shadow-color: rgb(0 0 0 / 50%);
+  --shadow-sm: 0 2px 4px 0 var(--shadow-color);
+  --shadow-md: 0 4px 12px 0 var(--shadow-color);
+  --shadow-lg: 0 12px 30px 0 var(--shadow-color);
+}
+
+/* ---------- OS preference fallback (no JS / no saved preference) ---------- */
+/* Must mirror the [data-theme="dark"] block above exactly.
+   :not([data-theme]) steps aside as soon as the user picks a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --color-bg-page: var(--gray-950);
+    --color-bg-surface: var(--gray-900);
+    --color-bg-surface-subtle: var(--gray-900);
+    --color-bg-elevated: var(--gray-850);
+    --color-bg-sunken: var(--gray-950);
+    --color-bg-hover: var(--gray-850);
+    --color-bg-pressed: var(--gray-800);
+    --color-bg-inverse: var(--gray-100);
+    --color-bg-disabled: var(--gray-850);
+
+    --color-text-primary: var(--gray-100);
+    --color-text-secondary: var(--gray-500);
+    --color-text-muted: var(--gray-600);
+    --color-text-disabled: var(--gray-800);
+    --color-text-inverse: var(--gray-950);
+    --color-text-link: var(--sky-300);
+    --color-text-accent: var(--sky-300);
+    --color-text-on-primary: var(--white);
+    --color-text-on-warning: var(--gray-950);
+    --color-text-on-danger: var(--gray-950);
+    --color-text-on-success: var(--gray-950);
+
+    --color-border-subtle: var(--gray-850);
+    --color-border-default: var(--gray-800);
+    --color-border-strong: var(--gray-700);
+    --color-border-control: var(--gray-600);
+
+    --color-primary: var(--blue-600);
+    --color-primary-hover: color-mix(in srgb, var(--blue-600), var(--white) 12%);
+    --color-accent: var(--blue-500);
+    --color-focus-ring: var(--sky-500);
+    --color-focus-ring-soft: color-mix(in srgb, var(--sky-500) 45%, transparent);
+
+    --color-secondary: var(--slate-700);
+    --color-text-on-secondary: var(--white);
+    --color-text-accent-on-secondary: var(--sky-300);
+
+    --color-danger: var(--red-500);
+    --color-danger-text: var(--red-400);
+    --color-danger-bg: color-mix(in srgb, var(--red-500) 18%, transparent);
+    --color-danger-ring-soft: color-mix(in srgb, var(--red-500) 45%, transparent);
+    --color-success: var(--teal-500);
+    --color-success-text: var(--teal-400);
+    --color-success-bg: color-mix(in srgb, var(--teal-500) 18%, transparent);
+    --color-warning: var(--amber-500);
+    --color-warning-text: var(--amber-500);
+    --color-warning-bg: color-mix(in srgb, var(--amber-500) 18%, transparent);
+    --color-info: var(--sky-500);
+    --color-info-text: var(--sky-500);
+    --color-info-bg: color-mix(in srgb, var(--sky-500) 18%, transparent);
+
+    --color-overlay-hover: rgb(255 255 255 / 10%);
+    --color-overlay-glass: rgb(255 255 255 / 12%);
+    --color-overlay-hero-start: rgb(0 0 0 / 50%);
+    --color-overlay-hero-mid: rgb(0 0 0 / 50%);
+    --color-overlay-hero-end: rgb(0 0 0 / 50%);
+    --color-text-glow: rgb(0 0 0 / 50%);
+
+    --shadow-color: rgb(0 0 0 / 50%);
+    --shadow-sm: 0 2px 4px 0 var(--shadow-color);
+    --shadow-md: 0 4px 12px 0 var(--shadow-color);
+    --shadow-lg: 0 12px 30px 0 var(--shadow-color);
+  }
+}

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Footer (layout/footer.css)
+   Site-wide footer bar on the deep secondary surface.
+   Depends on: tokens/components.css (--footer-*)
+   ========================================================================== */
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 30px 15px;
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Highlighted brand name inside the copyright line */
+.footer span {
+  color: var(--footer-highlight);
+  font-weight: 800;
+}

@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Semantic Tokens: Light (tokens/semantic-light.css)
+   Maps primitives to intent-based roles for the default light theme.
+   Depends on: tokens/primitives.css
+   ========================================================================== */
+
+/* :root makes light the default; [data-theme="light"] lets a subtree
+   force light inside a dark page. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* ---------- Backgrounds ---------- */
+  --color-bg-page: var(--gray-50);
+  --color-bg-surface: var(--white);
+  --color-bg-surface-subtle: var(--gray-100);
+  --color-bg-elevated: var(--white);
+  --color-bg-sunken: var(--gray-200);
+  --color-bg-hover: var(--gray-100);
+  --color-bg-pressed: var(--gray-200);
+  --color-bg-inverse: var(--gray-950);
+  --color-bg-disabled: var(--gray-100);
+
+  /* ---------- Text ---------- */
+  --color-text-primary: var(--gray-950);
+  --color-text-secondary: var(--gray-850);
+  --color-text-muted: var(--gray-800);
+  --color-text-disabled: var(--gray-600);
+  --color-text-inverse: var(--gray-50);
+  --color-text-link: var(--blue-600);
+  /* Brand-colored text and icons; separate from --color-primary so dark mode can lighten it */
+  --color-text-accent: var(--blue-600);
+  --color-text-on-primary: var(--white);
+  --color-text-on-warning: var(--gray-950);
+  /* Dark text because white on red-500 / teal-500 falls below 4.5:1 */
+  --color-text-on-danger: var(--gray-950);
+  --color-text-on-success: var(--gray-950);
+
+  /* ---------- Borders ---------- */
+  --color-border-subtle: var(--gray-300);
+  --color-border-default: var(--gray-400);
+  --color-border-strong: var(--gray-500);
+  /* Darker than other borders so form controls meet 3:1 non-text contrast */
+  --color-border-control: var(--gray-700);
+
+  /* ---------- Brand & focus ---------- */
+  --color-primary: var(--blue-600);
+  /* Darken on hover in light mode so the state reads as "pressed into" the page */
+  --color-primary-hover: color-mix(in srgb, var(--blue-600), var(--black) 12%);
+  --color-accent: var(--blue-500);
+  --color-focus-ring: var(--blue-600);
+  /* Mixed from the ring color so the soft halo always matches its hue */
+  --color-focus-ring-soft: color-mix(in srgb, var(--blue-600) 60%, transparent);
+
+  /* ---------- Secondary (deep brand surface) ---------- */
+  /* Constant across themes: used for the footer and decorative accent shapes */
+  --color-secondary: var(--slate-700);
+  --color-text-on-secondary: var(--white);
+  /* sky-300 keeps highlighted text above 4.5:1 on the slate surface */
+  --color-text-accent-on-secondary: var(--sky-300);
+
+  /* ---------- Third-party brands ---------- */
+  --color-brand-facebook: var(--brand-facebook);
+  --color-brand-twitter: var(--brand-twitter);
+  --color-brand-youtube: var(--brand-youtube);
+
+  /* ---------- Status ---------- */
+  /* *-text variants are darker shades so status text stays readable on light surfaces */
+  --color-danger: var(--red-500);
+  --color-danger-text: var(--red-600);
+  --color-danger-bg: color-mix(in srgb, var(--red-500) 12%, transparent);
+  --color-danger-ring-soft: color-mix(in srgb, var(--red-500) 60%, transparent);
+  --color-success: var(--teal-500);
+  --color-success-text: var(--teal-700);
+  --color-success-bg: color-mix(in srgb, var(--teal-500) 12%, transparent);
+  --color-warning: var(--amber-500);
+  --color-warning-text: var(--amber-800);
+  --color-warning-bg: color-mix(in srgb, var(--amber-500) 16%, transparent);
+  --color-info: var(--sky-500);
+  --color-info-text: var(--sky-700);
+  --color-info-bg: color-mix(in srgb, var(--sky-500) 12%, transparent);
+
+  /* ---------- Overlays ---------- */
+  --color-overlay-hover: rgb(0 0 0 / 13%);
+  --color-overlay-glass: rgb(255 255 255 / 20%);
+  /* Hero gradient fades the photo toward white so dark text stays readable */
+  --color-overlay-hero-start: var(--white);
+  --color-overlay-hero-mid: rgb(255 255 255 / 50%);
+  --color-overlay-hero-end: rgb(123 119 119 / 20%);
+  --color-text-glow: rgb(255 255 255 / 85%);
+
+  /* ---------- Shadows ---------- */
+  /* Re-declared per theme so --shadow-* re-resolve against the local --shadow-color */
+  --shadow-color: rgb(0 0 0 / 12%);
+  --shadow-sm: 0 2px 4px 0 var(--shadow-color);
+  --shadow-md: 0 4px 12px 0 var(--shadow-color);
+  --shadow-lg: 0 12px 30px 0 var(--shadow-color);
+}

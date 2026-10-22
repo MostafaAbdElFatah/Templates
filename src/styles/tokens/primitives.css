@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Primitives (tokens/primitives.css)
+   Raw color palette. The only file where hex values are allowed.
+   Depends on: nothing
+   ========================================================================== */
+
+/* Never reference these in components, layout, base, pages or utilities:
+   go through semantic tokens so themes can swap values in one place. */
+:root {
+  /* ---------- Neutrals ---------- */
+  --white: #fff;
+  --black: #000;
+
+  --gray-50:  #fafafa;
+  --gray-100: #f4f4f4;
+  --gray-200: #eee;
+  --gray-300: #e2e2e2;
+  --gray-400: #d5d5d5;
+  --gray-500: #ccc;
+  --gray-600: #b9b9b9;
+  --gray-700: #8c8c8c;
+  --gray-800: #6b6b6b;
+  --gray-850: #444;
+  --gray-900: #313131;
+  --gray-950: #191919;
+
+  /* ---------- Hues ---------- */
+  /* "derived" shades were added to reach accessible contrast for text/state use */
+  --red-400: #ff7a70;   /* derived */
+  --red-500: #f44036;
+  --red-600: #d32f2f;   /* derived */
+  --teal-400: #4db6ac;  /* derived */
+  --teal-500: #009688;
+  --teal-700: #00796b;  /* derived */
+  --sky-300: #4fc3f7;   /* derived: readable link/accent text on dark surfaces */
+  --sky-500: #03a9f4;
+  --sky-700: #0277bd;   /* derived */
+  --blue-500: #1787e0;
+  --blue-600: #0b6cbf;  /* derived */
+  --slate-700: #2c4755; /* carried over from the previous template palette (footer, accents) */
+  --amber-500: #ffc107;
+  --amber-800: #8a5a00; /* derived */
+
+  /* ---------- Brand (third-party) ---------- */
+  /* Brand guidelines require exact values; exposed as --color-brand-* in semantic-light.css */
+  --brand-facebook: #1877f2;
+  --brand-twitter:  #1da1f2;
+  --brand-youtube:  #ff0000;
+}

@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Container (layout/container.css)
+   Centered, width-capped wrapper for page content.
+   Depends on: tokens/spacing.css
+   ========================================================================== */
+
+/* ---------- Base ---------- */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ---------- Breakpoints ---------- */
+/* Fixed widths sit just under each breakpoint to leave room for a scrollbar */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

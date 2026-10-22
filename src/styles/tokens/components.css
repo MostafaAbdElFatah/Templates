@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Component Tokens (tokens/components.css)
+   Per-component aliases so components never reach for semantic roles directly.
+   Depends on: tokens/semantic-light.css, tokens/semantic-dark.css
+   ========================================================================== */
+
+/* Declared on [data-theme] too: custom properties resolve where they are
+   declared, so nested theme scopes need these re-evaluated locally. */
+:root,
+[data-theme] {
+  /* ---------- Button ---------- */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-bg-hover: var(--color-primary-hover);
+  --button-primary-fg: var(--color-text-on-primary);
+  --button-secondary-bg: var(--color-bg-surface);
+  --button-secondary-bg-hover: var(--color-bg-hover);
+  --button-secondary-border: var(--color-border-default);
+  --button-secondary-fg: var(--color-text-primary);
+
+  /* ---------- Card ---------- */
+  --card-bg: var(--color-bg-surface);
+  --card-fg: var(--color-text-primary);
+  --card-border: var(--color-border-subtle);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-lg);
+
+  /* ---------- Input ---------- */
+  --input-bg: var(--color-bg-surface);
+  --input-fg: var(--color-text-primary);
+  --input-placeholder: var(--color-text-muted);
+  --input-border: var(--color-border-control);
+  --input-border-focus: var(--color-focus-ring);
+  --input-border-error: var(--color-danger-text);
+  --input-bg-disabled: var(--color-bg-disabled);
+  --input-fg-disabled: var(--color-text-disabled);
+
+  /* ---------- Header & navigation ---------- */
+  --header-bg: var(--color-bg-surface);
+  --header-border: var(--color-border-subtle);
+  --header-shadow: var(--shadow-sm);
+  --nav-fg: var(--color-text-primary);
+
+  /* ---------- Dropdown ---------- */
+  /* Surface (not elevated) so the hover background stays visible in dark mode */
+  --dropdown-bg: var(--color-bg-surface);
+  --dropdown-border: var(--color-border-strong);
+  --dropdown-shadow: var(--shadow-lg);
+  --dropdown-link-fg: var(--color-text-primary);
+  --dropdown-link-fg-hover: var(--color-text-accent);
+  --dropdown-link-bg-hover: var(--color-bg-hover);
+
+  /* ---------- Landing (hero) ---------- */
+  --landing-overlay-top: var(--color-overlay-hero-start);
+  --landing-overlay-mid: var(--color-overlay-hero-mid);
+  --landing-overlay-bottom: var(--color-overlay-hero-end);
+  --landing-text-shadow: var(--color-text-glow);
+
+  /* ---------- Image placeholder ---------- */
+  --placeholder-bg-start: var(--color-bg-surface-subtle);
+  --placeholder-bg-end: var(--color-bg-sunken);
+  --placeholder-icon: var(--color-border-strong);
+
+  /* ---------- Footer ---------- */
+  --footer-bg: var(--color-secondary);
+  --footer-fg: var(--color-text-on-secondary);
+  --footer-highlight: var(--color-text-accent-on-secondary);
+
+  /* ---------- Scrollbar ---------- */
+  --scrollbar-track: var(--color-bg-surface-subtle);
+  --scrollbar-thumb: var(--color-border-strong);
+  --scrollbar-thumb-hover: var(--color-border-control);
+}

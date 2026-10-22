@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Visually Hidden (utilities/visually-hidden.css)
+   Hides content visually while keeping it available to screen readers.
+   Depends on: nothing
+   ========================================================================== */
+
+/* ---------- Utility ---------- */
+/* display:none would also hide it from assistive tech, so clip it instead */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

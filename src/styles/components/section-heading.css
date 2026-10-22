@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Section Heading (components/section-heading.css)
+   Large faded title with an overlapping subtitle, reused by every section.
+   Depends on: tokens/semantic-*.css
+   ========================================================================== */
+
+/* ---------- Wrapper ---------- */
+.section-heading {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+/* ---------- Faded title ---------- */
+.section-heading > h2:first-child {
+  margin: 0;
+  color: var(--color-text-disabled);
+  /* 56px to 100px */
+  font-size: clamp(3.5rem, 9vw, 6.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -3px;
+  text-transform: capitalize;
+}
+
+/* ---------- Subtitle ---------- */
+/* Negative margin tucks the subtitle into the oversized title for the layered look */
+.section-heading > h2:first-child + p {
+  margin: -30px 0 0;
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 767px) {
+  .section-heading > h2:first-child {
+    letter-spacing: -1.5px;
+  }
+
+  .section-heading > h2:first-child + p {
+    margin-top: -20px;
+  }
+}

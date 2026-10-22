@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Globals (base/globals.css)
+   Element-level defaults and vendor customizations. No classes.
+   Depends on: tokens/semantic-*.css, tokens/components.css,
+               tokens/typography.css, tokens/spacing.css
+   ========================================================================== */
+
+/* ---------- Box model ---------- */
+/* Padding and borders count inside declared widths, so fixed-width
+   containers with padding never overflow the viewport. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Document ---------- */
+html {
+  scroll-behavior: smooth;
+  /* Firefox and modern Chromium read this; the ::-webkit rules cover Safari */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+::selection {
+  color: var(--color-text-on-primary);
+  background-color: var(--color-primary);
+}
+
+/* ---------- Scrollbar (WebKit) ---------- */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  /* Border in the track color fakes inner padding around the thumb */
+  border: 3px solid var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* ---------- Media ---------- */
+/* Block + max-width stops images overflowing and removes the inline baseline gap */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Lists & links ---------- */
+/* Lists in this template are navigation/layout lists, so bullets are opt-in */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+/* ---------- Forms ---------- */
+/* Form controls don't inherit typography by default */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  color: var(--input-fg);
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder);
+  /* Firefox lowers placeholder opacity, which breaks the contrast we picked */
+  opacity: 1;
+}
+
+/* ---------- Focus ---------- */
+/* :focus-visible shows the ring for keyboard users only, not on mouse click */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ---------- Reduced motion ---------- */
+/* !important is intentional: user accessibility preference must beat every component */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

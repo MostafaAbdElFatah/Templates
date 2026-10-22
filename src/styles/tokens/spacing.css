@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Spacing Tokens (tokens/spacing.css)
+   Theme-independent spacing and sizing values shared by layout and components.
+   Depends on: nothing
+   ========================================================================== */
+
+:root {
+  /* ---------- Layout spacing ---------- */
+  /* Keeps content off the viewport edge on small screens */
+  --container-padding: 1rem;
+  /* Fluid so sections breathe on desktop without wasting space on phones */
+  --section-padding: clamp(3.5rem, 7vw, 5rem);
+
+  /* ---------- Header ---------- */
+  --header-padding: 20px;
+  /* Used to offset full-height sections below the fixed header */
+  --header-height: 74px;
+
+  /* ---------- Decorative images ---------- */
+  /* How far accent shapes overhang their image card */
+  --img-padding: 80px;
+
+  /* ---------- Dropdown ---------- */
+  --dropdown-width: 200px;
+  --dropdown-gap: 15px;
+  --dropdown-radius: 12px;
+
+  /* ---------- Focus ---------- */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}

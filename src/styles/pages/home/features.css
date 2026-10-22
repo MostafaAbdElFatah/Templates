@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Features (pages/home/features.css)
+   Home features strip: responsive grid of icon cards.
+   Depends on: tokens/semantic-*.css, tokens/motion.css
+   ========================================================================== */
+
+/* ---------- Section ---------- */
+.features {
+  padding: clamp(3rem, 6vw, 4rem) 0;
+  background-color: var(--color-bg-surface-subtle);
+}
+
+/* ---------- Grid ---------- */
+/* auto-fit collapses to fewer columns without media queries */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ---------- Card ---------- */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- Icon ---------- */
+.feature-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--color-text-accent);
+  font-size: 3.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.feature-card:hover .feature-card__icon {
+  transform: scale(1.08);
+}
+
+/* ---------- Title ---------- */
+.feature-card__title {
+  margin: 0 0 16px;
+  color: var(--color-text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* ---------- Text ---------- */
+/* Capped width keeps line length readable inside wide cards */
+.feature-card__text {
+  max-width: 300px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
