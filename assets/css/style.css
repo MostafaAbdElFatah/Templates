@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* 1. External Web Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap");
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
 
 /* 2. Cross-Browser Normalization */
 @import "normalize.css";
