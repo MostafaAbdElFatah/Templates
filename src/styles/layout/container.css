@@ -14,19 +14,13 @@
 /* ---------- Breakpoints ---------- */
 /* Fixed widths sit just under each breakpoint to leave room for a scrollbar */
 @media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
+  .container { width: 750px; }
 }
 
 @media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
+  .container { width: 970px; }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
+  .container { width: 1170px; }
 }

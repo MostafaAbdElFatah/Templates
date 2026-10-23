@@ -8,7 +8,8 @@
 /* Same specificity as :root in semantic-light.css, so this file must load
    after it for <html data-theme="dark"> to win. */
 [data-theme="dark"] {
-  color-scheme: dark;
+  /* color-scheme: dark; */
+   color-scheme: light;
 
   --color-bg-page: var(--gray-950);
   --color-bg-surface: var(--gray-900);
@@ -84,9 +85,10 @@
 /* ---------- OS preference fallback (no JS / no saved preference) ---------- */
 /* Must mirror the [data-theme="dark"] block above exactly.
    :not([data-theme]) steps aside as soon as the user picks a theme. */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    color-scheme: dark;
+     color-scheme: dark;
+    color-scheme: light;
 
     --color-bg-page: var(--gray-950);
     --color-bg-surface: var(--gray-900);
@@ -116,10 +118,18 @@
     --color-border-control: var(--gray-600);
 
     --color-primary: var(--blue-600);
-    --color-primary-hover: color-mix(in srgb, var(--blue-600), var(--white) 12%);
+    --color-primary-hover: color-mix(
+      in srgb,
+      var(--blue-600),
+      var(--white) 12%
+    );
     --color-accent: var(--blue-500);
     --color-focus-ring: var(--sky-500);
-    --color-focus-ring-soft: color-mix(in srgb, var(--sky-500) 45%, transparent);
+    --color-focus-ring-soft: color-mix(
+      in srgb,
+      var(--sky-500) 45%,
+      transparent
+    );
 
     --color-secondary: var(--slate-700);
     --color-text-on-secondary: var(--white);
@@ -128,7 +138,11 @@
     --color-danger: var(--red-500);
     --color-danger-text: var(--red-400);
     --color-danger-bg: color-mix(in srgb, var(--red-500) 18%, transparent);
-    --color-danger-ring-soft: color-mix(in srgb, var(--red-500) 45%, transparent);
+    --color-danger-ring-soft: color-mix(
+      in srgb,
+      var(--red-500) 45%,
+      transparent
+    );
     --color-success: var(--teal-500);
     --color-success-text: var(--teal-400);
     --color-success-bg: color-mix(in srgb, var(--teal-500) 18%, transparent);
@@ -151,4 +165,4 @@
     --shadow-md: 0 4px 12px 0 var(--shadow-color);
     --shadow-lg: 0 12px 30px 0 var(--shadow-color);
   }
-}
+}  */

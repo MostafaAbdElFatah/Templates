@@ -46,19 +46,6 @@
   height: auto;
 }
 
-/* ---------- Theme selector ---------- */
-.theme-select {
-  max-width: 112px;
-  /* 40px keeps the touch target comfortable */
-  min-height: 40px;
-  padding: 6px 28px 6px 10px;
-  color: var(--input-fg);
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 /* ---------- Small screens ---------- */
 @media (max-width: 480px) {
   .site-header {
@@ -71,12 +58,5 @@
 
   .logo > img {
     width: 44px;
-  }
-
-  .theme-select {
-    max-width: 98px;
-    min-height: 36px;
-    padding-inline: 6px 22px;
-    font-size: 0.875rem;
   }
 }

@@ -8,6 +8,8 @@
    declared, so nested theme scopes need these re-evaluated locally. */
 :root,
 [data-theme] {
+  color-scheme: light;
+  
   /* ---------- Button ---------- */
   --button-primary-bg: var(--color-primary);
   --button-primary-bg-hover: var(--color-primary-hover);

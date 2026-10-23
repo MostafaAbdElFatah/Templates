@@ -55,4 +55,3 @@
 
 /* ---------- Utilities ---------- */
 /* Highest layer so a utility class always wins over component styles */
-@import url("utilities/visually-hidden.css") layer(utilities);
