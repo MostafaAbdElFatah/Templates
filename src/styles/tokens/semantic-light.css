@@ -11,7 +11,8 @@
   color-scheme: light;
 
   /* ---------- Backgrounds ---------- */
-  --color-bg-page: var(--gray-50);
+  /* Pure white page; sections that need contrast use surface-subtle / sunken */
+  --color-bg-page: var(--white);
   --color-bg-surface: var(--white);
   --color-bg-surface-subtle: var(--gray-100);
   --color-bg-elevated: var(--white);
@@ -83,6 +84,8 @@
   /* ---------- Overlays ---------- */
   --color-overlay-hover: rgb(0 0 0 / 13%);
   --color-overlay-glass: rgb(255 255 255 / 20%);
+  /* Soft white "light burst" that spreads from the center of hovered images */
+  --color-overlay-light: rgb(255 255 255 / 30%);
   /* Hero gradient fades the photo toward white so dark text stays readable */
   --color-overlay-hero-start: var(--white);
   --color-overlay-hero-mid: rgb(255 255 255 / 50%);

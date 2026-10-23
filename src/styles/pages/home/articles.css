@@ -7,7 +7,8 @@
 
 /* ---------- Local variables ---------- */
 .articles {
-  --articles-bg: var(--color-bg-page);
+  /* Surface (white in light theme) so the section stands apart from the gray gallery below */
+  --articles-bg: var(--color-bg-surface);
   /* Cards never shrink below this before the grid drops a column */
   --articles-card-min: 250px;
   --articles-gap: 40px;

@@ -69,6 +69,7 @@
 
   --color-overlay-hover: rgb(255 255 255 / 10%);
   --color-overlay-glass: rgb(255 255 255 / 12%);
+  --color-overlay-light: rgb(255 255 255 / 30%);
   /* Darken the hero photo instead of whitening it so light text stays readable */
   --color-overlay-hero-start: rgb(0 0 0 / 50%);
   --color-overlay-hero-mid: rgb(0 0 0 / 50%);
@@ -155,6 +156,7 @@
 
     --color-overlay-hover: rgb(255 255 255 / 10%);
     --color-overlay-glass: rgb(255 255 255 / 12%);
+    --color-overlay-light: rgb(255 255 255 / 30%);
     --color-overlay-hero-start: rgb(0 0 0 / 50%);
     --color-overlay-hero-mid: rgb(0 0 0 / 50%);
     --color-overlay-hero-end: rgb(0 0 0 / 50%);

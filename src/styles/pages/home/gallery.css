@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Gallery (pages/home/gallery.css)
+   Home image gallery with a zigzag top edge. Framed thumbnails zoom and
+   tilt on hover while a light flash bursts out from the center of the image.
+   Usage: <figure class="gallery__item">
+            <div class="gallery__media"><img class="gallery__image" …></div>
+          </figure>
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, tokens/components.css,
+               tokens/motion.css, components/section-title.css
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+.gallery {
+  /* Colors alias global semantic/card tokens, so they follow the active theme */
+  --gallery-bg: var(--color-bg-sunken);
+  --gallery-frame-bg: var(--card-bg);
+  --gallery-frame-shadow: var(--card-shadow);
+  --gallery-frame-shadow-hover: var(--card-shadow-hover);
+  --gallery-media-bg: var(--color-bg-surface-subtle);
+  --gallery-light: var(--color-overlay-light);
+  /* Gaps between the zigzag teeth let the section color show through */
+  --gallery-edge-gap: transparent;
+  /* Zigzag teeth take the previous section's color so they look like its edge */
+  --gallery-edge-bg: var(--color-bg-surface);
+
+  /* Zigzag top edge: tooth height (each tooth is twice as wide as it is tall) */
+  --gallery-edge-size: 14px;
+
+  /* Grid: items never shrink below this before the grid drops a column */
+  --gallery-item-min: 300px;
+  --gallery-gap: 20px;
+
+  /* Frame: white border around each image */
+  --gallery-frame-padding: 15px;
+  /* Keeps every thumbnail square whatever the source image size */
+  --gallery-image-ratio: 1 / 1;
+
+  /* Hover: image zoom + tilt */
+  --gallery-hover-scale: 1.1;
+  --gallery-hover-rotate: 5deg;
+
+  /* Flash: grows from a point in the center to past the edges, then fades */
+  --gallery-flash-scale-start: 0;
+  --gallery-flash-scale-end: 2;
+  --gallery-flash-duration: 0.7s;
+  --gallery-flash-easing: ease-out;
+}
+
+/* ---------- Section ---------- */
+/* Shared fluid section padding keeps vertical rhythm consistent with other sections.
+   position: relative anchors the zigzag edge */
+.gallery {
+  position: relative;
+  padding-block: var(--section-padding);
+  background-color: var(--gallery-bg);
+
+  /* Define another repeating conic gradient starting at 135 degrees,
+   with its center positioned at the top of the background. */
+  /* background: repeating-conic-gradient(
+    from 135deg at top,
+    var(--gallery-bg) 0deg 90deg,
+    var(--gallery-edge-gap) 90deg 180deg
+  ); */
+
+  /* Set the background tile width to 40px (20px × 2)
+   and its height to 100% of the element. */
+  /* background-size: calc(20px * 2) 100%; */
+
+  /* Define a repeating conic gradient starting at -45 degrees,
+   with its center positioned at the bottom of the background. */
+  /* background: repeating-conic-gradient(
+    from -45deg at bottom,
+    var(--gallery-bg) 0deg 90deg,
+    var(--gallery-edge-gap) 90deg 180deg
+  ); */
+  /* Set the background tile width to 40px (20px × 2)
+   and its height to 100% of the element. */
+  /* background-size: calc(20px * 2) 100%; */
+
+  /* Set two background gradient layers:
+   the first creates a pattern at the bottom,
+   and the second creates a pattern at the top. */
+  background-image:
+  /* Create a repeating conic gradient starting at -45 degrees,
+     positioned at the bottom of the gradient. */
+    repeating-conic-gradient(
+      from -45deg at bottom,
+      var(--gallery-bg) 0deg 90deg,
+      var(--gallery-edge-bg) 90deg 180deg
+    ),
+    /* Create another repeating conic gradient starting at 135 degrees,
+     positioned at the top of the gradient. */
+    repeating-conic-gradient(
+        from 135deg at top,
+        var(--gallery-bg) 0deg 90deg,
+        var(--gallery-edge-bg) 90deg 180deg
+      );
+
+  /* Set the first and second background layers to 40px wide
+   and 20px high. */
+  background-size:
+    40px 20px,
+    40px 20px;
+
+  /* Position the first background layer at the bottom
+   and the second background layer at the top. */
+  background-position: bottom, top;
+
+  /* Repeat both background layers horizontally only,
+   preventing vertical repetition. */
+  background-repeat: repeat-x;
+}
+
+/* ---------- Zigzag top edge ---------- */
+/* One conic-gradient tile per tooth: a 90deg wedge opening upward from the
+   bottom center paints a downward-pointing triangle; the tile repeats along
+   the x-axis. Tile width = 2 × height gives 45deg sides. */
+/* .gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: var(--gallery-edge-size);
+  background:
+    conic-gradient(
+      from -45deg at bottom,
+      var(--gallery-edge-bg) 90deg,
+      var(--gallery-edge-gap) 0
+    )
+    50% / calc(var(--gallery-edge-size) * 2) 100% repeat-x;
+  pointer-events: none;
+} */
+
+/* ---------- Grid ---------- */
+/* auto-fill + min() collapses to fewer columns without media queries;
+   min() stops the track overflowing on viewports narrower than the minimum */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--gallery-item-min), 100%), 1fr)
+  );
+  gap: var(--gallery-gap);
+}
+
+/* ---------- Frame ---------- */
+/* The padding is the visible frame; the shadow lifts it off the gray section */
+.gallery__item {
+  padding: var(--gallery-frame-padding);
+  background-color: var(--gallery-frame-bg);
+  box-shadow: var(--gallery-frame-shadow);
+  transition: box-shadow var(--transition-normal);
+}
+
+.gallery__item:hover {
+  box-shadow: var(--gallery-frame-shadow-hover);
+}
+
+/* ---------- Media ---------- */
+/* overflow: hidden clips the zoomed/rotated image (and the light) inside the
+   frame, so the frame itself never moves. isolation keeps the light layer's
+   stacking local to this box. */
+.gallery__media {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: var(--gallery-image-ratio);
+  background-color: var(--gallery-media-bg);
+}
+
+/* object-fit crops instead of stretching when the ratio doesn't match.
+   Individual scale/rotate properties compose without overwriting each other */
+.gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    scale var(--transition-normal),
+    rotate var(--transition-normal);
+}
+
+.gallery__item:hover .gallery__image {
+  scale: var(--gallery-hover-scale);
+  rotate: var(--gallery-hover-rotate);
+}
+
+/* ---------- Flash ---------- */
+/* Light layer centered on the image; invisible (scale 0, opacity 0) at rest.
+   pointer-events: none so the layer never blocks clicks on the image. */
+.gallery__media::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--gallery-light);
+  scale: var(--gallery-flash-scale-start);
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* Plays once each time the pointer enters the item */
+.gallery__item:hover .gallery__media::after {
+  animation: gallery-flash var(--gallery-flash-duration)
+    var(--gallery-flash-easing);
+}
+
+/* ---------- Keyframes ---------- */
+/* Fully bright while it starts spreading from the center (0 → hold), then
+   keeps growing past the edges as it fades out, like a camera flash.
+   Keyframes read the local variables from the element they run on.
+   The 40% hold is a literal: custom properties can't be used in keyframe selectors */
+@keyframes gallery-flash {
+  0%,
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    scale: var(--gallery-flash-scale-end);
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
