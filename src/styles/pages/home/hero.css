@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Hero (pages/home/hero.css)
+   Home hero: intro copy beside a floating illustration on a slanted panel,
+   with a bouncing scroll-down hint below the cut.
+   Depends on: tokens/components.css, tokens/spacing.css,
+               tokens/typography.css, tokens/motion.css, layout/container.css
+   ========================================================================== */
+
+/* ---------- Section ---------- */
+.hero {
+  /* ---------- Local variables ---------- */
+  /* Scoped here because only the hero uses them; globals stay in tokens/ */
+  /* Colors alias semantic tokens, so they still follow the active theme */
+  /* Sunken gray panel; the white page shows under the slanted cut */
+  --hero-bg: var(--color-bg-sunken);
+  --hero-title-fg: var(--color-text-primary);
+  --hero-text-fg: var(--color-text-muted);
+  /* Brand blue for the scroll-down hint so it reads as interactive */
+  --hero-arrow-fg: var(--color-accent);
+  --hero-arrow-fg-hover: var(--color-primary-hover);
+  /* Height of the panel's right edge: 76% leaves the diagonal cut below it */
+  --hero-slant: 76%;
+  /* Fills the first screen below the sticky header */
+  --hero-min-height: calc(100vh - var(--header-height));
+  --hero-gap: clamp(2rem, 5vw, 4rem);
+  /* Caps line length of the intro copy for readability */
+  --hero-text-max-width: 500px;
+  --hero-image-max-width: 600px;
+  --hero-title-gap: 0.5rem;
+  /* Distance of the scroll-down arrow from the section's bottom edge */
+  --hero-arrow-offset: clamp(1rem, 2vw, 1.5rem);
+  /* Travel distances for the float / bounce animations */
+  --hero-float-distance: 16px;
+  --hero-bounce-distance: 10px;
+  /* Font sizes: title 24px on phones up to 40px on desktop */
+  --hero-title-size: clamp(1.4rem, 1rem + 2vw, 2.2rem);
+  --hero-text-size: clamp(0.85rem, 0.9rem + 0.5vw, 1.5rem);
+  --hero-arrow-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+
+  position: relative;
+  /* isolation keeps the z-index: -1 panel behind the content, not behind the page */
+  isolation: isolate;
+  min-height: var(--hero-min-height);
+  align-content: center;
+}
+
+/* ---------- Slanted background panel ---------- */
+/* Drawn on a pseudo-element so clip-path cuts only the gray panel,
+   leaving the scroll arrow visible in the white area underneath */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--hero-bg);
+  /* Right edge stops at --hero-slant, left edge reaches the bottom: diagonal cut */
+  clip-path: polygon(0 0, 100% 0, 100% var(--hero-slant), 0 96%);
+  /*
+    or can use this insteaded of  polygon
+    transform: skewY(-12deg);
+    transform-origin: top left;
+  */
+}
+
+/* ---------- Two-column layout ---------- */
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--hero-gap);
+  margin-bottom: 10vh;
+}
+
+.hero__text,
+.hero__image {
+  flex: 1;
+}
+
+/* Breakpoint is a literal: custom properties can't be used in media queries */
+@media (max-width: 992px) {
+  .hero__inner {
+    flex-direction: column;
+  }
+
+  .hero__text {
+    text-align: center;
+  }
+  .hero__image {
+    order: -1;
+    max-width: 50vw;
+  }
+}
+
+/* ---------- Text ---------- */
+/* No max-width on the column itself so it can grow; the cap lives on the
+   paragraph below to keep lines readable */
+.hero__title {
+  margin: 0 0 var(--hero-title-gap);
+  color: var(--hero-title-fg);
+  font-size: var(--hero-title-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -1px;
+}
+
+.hero__desc {
+  max-width: var(--hero-text-max-width);
+  margin: 0;
+  color: var(--hero-text-fg);
+  font-size: var(--hero-text-size);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Keep the capped paragraph centered under the title on mobile */
+@media (max-width: 991px) {
+  .hero__desc {
+    margin-inline: auto;
+  }
+}
+
+/* ---------- Illustration ---------- */
+/* Floats up and down forever to give the hero some life */
+.hero__image img {
+  /* Fluid but never larger than the design size, on every screen width */
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: hero-float var(--animation-float);
+}
+
+/* ---------- Scroll-down hint ---------- */
+/* Centered just below the panel's cut, in the white page area */
+.hero__arrow {
+  position: absolute;
+  bottom: var(--hero-arrow-offset);
+  left: 50%;
+  translate: -50% 0;
+  color: var(--hero-arrow-fg);
+  font-size: var(--hero-arrow-size);
+  line-height: var(--line-height-tight);
+  transition: color var(--transition-fast);
+}
+
+.hero__arrow:hover,
+.hero__arrow:focus-visible {
+  color: var(--hero-arrow-fg-hover);
+}
+
+/* Animate the icon, not the link, so the focus ring stays still */
+.hero__arrow i {
+  display: block;
+  animation: hero-bounce var(--animation-bounce);
+}
+
+/* ---------- Keyframes ---------- */
+/* Custom properties resolve from the animated element, which sits inside .hero */
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(calc(var(--hero-float-distance) * -1));
+  }
+}
+
+@keyframes hero-bounce {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%, 60% {
+    transform: translateY(calc(var(--hero-bounce-distance) * -1 ));
+  }
+}

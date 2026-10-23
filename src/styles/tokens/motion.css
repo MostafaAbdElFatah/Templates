@@ -9,4 +9,9 @@
   /* Two speeds only, so interactions across the site feel consistent */
   --transition-fast: 200ms ease;
   --transition-normal: 300ms ease;
+
+  /* ---------- Looping animations ---------- */
+  /* Slow float for the hero illustration, quicker bounce for the scroll hint */
+  --animation-float: 4s ease-in-out infinite alternate;
+  --animation-bounce: 1.5s ease-in-out infinite;
 }

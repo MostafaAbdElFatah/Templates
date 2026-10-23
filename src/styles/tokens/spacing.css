@@ -1,6 +1,7 @@
 /* ==========================================================================
    Spacing Tokens (tokens/spacing.css)
-   Theme-independent spacing and sizing values shared by layout and components.
+   Global, theme-independent spacing shared across several sections.
+   Section-specific spacing lives at the top of that section's own file.
    Depends on: nothing
    ========================================================================== */
 
@@ -11,29 +12,13 @@
   /* Fluid so sections breathe on desktop without wasting space on phones */
   --section-padding: clamp(3.5rem, 7vw, 5rem);
 
-  /* ---------- Header ---------- */
-  --header-padding: 20px;
-  /* Used to offset full-height sections below the header */
+  /* ---------- Header offset ---------- */
+  /* Global because full-height sections (e.g. hero) subtract it */
   --header-height: 72px;
-  /* Space between the logo and the nav once the header stacks */
-  --header-gap-sm: 10px;
-
-  /* ---------- Navigation ---------- */
-  /* Link padding sets the bar height, so the hover background fills it */
-  --nav-link-padding: 20px;
-  /* Tighter on small screens so all links fit on one centered row */
-  --nav-link-padding-sm: 10px;
-  /* Thickness of the top bar that grows on hover/focus */
-  --nav-indicator-height: 3px;
 
   /* ---------- Decorative images ---------- */
-  /* How far accent shapes overhang their image card */
+  /* Shared by services and about: how far accent shapes overhang their image card */
   --img-padding: 80px;
-
-  /* ---------- Dropdown ---------- */
-  --dropdown-width: 200px;
-  --dropdown-gap: 15px;
-  --dropdown-radius: 12px;
 
   /* ---------- Focus ---------- */
   --focus-ring-width: 2px;

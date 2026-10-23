@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Dropdown (components/dropdown.css)
+   Nav dropdown panel (styles not written yet).
+   Depends on: tokens/components.css
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+/* Moved here from tokens/ because only the dropdown uses them */
+.dropdown {
+  /* Surface (not elevated) so the hover background stays visible in dark mode */
+  --dropdown-bg: var(--color-bg-surface);
+  --dropdown-border: var(--color-border-strong);
+  --dropdown-shadow: var(--shadow-lg);
+  --dropdown-link-fg: var(--color-text-primary);
+  --dropdown-link-fg-hover: var(--color-text-accent);
+  --dropdown-link-bg-hover: var(--color-bg-hover);
+  --dropdown-width: 200px;
+  --dropdown-gap: 15px;
+  --dropdown-radius: 12px;
+}

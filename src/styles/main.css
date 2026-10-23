@@ -46,6 +46,7 @@
 
 /* ---------- Pages ---------- */
 /* Page-specific sections can override shared components when a page needs it */
+@import url("pages/home/hero.css") layer(pages);
 @import url("pages/home/features.css") layer(pages);
 @import url("pages/home/services.css") layer(pages);
 @import url("pages/home/portfolio.css") layer(pages);

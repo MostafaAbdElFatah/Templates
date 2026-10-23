@@ -5,6 +5,22 @@
                tokens/typography.css, tokens/motion.css
    ========================================================================== */
 
+/* ---------- Local variables ---------- */
+.nav {
+  /* Colors alias semantic tokens, so they still follow the active theme */
+  --nav-fg: var(--color-text-primary);
+  /* text-accent is the darker blue so small link text stays above 4.5:1 */
+  --nav-fg-hover: var(--color-text-accent);
+  --nav-bg-hover: var(--color-bg-hover);
+  --nav-indicator-bg: var(--color-primary);
+  /* Link padding sets the bar height, so the hover background fills it */
+  --nav-link-padding: 20px;
+  /* Tighter on small screens so all links fit on one centered row */
+  --nav-link-padding-sm: 10px;
+  /* Thickness of the top bar that grows on hover/focus */
+  --nav-indicator-height: 3px;
+}
+
 /* ---------- List ---------- */
 .nav__list {
   display: flex;

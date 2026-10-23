@@ -1,12 +1,18 @@
 /* ==========================================================================
    Portfolio (pages/home/portfolio.css)
    Home portfolio: auto-fit grid of project cards with image placeholders.
-   Depends on: tokens/components.css (--card-*, --placeholder-*),
+   Depends on: tokens/components.css (--card-*), tokens/semantic-*.css,
                tokens/spacing.css, tokens/motion.css
    ========================================================================== */
 
 /* ---------- Section ---------- */
 .portfolio {
+  /* ---------- Local variables ---------- */
+  /* Image placeholder gradient + icon; alias semantic tokens so they follow the theme */
+  --placeholder-bg-start: var(--color-bg-surface-subtle);
+  --placeholder-bg-end: var(--color-bg-sunken);
+  --placeholder-icon: var(--color-border-strong);
+
   padding: var(--section-padding) 0;
 }
 

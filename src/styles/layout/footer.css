@@ -1,11 +1,17 @@
 /* ==========================================================================
    Footer (layout/footer.css)
    Site-wide footer bar on the deep secondary surface.
-   Depends on: tokens/components.css (--footer-*)
+   Depends on: tokens/semantic-*.css
    ========================================================================== */
 
 /* ---------- Footer ---------- */
 .footer {
+  /* ---------- Local variables ---------- */
+  /* Secondary surface stays constant across themes */
+  --footer-bg: var(--color-secondary);
+  --footer-fg: var(--color-text-on-secondary);
+  --footer-highlight: var(--color-text-accent-on-secondary);
+
   padding: 30px 15px;
   background-color: var(--footer-bg);
   color: var(--footer-fg);
