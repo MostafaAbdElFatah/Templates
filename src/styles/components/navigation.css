@@ -10,30 +10,13 @@
   display: flex;
 }
 
-.nav__list li {
-  position: relative;
-  padding: var(--nav-link-padding) var(--nav-link-padding-sm);
-}
-
-.nav__list li::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  width: 0;
-  height: 3px;
-  background-color: var(--color-primary);
-  transition: width var(--transition-normal);
-}
-
-.nav__list li:hover:before {
-  width: 100%;
-}
-
 /* ---------- Link ---------- */
-/* Full header height so the hover background fills the whole bar */
+/* Padding lives on the link (not the <li>) so the whole area is clickable;
+   block display lets vertical padding set the bar height. */
 .nav__link {
+  position: relative;
+  display: block;
+  padding: var(--nav-link-padding) var(--nav-link-padding-sm);
   color: var(--nav-fg);
   font-size: var(--font-size-nav);
   font-weight: var(--font-weight-regular);
@@ -42,11 +25,30 @@
     background-color var(--transition-normal);
 }
 
+/* Top indicator bar that grows from the start edge on hover/focus.
+   Logical inset keeps it anchored correctly in RTL layouts. */
+.nav__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  width: 0;
+  height: var(--nav-indicator-height);
+  background-color: var(--nav-indicator-bg);
+  transition: width var(--transition-normal);
+}
+
 /* ---------- States ---------- */
 /* focus-visible mirrors hover so keyboard users get the same feedback */
 .nav__link:hover,
 .nav__link:focus-visible {
   color: var(--nav-fg-hover);
+  background-color: var(--nav-bg-hover);
+}
+
+.nav__link:hover::before,
+.nav__link:focus-visible::before {
+  width: 100%;
 }
 
 /* ---------- Small screens ---------- */
@@ -56,9 +58,9 @@
     justify-content: center;
   }
 
-  /* Shorter, tighter links so the whole menu fits on one row */
-  .nav__list li {
+  /* Tighter links so the whole menu fits on one row; font size is already
+     at its 14px minimum here via the fluid --font-size-nav */
+  .nav__link {
     padding: var(--nav-link-padding-sm);
-    font-size: var(--font-size-nav-sm);
   }
 }

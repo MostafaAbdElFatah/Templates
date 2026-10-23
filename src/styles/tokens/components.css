@@ -47,6 +47,7 @@
   /* text-accent is the darker blue so small link text stays above 4.5:1 */
   --nav-fg-hover: var(--color-text-accent);
   --nav-bg-hover: var(--color-bg-hover);
+  --nav-indicator-bg: var(--color-primary);
 
   /* ---------- Dropdown ---------- */
   /* Surface (not elevated) so the hover background stays visible in dark mode */

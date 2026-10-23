@@ -12,16 +12,15 @@
 }
 
 /* ---------- Inner layout ---------- */
-/* Logo on the start edge, navigation on the end edge */
+/* Logo on the start edge, navigation on the end edge. The nav links'
+   padding defines the bar's height. */
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0;
 }
 
 /* ---------- Logo ---------- */
-/* Same height as the nav links so both sit on one visual baseline */
 .header__logo {
   color: var(--header-logo-fg);
   font-size: var(--font-size-logo);
@@ -34,9 +33,6 @@
   /* Stack logo above the navigation, both centered */
   .header__inner {
     flex-direction: column;
-  }
-
-  .header__logo {
-    margin-bottom: 10px;
+    gap: var(--header-gap-sm);
   }
 }

@@ -14,8 +14,9 @@
 
   /* ---------- Header ---------- */
   --font-size-logo: clamp(1.25rem, 1rem + 1vw, 1.625rem);
-  --font-size-nav: clamp(0.875rem, 0.8rem + 0.5vw, 1.125rem);
-  --font-size-nav-sm: 0.875rem;
+  /* Fluid: 14px at ≤480px viewports, grows linearly to the preferred 18px
+     at 1200px (widest container) and stays there */
+  --font-size-nav: clamp(0.875rem, 0.708rem + 0.556vw, 1.125rem);
 
   /* ---------- Weights ---------- */
   --font-weight-regular: 400;
