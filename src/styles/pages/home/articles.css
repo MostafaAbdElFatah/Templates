@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Articles (pages/home/articles.css)
+   Home articles section, placed directly under the hero.
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, components/section-title.css
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+.articles {
+  --articles-bg: var(--color-bg-page);
+}
+
+/* ---------- Section ---------- */
+/* Shared fluid section padding keeps vertical rhythm consistent with other sections */
+.articles {
+  padding-block: var(--section-padding);
+  background-color: var(--articles-bg);
+}

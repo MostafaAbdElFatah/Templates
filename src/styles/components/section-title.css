@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Section Title (components/section-title.css)
+   Boxed section title flanked by two dots. On hover the dots slide into the
+   box and grow until they fill it, then the text flips to the on-primary color.
+   Usage: <h2 class="section-title">Articles</h2>
+   Depends on: tokens/semantic-*.css, tokens/typography.css, tokens/motion.css
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+.section-title {
+  /* Colors alias semantic tokens, so they still follow the active theme */
+  --section-title-fg: var(--color-text-primary);
+  --section-title-fg-hover: var(--color-text-on-primary);
+  --section-title-border: var(--color-text-primary);
+  /* Border takes the fill color on hover so the filled box reads as one solid block */
+  --section-title-border-hover: var(--color-primary);
+  --section-title-dot-bg: var(--color-primary);
+
+  /* Box */
+  --section-title-border-width: 2px;
+  --section-title-padding-block: 10px;
+  --section-title-padding-inline: 20px;
+  /* 22px on phones up to 30px on desktop */
+  --section-title-font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  /* Space between the title and the section content below it */
+  --section-title-margin-bottom: clamp(3rem, 6vw, 5rem);
+
+  /* Dots */
+  --section-title-dot-size: 12px;
+  /* How far each dot sits outside the box before hover */
+  --section-title-dot-offset: -30px;
+  --section-title-dot-radius: 50%;
+
+  /* Motion: the text color change waits for the fill to finish */
+  --section-title-fill-duration: 500ms;
+  --section-title-fill-easing: linear;
+}
+
+/* ---------- Box ---------- */
+/* fit-content + auto inline margins centers the box without a wrapper.
+   isolation creates a local stacking context so the dots can sit behind
+   the text with a negative z-index without slipping under the section. */
+.section-title {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+  margin: 0 auto var(--section-title-margin-bottom);
+  padding: var(--section-title-padding-block) var(--section-title-padding-inline);
+  border: var(--section-title-border-width) solid var(--section-title-border);
+  color: var(--section-title-fg);
+  font-size: var(--section-title-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  transition:
+    color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+/* ---------- Dots ---------- */
+/* Both pseudo-elements share the dot shape; each one is anchored to its own edge */
+.section-title::before,
+.section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+  width: var(--section-title-dot-size);
+  height: var(--section-title-dot-size);
+  background-color: var(--section-title-dot-bg);
+  border-radius: var(--section-title-dot-radius);
+  translate: 0 -50%;
+}
+
+/* Logical insets keep the dots on the correct sides in RTL layouts */
+.section-title::before {
+  inset-inline-start: var(--section-title-dot-offset);
+}
+
+.section-title::after {
+  inset-inline-end: var(--section-title-dot-offset);
+}
+
+/* ---------- Hover ---------- */
+/* Delay = fill duration, so the text and border change only once the box is filled */
+.section-title:hover {
+  color: var(--section-title-fg-hover);
+  border-color: var(--section-title-border-hover);
+  transition-delay: var(--section-title-fill-duration);
+}
+
+/* forwards keeps each half filled for as long as the pointer stays on the box */
+.section-title:hover::before {
+  animation: section-title-fill-start var(--section-title-fill-duration) var(--section-title-fill-easing) forwards;
+}
+
+.section-title:hover::after {
+  animation: section-title-fill-end var(--section-title-fill-duration) var(--section-title-fill-easing) forwards;
+}
+
+/* ---------- Keyframes ---------- */
+/* Two phases: the dot first slides onto the box edge (50%), then grows into
+   a square that covers its half of the box (100%). Keyframes read the local
+   variables from the element they run on. */
+@keyframes section-title-fill-start {
+  50% {
+    inset-inline-start: 0;
+    width: var(--section-title-dot-size);
+    height: var(--section-title-dot-size);
+  }
+
+  100% {
+    inset-inline-start: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes section-title-fill-end {
+  50% {
+    inset-inline-end: 0;
+    width: var(--section-title-dot-size);
+    height: var(--section-title-dot-size);
+  }
+
+  100% {
+    inset-inline-end: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0;
+  }
+}

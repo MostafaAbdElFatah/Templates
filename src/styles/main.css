@@ -43,10 +43,12 @@
 @import url("components/navigation.css") layer(components);
 @import url("components/dropdown.css") layer(components);
 @import url("components/section-heading.css") layer(components);
+@import url("components/section-title.css") layer(components);
 
 /* ---------- Pages ---------- */
 /* Page-specific sections can override shared components when a page needs it */
 @import url("pages/home/hero.css") layer(pages);
+@import url("pages/home/articles.css") layer(pages);
 @import url("pages/home/features.css") layer(pages);
 @import url("pages/home/services.css") layer(pages);
 @import url("pages/home/portfolio.css") layer(pages);
