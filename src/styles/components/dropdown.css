@@ -43,7 +43,7 @@
    visibility (not just opacity) keeps the hidden panel from catching clicks. */
 .dropdown {
   position: absolute; 
-  top: 100%;
+  top: calc(100% + 1px);
   inset-inline: 0;
   z-index: var(--dropdown-z-index);
   display: flex;  
