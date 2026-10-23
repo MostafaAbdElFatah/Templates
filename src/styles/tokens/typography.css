@@ -9,7 +9,15 @@
   --font-family-base: "Cairo", sans-serif;
 
   /* ---------- Scale ---------- */
-  /* rem so the whole scale follows the user's browser font-size setting */
-  --font-size-base: 1rem;
+  --font-size-base: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
   --line-height-base: 1.5;
+
+  /* ---------- Header ---------- */
+  --font-size-logo: clamp(1.25rem, 1rem + 1vw, 1.625rem);
+  --font-size-nav: clamp(0.875rem, 0.8rem + 0.5vw, 1.125rem);
+  --font-size-nav-sm: 0.875rem;
+
+  /* ---------- Weights ---------- */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
 }

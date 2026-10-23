@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Navigation (components/navigation.css)
+   Horizontal main menu used inside the header.
+   Depends on: tokens/components.css, tokens/spacing.css,
+               tokens/typography.css, tokens/motion.css
+   ========================================================================== */
+
+/* ---------- List ---------- */
+.nav__list {
+  display: flex;
+}
+
+.nav__list li {
+  position: relative;
+  padding: var(--nav-link-padding) var(--nav-link-padding-sm);
+}
+
+.nav__list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.nav__list li:hover:before {
+  width: 100%;
+}
+
+/* ---------- Link ---------- */
+/* Full header height so the hover background fills the whole bar */
+.nav__link {
+  color: var(--nav-fg);
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-regular);
+  transition:
+    color var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+/* ---------- States ---------- */
+/* focus-visible mirrors hover so keyboard users get the same feedback */
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--nav-fg-hover);
+}
+
+/* ---------- Small screens ---------- */
+/* Breakpoint is a literal: custom properties can't be used in media queries */
+@media (max-width: 480px) {
+  .nav__list {
+    justify-content: center;
+  }
+
+  /* Shorter, tighter links so the whole menu fits on one row */
+  .nav__list li {
+    padding: var(--nav-link-padding-sm);
+    font-size: var(--font-size-nav-sm);
+  }
+}

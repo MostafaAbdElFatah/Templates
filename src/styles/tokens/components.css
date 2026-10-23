@@ -40,7 +40,13 @@
   --header-bg: var(--color-bg-surface);
   --header-border: var(--color-border-subtle);
   --header-shadow: var(--shadow-sm);
+  /* Accent (not text-accent): the logo is large bold text, so the brighter
+     brand blue still meets the 3:1 large-text contrast ratio */
+  --header-logo-fg: var(--color-accent);
   --nav-fg: var(--color-text-primary);
+  /* text-accent is the darker blue so small link text stays above 4.5:1 */
+  --nav-fg-hover: var(--color-text-accent);
+  --nav-bg-hover: var(--color-bg-hover);
 
   /* ---------- Dropdown ---------- */
   /* Surface (not elevated) so the hover background stays visible in dark mode */

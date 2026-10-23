@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Header (layout/header.css)
+   Top bar holding the brand logo and the main navigation.
+   Depends on: tokens/components.css, tokens/spacing.css,
+               tokens/typography.css, layout/container.css
+   ========================================================================== */
+
+/* ---------- Bar ---------- */
+.header {
+  background-color: var(--header-bg);
+  box-shadow: var(--header-shadow);
+}
+
+/* ---------- Inner layout ---------- */
+/* Logo on the start edge, navigation on the end edge */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+/* ---------- Logo ---------- */
+/* Same height as the nav links so both sit on one visual baseline */
+.header__logo {
+  color: var(--header-logo-fg);
+  font-size: var(--font-size-logo);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ---------- Small screens ---------- */
+/* Breakpoint is a literal: custom properties can't be used in media queries */
+@media (max-width: 480px) {
+  /* Stack logo above the navigation, both centered */
+  .header__inner {
+    flex-direction: column;
+  }
+
+  .header__logo {
+    margin-bottom: 10px;
+  }
+}

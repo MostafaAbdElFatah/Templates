@@ -13,8 +13,18 @@
 
   /* ---------- Header ---------- */
   --header-padding: 20px;
-  /* Used to offset full-height sections below the fixed header */
-  --header-height: 74px;
+  /* Used to offset full-height sections below the fixed header; nav links
+     stretch to this height so their hover background fills the bar */
+  --header-height: 72px;
+  /* Logo row height once the header stacks on small screens */
+  --header-logo-height-sm: 50px;
+
+  /* ---------- Navigation ---------- */
+  /* Wide horizontal padding gives each link a generous hover target */
+  --nav-link-padding: 20px;
+  /* Tighter on small screens so all links fit on one centered row */
+  --nav-link-padding-sm: 10px;
+  --nav-link-height-sm: 40px;
 
   /* ---------- Decorative images ---------- */
   /* How far accent shapes overhang their image card */
