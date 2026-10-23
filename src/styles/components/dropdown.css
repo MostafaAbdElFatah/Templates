@@ -23,6 +23,8 @@
   --dropdown-accent-width: 3px;
   --dropdown-border-width: 1px;
   --dropdown-link-padding: 15px;
+  /* Tighter rows on small screens so the stacked list stays compact */
+  --dropdown-link-padding-sm: 10px;
   --dropdown-icon-gap: 10px;
   /* Distance the panel slides up from while it fades in */
   --dropdown-offset: 50px;
@@ -70,14 +72,14 @@
 
 /* ---------- Image ---------- */
 .dropdown__image {
-  flex: 2;
+  flex: 1;
 }
 
 /* ---------- Link grid ---------- */
 /* One list split into columns: column flow fills top-to-bottom first, so the
    visual order matches the DOM (and screen-reader) order. */
 .dropdown__links {
-  flex: 2;
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(var(--dropdown-columns), minmax(var(--dropdown-column-min), 1fr));
   grid-template-rows: repeat(var(--dropdown-rows), auto);
@@ -128,6 +130,7 @@
   color: var(--dropdown-link-fg);
   font-size: var(--dropdown-link-font-size);
   font-weight: var(--font-weight-bold);
+  white-space: nowrap;
 }
 
 /* ---------- Medium screens ---------- */
@@ -142,7 +145,7 @@
 /* ---------- Small screens ---------- */
 @media (max-width: 767px) {
   .dropdown {
-    padding: var(--dropdown-padding-sm);
+    padding: 0; /*var(--dropdown-padding-sm);*/
   }
 
   /* Collapse the grid into a single column in normal row flow */
@@ -155,5 +158,9 @@
   /* Single column: every item gets a divider except the very last one */
   .dropdown__item:not(:last-child) {
     border-bottom: var(--dropdown-border-width) solid var(--dropdown-border);
+  }
+
+  .dropdown__link {
+    padding: var(--dropdown-link-padding-sm);
   }
 }
