@@ -16,7 +16,8 @@
 .nav__link {
   position: relative;
   display: block;
-  padding: var(--nav-link-padding) var(--nav-link-padding-sm);
+  white-space: nowrap;
+  padding: var(--nav-link-padding);
   color: var(--nav-fg);
   font-size: var(--font-size-nav);
   font-weight: var(--font-weight-regular);
