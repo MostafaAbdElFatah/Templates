@@ -19,6 +19,8 @@
 /* ---------- Document ---------- */
 html {
   scroll-behavior: smooth;
+  /* Anchor jumps (#articles, …) stop below the sticky header instead of under it */
+  scroll-padding-top: var(--header-height);
   /* Firefox and modern Chromium read this; the ::-webkit rules cover Safari */
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }

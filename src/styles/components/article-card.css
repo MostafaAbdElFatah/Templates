@@ -51,12 +51,14 @@
   box-shadow: var(--article-card-shadow);
   transition:
     scale var(--transition-normal),
+    transition var(--transition-normal),
     box-shadow var(--transition-normal);
 }
 
 /* focus-within mirrors hover so keyboard users get the same feedback */
 .article-card:hover,
 .article-card:focus-within {
+  transform: translateY(-10px);
   scale: var(--article-card-hover-scale);
   box-shadow: var(--article-card-shadow-hover);
 }
