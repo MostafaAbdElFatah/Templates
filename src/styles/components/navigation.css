@@ -68,6 +68,18 @@
   width: 100%;
 }
 
+/* Keep the trigger highlighted while the pointer/focus is inside its mega menu */
+.nav__item--has-dropdown:hover > .nav__link,
+.nav__item--has-dropdown:focus-within > .nav__link {
+  color: var(--nav-fg-hover);
+  background-color: var(--nav-bg-hover);
+}
+
+.nav__item--has-dropdown:hover > .nav__link::before,
+.nav__item--has-dropdown:focus-within > .nav__link::before {
+  width: 100%;
+}
+
 /* ---------- Small screens ---------- */
 /* Breakpoint is a literal: custom properties can't be used in media queries */
 @media (max-width: 480px) {

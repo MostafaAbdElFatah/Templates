@@ -34,7 +34,71 @@
                     <li><a class="nav__link" href="#articles">Articles</a></li>
                     <li><a class="nav__link" href="#gallery">Gallery</a></li>
                     <li><a class="nav__link" href="#features">Features</a></li>
-                    <li><a class="nav__link" href="#other-links">Other Links</a></li>
+                    <li class="nav__item--has-dropdown">
+                        <a class="nav__link" href="#other-links" aria-haspopup="true">Other Links</a>
+
+                        <!-- Mega menu: opens on hover / keyboard focus -->
+                        <div class="dropdown">
+                            <!-- Decorative illustration (hidden on small screens) -->
+                            <div class="dropdown__image">
+                                <img src="src/assets/imgs/navigation/megamenu.png" alt="">
+                            </div>
+
+                            <!-- Links: one list, laid out in two columns by CSS grid -->
+                            <ul class="dropdown__links">
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#testimonials">
+                                        <i class="fa-regular fa-comments" aria-hidden="true"></i>Testimonials
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#team">
+                                        <i class="fa-regular fa-user" aria-hidden="true"></i>Team Members
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#services">
+                                        <i class="fa-regular fa-building" aria-hidden="true"></i>Services
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#skills">
+                                        <i class="fa-regular fa-circle-check" aria-hidden="true"></i>Our Skills
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#work-steps">
+                                        <i class="fa-regular fa-clipboard" aria-hidden="true"></i>How It Works
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#events">
+                                        <i class="fa-regular fa-calendar-days" aria-hidden="true"></i>Events
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#pricing">
+                                        <i class="fa-solid fa-server" aria-hidden="true"></i>Pricing Plans
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#videos">
+                                        <i class="fa-regular fa-circle-play" aria-hidden="true"></i>Top Videos
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#stats">
+                                        <i class="fa-regular fa-chart-bar" aria-hidden="true"></i>Stats
+                                    </a>
+                                </li>
+                                <li class="dropdown__item">
+                                    <a class="dropdown__link" href="#discount">
+                                        <i class="fa-solid fa-percent" aria-hidden="true"></i>Request A Discount
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>

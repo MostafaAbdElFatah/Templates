@@ -1,7 +1,8 @@
 /* ==========================================================================
    Dropdown (components/dropdown.css)
-   Nav dropdown panel (styles not written yet).
-   Depends on: tokens/components.css
+   Full-width mega menu opened from the "Other Links" nav item.
+   Depends on: tokens/semantic-*.css, tokens/typography.css,
+               tokens/motion.css, layout/header.css (positioned .header__inner)
    ========================================================================== */
 
 /* ---------- Local variables ---------- */
@@ -9,12 +10,150 @@
 .dropdown {
   /* Surface (not elevated) so the hover background stays visible in dark mode */
   --dropdown-bg: var(--color-bg-surface);
-  --dropdown-border: var(--color-border-strong);
+  --dropdown-border: var(--color-border-default);
+  --dropdown-accent-border: var(--color-primary);
   --dropdown-shadow: var(--shadow-lg);
-  --dropdown-link-fg: var(--color-text-primary);
-  --dropdown-link-fg-hover: var(--color-text-accent);
+  /* text-accent is the darker blue so bold link text stays above 4.5:1 */
+  --dropdown-link-fg: var(--color-text-accent);
   --dropdown-link-bg-hover: var(--color-bg-hover);
-  --dropdown-width: 200px;
-  --dropdown-gap: 15px;
-  --dropdown-radius: 12px;
+  --dropdown-link-font-size: var(--font-size-nav);
+  --dropdown-padding: 30px;
+  --dropdown-padding-sm: 15px;
+  --dropdown-gap: 40px;
+  --dropdown-accent-width: 3px;
+  --dropdown-border-width: 1px;
+  --dropdown-link-padding: 15px;
+  --dropdown-icon-gap: 10px;
+  /* Distance the panel slides up from while it fades in */
+  --dropdown-offset: 50px;
+  /* Above the header's own children; the header itself owns the page-level z-index */
+  --dropdown-z-index: 100;
+  /* Link grid: items fill each column top-to-bottom before moving on */
+  --dropdown-columns: 2;
+  --dropdown-rows: 5;
+  --dropdown-column-min: 200px;
+  --dropdown-column-gap: 30px;
+}
+
+/* ---------- Panel ---------- */
+/* Absolute against .header__inner (the nearest positioned ancestor), so the
+   panel spans the full container width instead of the <li> width.
+   visibility (not just opacity) keeps the hidden panel from catching clicks. */
+.dropdown {
+  position: absolute; 
+  top: 100%;
+  inset-inline: 0;
+  z-index: var(--dropdown-z-index);
+  display: flex;  
+  gap: var(--dropdown-gap);  
+  padding: var(--dropdown-padding);  
+  background-color: var(--dropdown-bg);  
+  border-bottom: var(--dropdown-accent-width) solid var(--dropdown-accent-border); 
+  box-shadow: var(--dropdown-shadow);
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 var(--dropdown-offset);
+  transition:
+    opacity var(--transition-normal),
+    translate var(--transition-normal),
+    visibility var(--transition-normal);
+}
+
+/* ---------- Open state ---------- */
+/* focus-within mirrors hover so keyboard (and tap) users can open the menu */
+.nav__item--has-dropdown:hover > .dropdown,
+.nav__item--has-dropdown:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+}
+
+/* ---------- Image ---------- */
+.dropdown__image {
+  flex: 2;
+}
+
+/* ---------- Link grid ---------- */
+/* One list split into columns: column flow fills top-to-bottom first, so the
+   visual order matches the DOM (and screen-reader) order. */
+.dropdown__links {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--dropdown-columns), minmax(var(--dropdown-column-min), 1fr));
+  grid-template-rows: repeat(var(--dropdown-rows), auto);
+  grid-auto-flow: column;
+  column-gap: var(--dropdown-column-gap);
+  align-content: start;
+}
+
+/* ---------- Item ---------- */
+/* isolation creates a local stacking context so the ::before layer can sit
+   behind the link text with a negative z-index without leaving the item. */
+.dropdown__item {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Divider under every row except the bottom one of each column.
+   5n must match --dropdown-rows: custom properties can't be used in selectors. */
+.dropdown__item:not(:nth-child(5n)) {
+  border-bottom: var(--dropdown-border-width) solid var(--dropdown-border);
+}
+
+/* Animated background that grows from the start edge on hover/focus.
+   Logical inset keeps it anchored correctly in RTL layouts. */
+.dropdown__item::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: -1;
+  width: 0;
+  background-color: var(--dropdown-link-bg-hover);
+  transition: width var(--transition-normal);
+}
+
+.dropdown__item:hover::before,
+.dropdown__item:focus-within::before {
+  width: 100%;
+}
+
+/* ---------- Link ---------- */
+/* Padding lives on the link so the whole row is clickable */
+.dropdown__link {
+  display: flex;
+  align-items: center;
+  gap: var(--dropdown-icon-gap);
+  padding: var(--dropdown-link-padding);
+  color: var(--dropdown-link-fg);
+  font-size: var(--dropdown-link-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ---------- Medium screens ---------- */
+/* Breakpoint is a literal: custom properties can't be used in media queries */
+@media (max-width: 991px) {
+  /* Drop the illustration so both link columns keep a usable width */
+  .dropdown__image {
+    display: none;
+  }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 767px) {
+  .dropdown {
+    padding: var(--dropdown-padding-sm);
+  }
+
+  /* Collapse the grid into a single column in normal row flow */
+  .dropdown__links {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+
+  /* Single column: every item gets a divider except the very last one */
+  .dropdown__item:not(:last-child) {
+    border-bottom: var(--dropdown-border-width) solid var(--dropdown-border);
+  }
 }

@@ -32,6 +32,7 @@
 /* Logo on the start edge, navigation on the end edge. The nav links'
    padding defines the bar's height. */
 .header__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
