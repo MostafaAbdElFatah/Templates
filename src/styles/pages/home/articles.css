@@ -1,12 +1,16 @@
 /* ==========================================================================
    Articles (pages/home/articles.css)
    Home articles section, placed directly under the hero.
-   Depends on: tokens/spacing.css, tokens/semantic-*.css, components/section-title.css
+   Depends on: tokens/spacing.css, tokens/semantic-*.css,
+               components/section-title.css, components/article-card.css
    ========================================================================== */
 
 /* ---------- Local variables ---------- */
 .articles {
   --articles-bg: var(--color-bg-page);
+  /* Cards never shrink below this before the grid drops a column */
+  --articles-card-min: 250px;
+  --articles-gap: 40px;
 }
 
 /* ---------- Section ---------- */
@@ -14,4 +18,13 @@
 .articles {
   padding-block: var(--section-padding);
   background-color: var(--articles-bg);
+}
+
+/* ---------- Grid ---------- */
+/* auto-fill + min() collapses to fewer columns without media queries;
+   min() stops the track overflowing on viewports narrower than the minimum */
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--articles-card-min), 100%), 1fr));
+  gap: var(--articles-gap);
 }

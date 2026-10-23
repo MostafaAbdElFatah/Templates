@@ -44,6 +44,7 @@
 @import url("components/dropdown.css") layer(components);
 @import url("components/section-heading.css") layer(components);
 @import url("components/section-title.css") layer(components);
+@import url("components/article-card.css") layer(components);
 
 /* ---------- Pages ---------- */
 /* Page-specific sections can override shared components when a page needs it */
@@ -57,3 +58,4 @@
 
 /* ---------- Utilities ---------- */
 /* Highest layer so a utility class always wins over component styles */
+@import url("utilities/visually-hidden.css") layer(utilities);
