@@ -111,7 +111,7 @@
 
   100% {
     inset-inline-start: 0;
-    width: 50%;
+    width: calc(50% + 1vw);
     height: 100%;
     border-radius: 0;
   }
@@ -126,7 +126,7 @@
 
   100% {
     inset-inline-end: 0;
-    width: 50%;
+    width: calc(50% + 1vw);
     height: 100%;
     border-radius: 0;
   }

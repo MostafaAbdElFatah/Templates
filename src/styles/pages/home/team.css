@@ -13,6 +13,8 @@
   --team-card-fg: var(--card-fg);
   --team-name-color: var(--color-text-muted);
   --team-name-color-hover: var(--color-text-accent);
+  /* --team-name-color: var(--color-text-accent);
+  --team-name-color-hover: var(--color-text-muted); */
   --team-card-lift: -0.75rem;
   --team-card-scale: 1.03;
   /* Duration/easing for the right-to-left overlay sweeps */
@@ -41,7 +43,10 @@
 /* ---------- Grid ---------- */
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(var(--team-grid-min), 100%), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--team-grid-min), 100%), 1fr)
+  );
   gap: var(--team-grid-gap);
 }
 
@@ -91,19 +96,26 @@
   z-index: -1;
   inset-block: 0;
   inset-inline-end: 0;
-  inset-inline-start: calc((100% - var(--team-socials-col)) * var(--team-image-out));
+  inset-inline-start: calc(
+    (100% - var(--team-socials-col)) * var(--team-image-out)
+  );
   background-color: var(--team-card-bg);
-  background-image: linear-gradient(var(--team-card-bg-hover), var(--team-card-bg-hover));
+  background-image: linear-gradient(
+    var(--team-card-bg-hover),
+    var(--team-card-bg-hover)
+  );
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 0% 100%;
+  background-position: left center;
+  background-size: 100% 100%;
+  /* background-size: 0 100%; */
   border-radius: var(--team-card-radius);
   transition: background-size var(--team-sweep);
 }
 
 .team__card:hover::before,
 .team__card:focus-within::before {
-  background-size: 100% 100%;
+  background-size: 0 100%;
+  /* background-size: 100% 100%; */
 }
 
 /* ---------- Photo ---------- */
@@ -136,6 +148,8 @@
   inset-block: 0;
   left: 0;
   width: 100%;
+  /* right: 0;
+  width: 0; */
   pointer-events: none;
   -webkit-backdrop-filter: grayscale(1);
   backdrop-filter: grayscale(1);
@@ -149,7 +163,8 @@
 
 .team__card:hover .team__media::after,
 .team__card:focus-within .team__media::after {
-  width: 0;
+  width: 0%;
+  /* width: 100%; */
 }
 
 .team__card:hover .team__image,
@@ -209,7 +224,9 @@
   aspect-ratio: 1;
   color: var(--team-social-color);
   border-radius: 50%;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .team__socials a:hover {
