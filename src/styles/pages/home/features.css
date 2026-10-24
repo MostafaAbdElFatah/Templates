@@ -55,6 +55,8 @@
   --features-bar-width: 60%;
   --features-bar-height: 5px;
   --features-bar-offset: 15px;
+  /* On hover the bar stretches to the full width of the title text */
+  --features-bar-width-hover: 100%;
 
   /* Button: 20px bold counts as large text, so the base accent shade meets 3:1 */
   --features-link-size: 1.25rem;
@@ -193,6 +195,13 @@
   width: var(--features-bar-width);
   height: var(--features-bar-height);
   background-color: var(--features-accent);
+  transition: width var(--transition-normal);
+}
+
+/* Grows from the center outward (translate keeps it centered) */
+.features__card:hover .features__title::after,
+.features__card:focus-within .features__title::after {
+  width: var(--features-bar-width-hover);
 }
 
 /* ---------- Text ---------- */

@@ -51,6 +51,7 @@
 @import url("pages/home/hero.css") layer(pages);
 @import url("pages/home/articles.css") layer(pages);
 @import url("pages/home/gallery.css") layer(pages);
+@import url("pages/home/testimonials.css") layer(pages);
 @import url("pages/home/features.css") layer(pages);
 /* @import url("pages/home/services.css") layer(pages);
 @import url("pages/home/portfolio.css") layer(pages);
