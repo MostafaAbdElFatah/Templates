@@ -1,0 +1,112 @@
+/* ============================================================================
+   Skills (pages/home/skills.css)
+   Two-column skills showcase with an illustration and progress bars.
+   ============================================================================ */
+
+/* ---------- Local variables ---------- */
+.skills {
+  --skills-bg: var(--color-bg-page);
+  --skills-gap: clamp(2rem, 6vw, 5rem);
+  --skills-image-width: min(100%, 32rem);
+  --skills-list-width: min(100%, 40rem);
+  --skills-item-gap: 1.25rem;
+  --skills-label-gap: 0.5rem;
+  --skills-label-size: 1.125rem;
+  --skills-value-size: 0.75rem;
+  --skills-value-padding: 0.2rem 0.4rem;
+  --skills-value-border: var(--color-border-default);
+  --skills-value-fg: var(--color-primary);
+  --skills-track-height: 1.875rem;
+  --skills-track-bg: var(--color-bg-surface-subtle);
+  --skills-progress-bg: var(--color-primary);
+  --skills-progress-html: 80%;
+  --skills-progress-css: 85%;
+  --skills-progress-javascript: 70%;
+  --skills-progress-python: 80%;
+  --skills-transition: width var(--transition-normal);
+}
+
+/* ---------- Section ---------- */
+.skills {
+  padding-block: var(--section-padding);
+  background-color: var(--skills-bg);
+}
+
+/* ---------- Two-column layout ---------- */
+.skills__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--skills-gap);
+}
+
+/* ---------- Illustration ---------- */
+.skills__image {
+  width: var(--skills-image-width);
+  margin-inline: auto;
+}
+
+/* ---------- Skill list ---------- */
+.skills__list {
+  display: grid;
+  gap: var(--skills-item-gap);
+  width: var(--skills-list-width);
+}
+
+.skills__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--skills-label-gap);
+  margin-block-end: var(--skills-label-gap);
+  font-size: var(--skills-label-size);
+  font-weight: var(--font-weight-bold);
+}
+
+.skills__label span:last-child {
+  padding: var(--skills-value-padding);
+  color: var(--skills-value-fg);
+  border: var(--border-width-thin) solid var(--skills-value-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--skills-value-size);
+}
+
+/* ---------- Progress bars ---------- */
+.skills__track {
+  overflow: hidden;
+  height: var(--skills-track-height);
+  background-color: var(--skills-track-bg);
+}
+
+.skills__progress {
+  display: block;
+  width: var(--skills-progress);
+  height: 100%;
+  background-color: var(--skills-progress-bg);
+  transition: var(--skills-transition);
+}
+
+/* ---------- Skill levels ---------- */
+.skills__item--html { --skills-progress: var(--skills-progress-html); }
+.skills__item--css { --skills-progress: var(--skills-progress-css); }
+.skills__item--javascript { --skills-progress: var(--skills-progress-javascript); }
+.skills__item--python { --skills-progress: var(--skills-progress-python); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 991px) {
+  .skills__content {
+    grid-template-columns: 1fr;
+  }
+
+  .skills__image,
+  .skills__list {
+    width: 100%;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .skills__progress {
+    transition: none;
+  }
+}

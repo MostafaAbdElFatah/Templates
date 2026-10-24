@@ -1,0 +1,134 @@
+/* ============================================================================
+   How It Works (pages/home/work-steps.css)
+   Illustration-led process section with stacked explanatory cards.
+   ============================================================================ */
+
+/* ---------- Local variables ---------- */
+.work-steps {
+  --work-steps-bg: var(--color-bg-surface-subtle);
+  --work-steps-gap: clamp(2rem, 6vw, 5rem);
+  --work-steps-image-width: min(100%, 31rem);
+  --work-steps-list-width: min(100%, 35.5rem);
+  --work-steps-list-gap: 1.25rem;
+  --work-steps-card-gap: 1.5rem;
+  --work-steps-card-padding: 1.5rem;
+  --work-steps-card-bg: var(--color-bg-surface);
+  --work-steps-card-border: var(--white);
+  --work-steps-card-radius: var(--radius-sm);
+  --work-steps-icon-width: 4.5rem;
+  --work-steps-icon-size: 3.75rem;
+  --work-steps-title-size: 1.25rem;
+  --work-steps-text-color: var(--color-text-secondary);
+  --work-steps-flash-color: var(--white);
+  --work-steps-flash-duration: 500ms;
+}
+
+/* ---------- Section ---------- */
+.work-steps {
+  padding-block: var(--section-padding);
+  background-color: var(--work-steps-bg);
+}
+
+/* ---------- Main layout ---------- */
+.work-steps__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--work-steps-gap);
+}
+
+.work-steps__image {
+  width: var(--work-steps-image-width);
+  margin-inline: auto;
+}
+
+/* ---------- Process cards ---------- */
+.work-steps__list {
+  display: grid;
+  gap: var(--work-steps-list-gap);
+  width: var(--work-steps-list-width);
+}
+
+.work-steps__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: var(--work-steps-icon-width) minmax(0, 1fr);
+  gap: var(--work-steps-card-gap);
+  align-items: center;
+  padding: var(--work-steps-card-padding);
+  background-color: var(--work-steps-card-bg);
+  border: var(--border-width-thin) solid var(--work-steps-card-border);
+  border-radius: var(--work-steps-card-radius);
+}
+
+/* ---------- Hover flash ---------- */
+/* A quick diagonal highlight gives the card a responsive flash without
+   changing its layout or resting appearance. */
+.work-steps__card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  inset-inline-start: -40%;
+  width: 25%;
+  background-color: var(--work-steps-flash-color);
+  opacity: 0;
+  transform: skewX(-20deg);
+}
+
+.work-steps__card:hover::after,
+.work-steps__card:focus-within::after {
+  animation: work-steps-flash var(--work-steps-flash-duration) ease-out;
+}
+
+@keyframes work-steps-flash {
+  0% { inset-inline-start: -40%; opacity: 0; }
+  25% { opacity: 0.35; }
+  100% { inset-inline-start: 120%; opacity: 0; }
+}
+
+.work-steps__icon {
+  position: relative;
+  z-index: 1;
+  width: var(--work-steps-icon-size);
+  height: var(--work-steps-icon-size);
+  object-fit: contain;
+}
+
+.work-steps__title {
+  position: relative;
+  z-index: 1;
+  font-size: var(--work-steps-title-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.work-steps__text {
+  position: relative;
+  z-index: 1;
+  margin-block-start: 0.75rem;
+  color: var(--work-steps-text-color);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 991px) {
+  .work-steps__content {
+    grid-template-columns: 1fr;
+  }
+
+  .work-steps__image,
+  .work-steps__list {
+    width: 100%;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .work-steps__card:hover::after,
+  .work-steps__card:focus-within::after {
+    animation: none;
+  }
+}

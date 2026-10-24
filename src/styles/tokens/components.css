@@ -44,4 +44,6 @@
   --scrollbar-width: 12px;
   --scrollbar-thumb-border-width: 3px;
   --scrollbar-thumb-radius: 999px;
+  --border-width-thin: 1px;
+  --radius-sm: 4px;
 }
