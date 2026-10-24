@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Team (pages/home/team.css)
+   Member cards whose photo breaks out of the panel: 30% of the image sits
+   outside the card on the inline-start side, socials run down the other side.
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+.team {
+  --team-card-bg: var(--color-bg-surface-subtle);
+  --team-card-fg: var(--card-fg);
+  --team-name-color: var(--color-text-accent);
+  --team-muted: var(--color-text-secondary);
+  --team-social-color: var(--color-text-muted);
+  --team-social-hover: var(--color-text-accent);
+  --team-image-shadow: var(--shadow-md);
+  --team-image-shadow-hover: var(--shadow-lg);
+  --team-grid-min: 270px;
+  --team-grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --team-card-radius: 0.75rem;
+  --team-image-radius: 0.75rem;
+  /* Share of the photo that hangs outside the card panel */
+  --team-image-out: 0.2;
+  --team-socials-col: clamp(2.75rem, 5vw, 3.5rem);
+  --team-card-pad-top: clamp(2.5rem, 5vw, 3.75rem);
+  --team-card-pad-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  --team-body-gap: 0.65rem;
+}
+
+.team {
+  padding-block: var(--section-padding);
+}
+
+/* ---------- Grid ---------- */
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--team-grid-min), 100%), 1fr));
+  gap: var(--team-grid-gap);
+}
+
+/* ---------- Card ---------- */
+/* Column 1 = photo width, column 2 = socials rail. The grey panel is a
+   pseudo-element that starts 30% into column 1, so the photo overhangs it. */
+.team__card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--team-socials-col);
+  grid-template-areas:
+    "media socials"
+    "body  body";
+  padding-block: var(--team-card-pad-top) var(--team-card-pad-bottom);
+  color: var(--team-card-fg);
+}
+
+.team__card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  inset-inline-end: 0;
+   inset-inline-start: calc((100% - var(--team-socials-col)) * var(--team-image-out));
+  background-color: var(--team-card-bg);
+  border-radius: var(--team-card-radius);
+  transition: background-color var(--transition-normal);
+}
+
+/* ---------- Photo ---------- */
+.team__media {
+  grid-area: media;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: var(--team-image-radius);
+  box-shadow: var(--team-image-shadow);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.team__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.team__card:hover .team__media {
+  transform: translateY(-0.5rem);
+  box-shadow: var(--team-image-shadow-hover);
+}
+
+.team__card:hover .team__image {
+  transform: scale(1.06);
+}
+
+/* ---------- Copy ---------- */
+/* Percentage margin resolves against the grid area, so the copy lines up
+   with the panel edge (30% of photo width) plus breathing room. */
+.team__body {
+  grid-area: body;
+  display: grid;
+  gap: var(--team-body-gap);
+  margin-block-start: clamp(1rem, 2vw, 1.5rem);
+  padding-inline-start: calc(
+    (100% - var(--team-socials-col)) * var(--team-image-out) + 1.25rem
+  );
+  padding-inline-end: 1.25rem;
+}
+
+.team__name {
+  color: var(--team-name-color);
+  font-size: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.team__role {
+  color: var(--team-muted);
+  font-size: 0.95em;
+}
+
+/* ---------- Socials rail ---------- */
+.team__socials {
+  grid-area: socials;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team__socials a {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  color: var(--team-social-color);
+  border-radius: 50%;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.team__socials a:hover {
+  color: var(--team-social-hover);
+  transform: scale(1.15);
+}
+
+.team__socials a:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
