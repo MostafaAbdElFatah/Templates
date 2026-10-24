@@ -229,6 +229,30 @@
     transform var(--transition-fast);
 }
 
+/* Brand colour per network, picked from the icon inside each link */
+.team__socials a:has(.fa-facebook-f) {
+  --team-social-hover: #1877f2;
+}
+
+.team__socials a:has(.fa-twitter) {
+  --team-social-hover: #1da1f2;
+}
+
+.team__socials a:has(.fa-linkedin-in) {
+  --team-social-hover: #0a66c2;
+}
+
+.team__socials a:has(.fa-youtube) {
+  --team-social-hover: #ff0000;
+}
+
+/* Icons are muted at rest like the rest of the card, and switch to their
+   brand colour together with the photo when the card is hovered */
+.team__card:hover .team__socials a,
+.team__card:focus-within .team__socials a {
+  color: var(--team-social-hover);
+}
+
 .team__socials a:hover {
   color: var(--team-social-hover);
   transform: scale(1.15);

@@ -83,7 +83,7 @@
   width: var(--testimonials-avatar-size);
   aspect-ratio: 1;
   object-fit: cover;
-  border: clamp(0.35rem, 0.7vw, 0.55rem) solid var(--testimonials-avatar-ring);
+  border: 10px solid var(--testimonials-avatar-ring);
   border-radius: 50%;
   box-shadow: var(--shadow-sm);
 }
