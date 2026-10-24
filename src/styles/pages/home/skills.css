@@ -34,9 +34,9 @@
 
 /* ---------- Two-column layout ---------- */
 .skills__content {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
   align-items: center;
+  align-content: center;
   gap: var(--skills-gap);
 }
 
@@ -44,6 +44,7 @@
 .skills__image {
   width: var(--skills-image-width);
   margin-inline: auto;
+  flex: 1;
 }
 
 /* ---------- Skill list ---------- */
@@ -51,6 +52,7 @@
   display: grid;
   gap: var(--skills-item-gap);
   width: var(--skills-list-width);
+    flex: 1;
 }
 
 .skills__label {
@@ -95,7 +97,7 @@
 /* ---------- Small screens ---------- */
 @media (max-width: 991px) {
   .skills__content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .skills__image,

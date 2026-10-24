@@ -1,26 +1,51 @@
 /* ============================================================================
    How It Works (pages/home/work-steps.css)
    Illustration-led process section with stacked explanatory cards.
+   Each card: a light-grey panel with a white frame, the icon on the left and
+   a bold title + muted paragraph on the right. On hover a dark translucent
+   layer grows from the centre to fill the card, and shrinks back on leave.
+   Usage: <article class="work-steps__card">
+            <img class="work-steps__icon" src="…" alt="">
+            <div>
+              <h3 class="work-steps__title">…</h3>
+              <p class="work-steps__text">…</p>
+            </div>
+          </article>
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, tokens/components.css,
+               tokens/typography.css, tokens/motion.css
    ============================================================================ */
 
 /* ---------- Local variables ---------- */
 .work-steps {
-  --work-steps-bg: var(--color-bg-surface-subtle);
+  /* Colours alias semantic tokens, so they follow the active theme.
+     Card sits one step lighter than the section, framed by a surface border. */
+  --work-steps-bg: var(--color-bg-sunken);
+  --work-steps-card-bg: var(--color-bg-surface-subtle);
+  --work-steps-card-border: var(--color-bg-surface);
+  --work-steps-title-color: var(--color-text-primary);
+  --work-steps-text-color: var(--color-text-muted);
+  --work-steps-flash-color: rgb(0 0 0 / 3%);
+
+  /* Layout */
   --work-steps-gap: clamp(2rem, 6vw, 5rem);
   --work-steps-image-width: min(100%, 31rem);
-  --work-steps-list-width: min(100%, 35.5rem);
+  --work-steps-list-width: min(100%, 36rem);
   --work-steps-list-gap: 1.25rem;
-  --work-steps-card-gap: 1.5rem;
-  --work-steps-card-padding: 1.5rem;
-  --work-steps-card-bg: var(--color-bg-surface);
-  --work-steps-card-border: var(--white);
-  --work-steps-card-radius: var(--radius-sm);
-  --work-steps-icon-width: 4.5rem;
-  --work-steps-icon-size: 3.75rem;
-  --work-steps-title-size: 1.25rem;
-  --work-steps-text-color: var(--color-text-secondary);
-  --work-steps-flash-color: var(--white);
-  --work-steps-flash-duration: 500ms;
+
+  /* Card */
+  --work-steps-card-padding: 1.5rem clamp(1.25rem, 3vw, 2rem) 1.75rem;
+  --work-steps-card-gap: clamp(1.25rem, 3vw, 2rem);
+  --work-steps-card-border-width: 2px;
+  --work-steps-card-radius: 6px;
+  --work-steps-icon-size: clamp(3.25rem, 2.75rem + 1.5vw, 4rem);
+  --work-steps-title-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+  --work-steps-text-gap: 0.75rem;
+  --work-steps-text-line-height: 1.9;
+
+  /* Hover */
+  --work-steps-lift: -4px;
+  --work-steps-shadow-hover: var(--shadow-md);
+  --work-steps-flash-duration: 0.4s;
 }
 
 /* ---------- Section ---------- */
@@ -47,70 +72,86 @@
   display: grid;
   gap: var(--work-steps-list-gap);
   width: var(--work-steps-list-width);
+  margin-inline: auto;
 }
 
+/* Icon column is sized by the icon itself (auto), text takes the rest.
+   overflow: hidden keeps the hover flash inside the rounded corners. */
 .work-steps__card {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: grid;
-  grid-template-columns: var(--work-steps-icon-width) minmax(0, 1fr);
-  gap: var(--work-steps-card-gap);
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
+  gap: var(--work-steps-card-gap);
   padding: var(--work-steps-card-padding);
   background-color: var(--work-steps-card-bg);
-  border: var(--border-width-thin) solid var(--work-steps-card-border);
+  border: var(--work-steps-card-border-width) solid var(--work-steps-card-border);
   border-radius: var(--work-steps-card-radius);
+  transition:
+    translate var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
-/* ---------- Hover flash ---------- */
-/* A quick diagonal highlight gives the card a responsive flash without
-   changing its layout or resting appearance. */
-.work-steps__card::after {
+/* ---------- Hover overlay ---------- */
+/* A dark translucent layer covering the card, scaled to 0 at the centre.
+   On hover it grows outwards to fill the card and stays filled; when the
+   pointer leaves, the same transition shrinks it back to the centre.
+   z-index: -1 inside the card's isolated stacking context puts it above the
+   card background but behind the content, so text and icon stay crisp. */
+.work-steps__card::before {
   content: "";
   position: absolute;
-  z-index: 0;
-  inset-block: 0;
-  inset-inline-start: -40%;
-  width: 25%;
+  z-index: -1;
+  inset: 0;
   background-color: var(--work-steps-flash-color);
-  opacity: 0;
-  transform: skewX(-20deg);
+  scale: 0;
+  pointer-events: none;
+  transition: scale var(--work-steps-flash-duration) ease;
 }
 
-.work-steps__card:hover::after,
-.work-steps__card:focus-within::after {
-  animation: work-steps-flash var(--work-steps-flash-duration) ease-out;
+/* Keyboard focus always triggers the effect */
+.work-steps__card:focus-within {
+  translate: 0 var(--work-steps-lift);
+  box-shadow: var(--work-steps-shadow-hover);
 }
 
-@keyframes work-steps-flash {
-  0% { inset-inline-start: -40%; opacity: 0; }
-  25% { opacity: 0.35; }
-  100% { inset-inline-start: 120%; opacity: 0; }
+.work-steps__card:focus-within::before {
+  scale: 1;
 }
 
+/* Mouse hover only on devices that really hover, so a tap on touch screens
+   doesn't leave the card stuck in its lifted state */
+@media (hover: hover) {
+  .work-steps__card:hover {
+    translate: 0 var(--work-steps-lift);
+    box-shadow: var(--work-steps-shadow-hover);
+  }
+
+  .work-steps__card:hover::before {
+    scale: 1;
+  }
+}
+
+/* ---------- Card content ---------- */
 .work-steps__icon {
-  position: relative;
-  z-index: 1;
   width: var(--work-steps-icon-size);
   height: var(--work-steps-icon-size);
   object-fit: contain;
 }
 
 .work-steps__title {
-  position: relative;
-  z-index: 1;
+  color: var(--work-steps-title-color);
   font-size: var(--work-steps-title-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
 
 .work-steps__text {
-  position: relative;
-  z-index: 1;
-  margin-block-start: 0.75rem;
+  margin-block-start: var(--work-steps-text-gap);
   color: var(--work-steps-text-color);
-  line-height: var(--line-height-relaxed);
+  line-height: var(--work-steps-text-line-height);
 }
 
 /* ---------- Small screens ---------- */
@@ -126,9 +167,18 @@
 }
 
 /* ---------- Reduced motion ---------- */
+/* No movement or scaling; the overlay and shadow still appear instantly */
 @media (prefers-reduced-motion: reduce) {
-  .work-steps__card:hover::after,
-  .work-steps__card:focus-within::after {
-    animation: none;
+  .work-steps__card {
+    transition: box-shadow var(--transition-normal);
+  }
+
+  .work-steps__card:hover,
+  .work-steps__card:focus-within {
+    translate: none;
+  }
+
+  .work-steps__card::before {
+    transition: none;
   }
 }

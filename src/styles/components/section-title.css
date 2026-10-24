@@ -44,6 +44,7 @@
   position: relative;
   isolation: isolate;
   width: fit-content;
+  white-space: nowrap;
   margin: 0 auto var(--section-title-margin-bottom);
   padding: var(--section-title-padding-block) var(--section-title-padding-inline);
   border: var(--section-title-border-width) solid var(--section-title-border);
