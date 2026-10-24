@@ -35,10 +35,18 @@
 
   /* Height of the wavy edges at the top and bottom of the background band */
   --services-wave-height: clamp(3rem, 8vw, 7.5rem);
-  /* Wave shapes (black = visible). preserveAspectRatio="none" lets them
-     stretch to the full section width at any viewport size. */
-  --services-wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 120H1440V20C1400 8 1340 5 1280 12C1100 30 960 110 760 110C560 110 420 30 240 30C140 30 60 55 0 75Z'/%3E%3C/svg%3E");
-  --services-wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 0H1440V100C1400 112 1340 115 1280 108C1100 90 960 10 760 10C560 10 420 90 240 90C140 90 60 65 0 45Z'/%3E%3C/svg%3E");
+  /* Width of one wave; the shape repeats horizontally. Smaller = narrower waves.
+     Top and bottom are independent so each edge can have its own rhythm.
+     Fluid: scales with the viewport, clamped so waves never get too squeezed
+     on phones or too stretched on wide screens. */
+  --services-wave-top-width: clamp(20rem, 60vw, 60rem);
+  --services-wave-bottom-width: clamp(10rem, 30vw, 30rem);
+  /* Wave shapes (black = visible). Each is one full period that starts and
+     ends at the same height with a flat tangent, so tiles join seamlessly.
+     preserveAspectRatio="none" lets them stretch to the size set above.
+     Top: asymmetric (steep rise, long gentle fall). Bottom: even sine. */
+  --services-wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 100C240 100 300 20 540 20S1200 100 1440 100V120H0Z'/%3E%3C/svg%3E");
+  --services-wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 20C360 20 360 100 720 100S1080 20 1440 20V0H0Z'/%3E%3C/svg%3E");
 
   --services-gap: clamp(1.5rem, 3vw, 2.5rem);
 
@@ -76,12 +84,12 @@
   background-color: var(--services-bg);
   -webkit-mask-image: var(--services-wave-top), linear-gradient(#000 0 0), var(--services-wave-bottom);
   mask-image: var(--services-wave-top), linear-gradient(#000 0 0), var(--services-wave-bottom);
-  -webkit-mask-size: 100% var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), 100% var(--services-wave-height);
-  mask-size: 100% var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), 100% var(--services-wave-height);
+  -webkit-mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
+  mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
   -webkit-mask-position: top, center, bottom;
   mask-position: top, center, bottom;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+  -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;
+  mask-repeat: repeat-x, no-repeat, repeat-x;
 }
 
 /* ---------- Grid ---------- */
