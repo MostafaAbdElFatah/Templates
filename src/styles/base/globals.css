@@ -40,7 +40,7 @@ body {
 
 /* ---------- Scrollbar (WebKit) ---------- */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-track {
@@ -50,8 +50,8 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   /* Border in the track color fakes inner padding around the thumb */
-  border: 3px solid var(--scrollbar-track);
-  border-radius: 999px;
+  border: var(--scrollbar-thumb-border-width) solid var(--scrollbar-track);
+  border-radius: var(--scrollbar-thumb-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {

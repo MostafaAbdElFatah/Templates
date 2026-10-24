@@ -41,4 +41,7 @@
   --scrollbar-track: var(--color-bg-surface-subtle);
   --scrollbar-thumb: var(--color-border-strong);
   --scrollbar-thumb-hover: var(--color-border-control);
+  --scrollbar-width: 12px;
+  --scrollbar-thumb-border-width: 3px;
+  --scrollbar-thumb-radius: 999px;
 }

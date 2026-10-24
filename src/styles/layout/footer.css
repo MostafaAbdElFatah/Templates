@@ -11,18 +11,21 @@
   --footer-bg: var(--color-secondary);
   --footer-fg: var(--color-text-on-secondary);
   --footer-highlight: var(--color-text-accent-on-secondary);
+  --footer-padding: 30px 15px;
+  --footer-font-size: 1.125rem;
+  --footer-letter-spacing: 0.5px;
 
-  padding: 30px 15px;
+  padding: var(--footer-padding);
   background-color: var(--footer-bg);
   color: var(--footer-fg);
-  font-size: 1.125rem;
+  font-size: var(--footer-font-size);
   text-align: center;
 }
 
 .footer p {
   margin: 0;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: var(--footer-letter-spacing);
 }
 
 /* Highlighted brand name inside the copyright line */

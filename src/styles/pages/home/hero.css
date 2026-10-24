@@ -32,6 +32,8 @@
   /* Travel distances for the float / bounce animations */
   --hero-float-distance: 16px;
   --hero-bounce-distance: 10px;
+  --hero-panel-skew: -12deg;
+  --hero-title-letter-spacing: -1px;
   /* Font sizes: title 24px on phones up to 40px on desktop */
   --hero-title-size: clamp(1.4rem, 1rem + 2vw, 2.2rem);
   --hero-text-size: clamp(0.85rem, 0.9rem + 0.5vw, 1.5rem);
@@ -57,7 +59,7 @@
   clip-path: polygon(0 0, 100% 0, 100% var(--hero-slant), 0 96%);
   /*
     or can use this insteaded of  polygon
-    transform: skewY(-12deg);
+    transform: skewY(var(--hero-panel-skew));
     transform-origin: top left;
   */
 }
@@ -100,7 +102,7 @@
   font-size: var(--hero-title-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  letter-spacing: -1px;
+  letter-spacing: var(--hero-title-letter-spacing);
 }
 
 .hero__desc {

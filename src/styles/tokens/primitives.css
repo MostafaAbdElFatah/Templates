@@ -45,5 +45,6 @@
   /* Brand guidelines require exact values; exposed as --color-brand-* in semantic-light.css */
   --brand-facebook: #1877f2;
   --brand-twitter:  #1da1f2;
+  --brand-linkedin: #0a66c2;
   --brand-youtube:  #ff0000;
 }

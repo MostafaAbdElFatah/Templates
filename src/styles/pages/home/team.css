@@ -34,6 +34,10 @@
   --team-card-pad-top: clamp(2.5rem, 5vw, 3.75rem);
   --team-card-pad-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
   --team-body-gap: 0.65rem;
+  --team-social-facebook: var(--brand-facebook);
+  --team-social-twitter: var(--brand-twitter);
+  --team-social-linkedin: var(--brand-linkedin);
+  --team-social-youtube: var(--brand-youtube);
 }
 
 .team {
@@ -231,19 +235,19 @@
 
 /* Brand colour per network, picked from the icon inside each link */
 .team__socials a:has(.fa-facebook-f) {
-  --team-social-hover: #1877f2;
+  --team-social-hover: var(--team-social-facebook);
 }
 
 .team__socials a:has(.fa-twitter) {
-  --team-social-hover: #1da1f2;
+  --team-social-hover: var(--team-social-twitter);
 }
 
 .team__socials a:has(.fa-linkedin-in) {
-  --team-social-hover: #0a66c2;
+  --team-social-hover: var(--team-social-linkedin);
 }
 
 .team__socials a:has(.fa-youtube) {
-  --team-social-hover: #ff0000;
+  --team-social-hover: var(--team-social-youtube);
 }
 
 /* Icons are muted at rest like the rest of the card, and switch to their

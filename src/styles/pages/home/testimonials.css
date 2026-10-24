@@ -23,6 +23,10 @@
   --testimonials-copy-gap: 0.5rem;
   --testimonials-role-size: 0.9em;
   --testimonials-quote-size: 0.95em;
+  --testimonials-avatar-border-width: 10px;
+  --testimonials-avatar-radius: 50%;
+  --testimonials-name-size: clamp(1rem, 0.9rem + 0.25vw, 1.2rem);
+  --testimonials-star-spacing: 0.08em;
 }
 
 /* ---------- Section surface ---------- */
@@ -83,8 +87,8 @@
   width: var(--testimonials-avatar-size);
   aspect-ratio: 1;
   object-fit: cover;
-  border: 10px solid var(--testimonials-avatar-ring);
-  border-radius: 50%;
+  border: var(--testimonials-avatar-border-width) solid var(--testimonials-avatar-ring);
+  border-radius: var(--testimonials-avatar-radius);
   box-shadow: var(--shadow-sm);
 }
 
@@ -95,7 +99,7 @@
 }
 
 .testimonials__name {
-  font-size: clamp(1rem, 0.9rem + 0.25vw, 1.2rem);
+  font-size: var(--testimonials-name-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
@@ -111,7 +115,7 @@
 
 .testimonials__rating {
   color: var(--testimonials-star);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--testimonials-star-spacing);
   line-height: 1;
 }
 

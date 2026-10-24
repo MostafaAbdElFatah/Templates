@@ -66,6 +66,12 @@
   /* Fixed badge width so the stripe behind it can be positioned without
      measuring the text; fits any two-digit counter value */
   --services-number-width: 5.5rem;
+  --services-title-margin-block: 1.25rem 2.25rem;
+  --services-number-padding: 0.6rem calc(var(--services-slant) + 1.25rem) 0.6rem 1rem;
+  --services-number-font-size: 1.5rem;
+  --services-link-padding-inline: 1rem;
+  --services-link-font-size: 0.95rem;
+  --services-mask-fill: var(--black);
 }
 
 /* The background is a pseudo-element so its wavy edges can be cut with a mask
@@ -85,8 +91,8 @@
   z-index: -1;
   inset: 0;
   background-color: var(--services-bg);
-  -webkit-mask-image: var(--services-wave-top), linear-gradient(#000 0 0), var(--services-wave-bottom);
-  mask-image: var(--services-wave-top), linear-gradient(#000 0 0), var(--services-wave-bottom);
+  -webkit-mask-image: var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0), var(--services-wave-bottom);
+  mask-image: var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0), var(--services-wave-bottom);
   -webkit-mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
   mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
   -webkit-mask-position: top, center, bottom;
@@ -164,7 +170,7 @@
 }
 
 .services__title {
-  margin-block: 1.25rem 2.25rem;
+  margin-block: var(--services-title-margin-block);
   color: var(--services-title-color);
   font-size: var(--services-title-size);
   font-weight: var(--font-weight-bold);
@@ -186,9 +192,9 @@
 /* .services__number {
   position: relative;
   isolation: isolate;
-  padding: 0.6rem calc(var(--services-slant) + 1.25rem) 0.6rem 1rem;
+  padding: var(--services-number-padding);
   color: var(--services-number-fg);
-  font-size: 1.5rem;
+  font-size: var(--services-number-font-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
@@ -245,10 +251,10 @@
   flex-shrink: 0;
   box-sizing: border-box;
   width: var(--services-number-width);
-  padding: 0.6rem var(--services-slant) 0.6rem 1rem;
+  padding: var(--services-number-padding);
   background-color: var(--services-number-bg);
   color: var(--services-number-fg);
-  font-size: 1.5rem;
+  font-size: var(--services-number-font-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   clip-path: polygon(
@@ -283,9 +289,9 @@
 .services__number {
   position: relative;
   isolation: isolate;
-  padding: 0.6rem calc(var(--services-slant) + 1.25rem) 0.6rem 1rem;
+  padding: var(--services-number-padding);
   color: var(--services-number-fg);
-  font-size: 1.5rem;
+  font-size: var(--services-number-font-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
@@ -324,9 +330,9 @@
 
 .services__link {
   align-self: center;
-  padding-inline: 1rem;
+  padding-inline: var(--services-link-padding-inline);
   color: var(--services-link-color);
-  font-size: 0.95rem;
+  font-size: var(--services-link-font-size);
   text-decoration: none;
 }
 

@@ -33,6 +33,7 @@
   --article-card-hover-scale: 1.05;
   /* Arrow loop: how far it travels and how long one trip takes */
   --article-card-icon-shift: 10px;
+  --article-card-hover-lift: -10px;
   --article-card-icon-duration: 600ms;
   --article-card-icon-easing: linear;
   /* 1 = travel toward the right (LTR); flipped to -1 for RTL below */
@@ -58,7 +59,7 @@
 /* focus-within mirrors hover so keyboard users get the same feedback */
 .article-card:hover,
 .article-card:focus-within {
-  transform: translateY(-10px);
+  transform: translateY(var(--article-card-hover-lift));
   scale: var(--article-card-hover-scale);
   box-shadow: var(--article-card-shadow-hover);
 }
