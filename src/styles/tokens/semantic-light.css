@@ -81,6 +81,18 @@
   --color-info-text: var(--sky-700);
   --color-info-bg: color-mix(in srgb, var(--sky-500) 12%, transparent);
 
+  /* ---------- Highlights (decorative accent palette) ---------- */
+  /* Base shades tint images and draw decorative bars; *-text shades are darker
+     so small text and outlines on light surfaces stay above 4.5:1 */
+  --color-highlight-red: var(--red-500);
+  --color-highlight-red-text: var(--red-600);
+  --color-highlight-teal: var(--teal-500);
+  --color-highlight-teal-text: var(--teal-700);
+  --color-highlight-sky: var(--sky-500);
+  --color-highlight-sky-text: var(--sky-700);
+  /* Text placed on a filled *-text highlight background */
+  --color-text-on-highlight: var(--white);
+
   /* ---------- Overlays ---------- */
   --color-overlay-hover: rgb(0 0 0 / 13%);
   --color-overlay-glass: rgb(255 255 255 / 20%);

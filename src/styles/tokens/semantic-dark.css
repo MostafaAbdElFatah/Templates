@@ -67,6 +67,16 @@
   --color-info-text: var(--sky-500);
   --color-info-bg: color-mix(in srgb, var(--sky-500) 18%, transparent);
 
+  /* Lighter *-text shades keep highlight text readable on dark surfaces,
+     so text placed on them flips to dark */
+  --color-highlight-red: var(--red-500);
+  --color-highlight-red-text: var(--red-400);
+  --color-highlight-teal: var(--teal-500);
+  --color-highlight-teal-text: var(--teal-400);
+  --color-highlight-sky: var(--sky-500);
+  --color-highlight-sky-text: var(--sky-300);
+  --color-text-on-highlight: var(--gray-950);
+
   --color-overlay-hover: rgb(255 255 255 / 10%);
   --color-overlay-glass: rgb(255 255 255 / 12%);
   --color-overlay-light: rgb(255 255 255 / 30%);
@@ -153,6 +163,14 @@
     --color-info: var(--sky-500);
     --color-info-text: var(--sky-500);
     --color-info-bg: color-mix(in srgb, var(--sky-500) 18%, transparent);
+
+    --color-highlight-red: var(--red-500);
+    --color-highlight-red-text: var(--red-400);
+    --color-highlight-teal: var(--teal-500);
+    --color-highlight-teal-text: var(--teal-400);
+    --color-highlight-sky: var(--sky-500);
+    --color-highlight-sky-text: var(--sky-300);
+    --color-text-on-highlight: var(--gray-950);
 
     --color-overlay-hover: rgb(255 255 255 / 10%);
     --color-overlay-glass: rgb(255 255 255 / 12%);

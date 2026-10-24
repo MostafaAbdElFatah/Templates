@@ -1,72 +1,226 @@
 /* ==========================================================================
    Features (pages/home/features.css)
-   Home features strip: responsive grid of icon cards.
-   Depends on: tokens/semantic-*.css, tokens/motion.css
+   Home features strip: responsive grid of cards. Each card shows a photo
+   tinted with its highlight color and cut by a diagonal edge, then a title
+   with an accent bar, a short text and an outlined "More" button.
+   On card hover the diagonal flips direction (low on the right instead of
+   the left) and the button fills with the highlight color.
+   Usage: <article class="features__card features__card--red">
+            <div class="features__media"><img class="features__image" …></div>
+            <div class="features__body">…</div>
+          </article>
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, tokens/components.css,
+               tokens/typography.css, tokens/motion.css,
+               components/section-title.css
    ========================================================================== */
 
-/* ---------- Section ---------- */
+/* ---------- Local variables ---------- */
 .features {
-  padding: clamp(3rem, 6vw, 4rem) 0;
-  background-color: var(--color-bg-surface-subtle);
+  /* Colors alias global card/semantic tokens, so they follow the active theme */
+  --features-bg: var(--color-bg-surface);
+  --features-card-bg: var(--card-bg);
+  --features-card-fg: var(--card-fg);
+  --features-card-border: var(--card-border);
+  --features-text: var(--color-text-muted);
+  --features-link-fg-hover: var(--color-text-on-highlight);
+
+  /* Grid: cards never shrink below this before the grid drops a column */
+  --features-card-min: 260px;
+  --features-gap: 40px;
+
+  /* Card */
+  --features-card-border-width: 1px;
+
+  /* Media: near-square ratio matches the design's tall photo area */
+  --features-image-ratio: 7 / 6;
+  /* How strongly the highlight color tints the photo */
+  --features-overlay-strength: 70%;
+  /* Diagonal cut: rest = low on the left, high on the right;
+     hover = high on the left, low on the right.
+     Both shapes have the same number of points so clip-path can animate between them */
+  --features-media-shape: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  --features-media-shape-hover: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+
+  /* Body */
+  --features-body-padding-block: 30px;
+  --features-body-padding-inline: 30px;
+  /* 28px on phones up to 36px on desktop */
+  --features-title-size: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);
+  /* Space under the title: holds the accent bar plus breathing room */
+  --features-title-gap: 45px;
+  --features-text-gap: 40px;
+  --features-text-line-height: 2;
+
+  /* Title accent bar */
+  --features-bar-width: 60%;
+  --features-bar-height: 5px;
+  --features-bar-offset: 15px;
+
+  /* Button: 20px bold counts as large text, so the base accent shade meets 3:1 */
+  --features-link-size: 1.25rem;
+  --features-link-border-width: 2px;
+  --features-link-padding-block: 4px;
+  --features-link-padding-inline: 30px;
+  --features-link-radius: 6px;
+}
+
+/* ---------- Highlight modifiers ---------- */
+/* Each modifier only swaps the accent variable; every rule below reads it */
+.features__card--red {
+  --features-accent: var(--color-highlight-red);
+}
+
+.features__card--teal {
+  --features-accent: var(--color-highlight-teal);
+}
+
+.features__card--sky {
+  --features-accent: var(--color-highlight-sky);
+}
+
+/* ---------- Section ---------- */
+/* Shared fluid section padding keeps vertical rhythm consistent with other sections */
+.features {
+  padding-block: var(--section-padding);
+  background-color: var(--features-bg);
 }
 
 /* ---------- Grid ---------- */
-/* auto-fit collapses to fewer columns without media queries */
+/* auto-fill + min() collapses to fewer columns without media queries;
+   min() stops the track overflowing on viewports narrower than the minimum */
 .features__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  align-items: stretch;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--features-card-min), 100%), 1fr)
+  );
+  gap: var(--features-gap);
 }
 
 /* ---------- Card ---------- */
-.feature-card {
+/* Flex column so the button always sits at the bottom, lining up across a row */
+.features__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--features-card-bg);
+  color: var(--features-card-fg);
+  border: var(--features-card-border-width) solid var(--features-card-border);
+  text-align: center;
+}
+
+/* ---------- Media ---------- */
+/* clip-path draws the diagonal edge; isolation keeps the tint layer's
+   stacking local so it sits above the photo */
+.features__media {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: var(--features-image-ratio);
+  clip-path: var(--features-media-shape);
+  transition: clip-path var(--transition-normal);
+}
+/* ---------- Decorative Triangle Overlay ---------- */
+/*
+ * The ::after pseudo-element creates a decorative triangle at the bottom-right
+ * of the media container without adding extra HTML markup.
+ * Border widths define the triangle's height and width, using clamp() to keep
+ * its dimensions responsive within specified minimum and maximum limits.
+ * Border colors make only the bottom border visible, forming the triangle.
+ */
+/* .features__media::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 0 clamp(60px, 10vw, 200px) clamp(150px, 40vw, 500px);
+  border-color: transparent transparent var(--features-card-bg) transparent;
+} */
+
+.features__card:hover .features__media,
+.features__card:focus-within .features__media {
+  clip-path: var(--features-media-shape-hover);
+}
+
+/* object-fit crops instead of stretching when the ratio doesn't match */
+.features__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tint layer: highlight color mixed with transparency so the photo shows through.
+   pointer-events: none so the layer never blocks interaction */
+.features__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(
+    in srgb,
+    var(--features-accent) var(--features-overlay-strength),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* ---------- Body ---------- */
+/* flex: 1 lets the body fill the card so the button can be pushed down */
+.features__body {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 15px;
-  border-radius: 8px;
-  text-align: center;
-  transition:
-    transform var(--transition-normal),
-    box-shadow var(--transition-normal);
-}
-
-.feature-card:hover {
-  transform: translateY(-4px);
-}
-
-/* ---------- Icon ---------- */
-.feature-card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  color: var(--color-text-accent);
-  font-size: 3.25rem;
-  transition: transform var(--transition-fast);
-}
-
-.feature-card:hover .feature-card__icon {
-  transform: scale(1.08);
+  padding: var(--features-body-padding-block)
+    var(--features-body-padding-inline);
 }
 
 /* ---------- Title ---------- */
-.feature-card__title {
-  margin: 0 0 16px;
-  color: var(--color-text-primary);
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.2px;
+.features__title {
+  position: relative;
+  margin-bottom: var(--features-title-gap);
+  font-size: var(--features-title-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+/* Accent bar centered under the title */
+.features__title::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + var(--features-bar-offset));
+  left: 50%;
+  translate: -50% 0;
+  width: var(--features-bar-width);
+  height: var(--features-bar-height);
+  background-color: var(--features-accent);
 }
 
 /* ---------- Text ---------- */
-/* Capped width keeps line length readable inside wide cards */
-.feature-card__text {
-  max-width: 300px;
-  margin: 0;
-  color: var(--color-text-secondary);
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  text-wrap: pretty;
+.features__text {
+  margin-bottom: var(--features-text-gap);
+  color: var(--features-text);
+  line-height: var(--features-text-line-height);
+}
+
+/* ---------- Button ---------- */
+/* margin-top: auto pushes the button to the bottom of the body */
+.features__link {
+  margin-top: auto;
+  padding: var(--features-link-padding-block)
+    var(--features-link-padding-inline);
+  border: var(--features-link-border-width) solid var(--features-accent);
+  border-radius: var(--features-link-radius);
+  color: var(--features-accent);
+  font-size: var(--features-link-size);
+  font-weight: var(--font-weight-bold);
+  transition:
+    color var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+/* Fills together with the diagonal flip whenever the card is hovered/focused */
+.features__card:hover .features__link,
+.features__card:focus-within .features__link {
+  background-color: var(--features-accent);
+  color: var(--features-link-fg-hover);
 }

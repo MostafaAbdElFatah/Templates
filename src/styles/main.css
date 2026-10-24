@@ -52,10 +52,10 @@
 @import url("pages/home/articles.css") layer(pages);
 @import url("pages/home/gallery.css") layer(pages);
 @import url("pages/home/features.css") layer(pages);
-@import url("pages/home/services.css") layer(pages);
+/* @import url("pages/home/services.css") layer(pages);
 @import url("pages/home/portfolio.css") layer(pages);
 @import url("pages/home/about.css") layer(pages);
-@import url("pages/home/contact.css") layer(pages);
+@import url("pages/home/contact.css") layer(pages); */
 
 /* ---------- Utilities ---------- */
 /* Highest layer so a utility class always wins over component styles */
