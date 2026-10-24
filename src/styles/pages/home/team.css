@@ -6,9 +6,17 @@
 
 /* ---------- Local variables ---------- */
 .team {
-  --team-card-bg: var(--color-bg-surface-subtle);
+  /* Resting state is muted (grey panel, greyscale photo, grey name);
+     hover swaps to the lighter panel, full colour and accent name. */
+  --team-card-bg: var(--color-bg-pressed);
+  --team-card-bg-hover: var(--color-bg-surface-subtle);
   --team-card-fg: var(--card-fg);
-  --team-name-color: var(--color-text-accent);
+  --team-name-color: var(--color-text-muted);
+  --team-name-color-hover: var(--color-text-accent);
+  --team-card-lift: -0.75rem;
+  --team-card-scale: 1.03;
+  /* Duration/easing for the right-to-left overlay sweeps */
+  --team-sweep: 600ms cubic-bezier(0.65, 0, 0.35, 1);
   --team-muted: var(--color-text-secondary);
   --team-social-color: var(--color-text-muted);
   --team-social-hover: var(--color-text-accent);
@@ -50,44 +58,103 @@
     "body  body";
   padding-block: var(--team-card-pad-top) var(--team-card-pad-bottom);
   color: var(--team-card-fg);
+  transition: transform var(--transition-normal);
 }
 
+.team__card:hover,
+.team__card:focus-within {
+  transform: translateY(var(--team-card-lift)) scale(var(--team-card-scale));
+}
+
+/* Invisible hit area. When the card lifts, its bottom edge moves up and a
+   cursor near the bottom would fall off it, dropping :hover and making the
+   card snap back (flicker). Stretching this layer down by the lift distance
+   keeps the hover until the cursor really leaves the card. */
+.team__card::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+}
+
+.team__card:hover::after {
+  inset-block-end: calc(var(--team-card-lift) - 0.5rem);
+}
+
+/* Panel overlay: the hover colour is a gradient layer anchored to the right
+   edge whose width animates, so hover-out plays hover-in in reverse:
+   - hover in:  grows 0% -> 100% (edge travels right -> left)
+   - hover out: shrinks 100% -> 0% (edge travels back left -> right) */
 .team__card::before {
   content: "";
   position: absolute;
   z-index: -1;
   inset-block: 0;
   inset-inline-end: 0;
-   inset-inline-start: calc((100% - var(--team-socials-col)) * var(--team-image-out));
+  inset-inline-start: calc((100% - var(--team-socials-col)) * var(--team-image-out));
   background-color: var(--team-card-bg);
+  background-image: linear-gradient(var(--team-card-bg-hover), var(--team-card-bg-hover));
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 0% 100%;
   border-radius: var(--team-card-radius);
-  transition: background-color var(--transition-normal);
+  transition: background-size var(--team-sweep);
+}
+
+.team__card:hover::before,
+.team__card:focus-within::before {
+  background-size: 100% 100%;
 }
 
 /* ---------- Photo ---------- */
 .team__media {
+  position: relative;
   grid-area: media;
   overflow: hidden;
   aspect-ratio: 1;
   border-radius: var(--team-image-radius);
   box-shadow: var(--team-image-shadow);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: box-shadow var(--transition-normal);
 }
 
 .team__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform var(--team-sweep);
 }
 
-.team__card:hover .team__media {
-  transform: translateY(-0.5rem);
+/* Greyscale overlay: desaturates whatever is behind it. It stays anchored to
+   the left and its width animates, so hover-out plays hover-in in reverse.
+   Width (not mask-size: 0) is used so the overlay is truly gone at the end
+   and the photo stays in colour for as long as the hover lasts:
+   - hover in:  shrinks 100% -> 0% (colour edge travels right -> left)
+   - hover out: grows 0% -> 100% (grey edge travels back left -> right) */
+.team__media::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  -webkit-backdrop-filter: grayscale(1);
+  backdrop-filter: grayscale(1);
+  transition: width var(--team-sweep);
+}
+
+.team__card:hover .team__media,
+.team__card:focus-within .team__media {
   box-shadow: var(--team-image-shadow-hover);
 }
 
-.team__card:hover .team__image {
-  transform: scale(1.06);
+.team__card:hover .team__media::after,
+.team__card:focus-within .team__media::after {
+  width: 0;
+}
+
+.team__card:hover .team__image,
+.team__card:focus-within .team__image {
+  transform: scale(1.04);
 }
 
 /* ---------- Copy ---------- */
@@ -109,6 +176,12 @@
   font-size: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
+  transition: color var(--transition-normal);
+}
+
+.team__card:hover .team__name,
+.team__card:focus-within .team__name {
+  color: var(--team-name-color-hover);
 }
 
 .team__role {
@@ -147,4 +220,20 @@
 .team__socials a:focus-visible {
   outline: var(--focus-ring-width) solid var(--color-focus-ring);
   outline-offset: var(--focus-ring-offset);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .team__card:hover,
+  .team__card:focus-within,
+  .team__card:hover .team__image,
+  .team__card:focus-within .team__image {
+    transform: none;
+  }
+
+  /* Colour still swaps, just without the sweep */
+  .team__card::before,
+  .team__media::after {
+    transition: none;
+  }
 }
