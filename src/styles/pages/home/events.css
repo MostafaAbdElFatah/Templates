@@ -151,9 +151,6 @@
   opacity: 0;
 }
 
-
-
-
 .events__button {
   padding-inline: var(--events-button-padding);
   color: var(--events-button-fg);
