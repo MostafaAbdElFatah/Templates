@@ -9,7 +9,8 @@
 
 .scallop {
   /* Color alias follows the active theme */
-  --scallop-color: var(--color-bg-surface);
+  --scallop-color: var(--color-bg-sunken);
+  --scallop-edge-bg: var(--color-bg-surface);
 
   /* Scallop radius; the tile width is derived as double this. */
   --scallop-size: 20px;
@@ -55,7 +56,7 @@
      transparent and the outside is filled, forming the scallops. */
   background-image: radial-gradient(
     circle at 50% 100%,
-    transparent calc(var(--scallop-size) - 1px),
+    var(--scallop-edge-bg) calc(var(--scallop-size) - 1px),
     var(--scallop-color) var(--scallop-size)
   );
 
@@ -73,15 +74,13 @@
      transparent and the outside is filled, forming the scallops. */
   background-image: radial-gradient(
     circle at 50% 0%,
-    transparent calc(var(--scallop-size) - 1px),
+    var(--scallop-edge-bg) calc(var(--scallop-size) - 1px),
     var(--scallop-color) var(--scallop-size)
   );
 
   /* Position the background layer at the bottom. */
   background-position: bottom;
 }
-
-
 
 /* <!--
   Scallop Utility Usage:
@@ -94,6 +93,7 @@
 -->
 
 <!-- Scalloped edge at the top only -->
+<section class="scallop scallop--top"></section>
 <section class="scallop scallop--top">
   ...
 </section>
