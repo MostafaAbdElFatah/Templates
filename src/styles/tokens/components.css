@@ -45,7 +45,26 @@
   --scrollbar-thumb-border-width: 3px;
   --scrollbar-thumb-radius: 999px;
   --border-width-thin: 1px;
+  /* Outlined buttons and boxed headings */
+  --border-width-medium: 2px;
   --radius-sm: 4px;
   /* Fully rounded ends for pill-shaped inputs and buttons */
   --radius-pill: 999px;
+
+  /* ---------- Dots decoration ---------- */
+  /* Shared by every section using .dots-decoration (events, pricing) */
+  --dots-size: 12rem;
+  --dots-opacity: 50%;
+  --dots-offset-top: 20%;
+  --dots-offset-bottom: 20%;
+  /* Slide-out: 0 at viewports >= 1300px, then the dots move off-screen as
+     the viewport narrows (fully hidden around 870px). clamp() caps it
+     between "fully visible" (0) and "fully hidden" (-size). */
+  --dots-breakpoint: 1300px;
+  --dots-slide-rate: 0.45;
+  --dots-offset-x: clamp(
+    calc(var(--dots-size) * -1),
+    calc((100vw - var(--dots-breakpoint)) * var(--dots-slide-rate)),
+    0px
+  );
 }

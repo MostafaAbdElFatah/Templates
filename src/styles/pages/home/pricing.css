@@ -1,0 +1,253 @@
+/* ============================================================================
+   Pricing Plans (pages/home/pricing.css)
+   Three plan cards: name, icon, price, feature list and an outlined CTA.
+   The "popular" card is raised and carries a vertical ribbon in its corner.
+   Dotted decorations come from components/dots-decoration.css.
+   Usage: <article class="pricing__card [pricing__card--popular]"> … </article>
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, tokens/components.css,
+               tokens/typography.css, tokens/motion.css
+   ============================================================================ */
+
+/* ---------- Local variables ---------- */
+.pricing {
+  /* Colours alias semantic/component tokens so they follow the active theme */
+  --pricing-bg: var(--color-bg-sunken);
+  --pricing-card-bg: var(--card-bg);
+  --pricing-card-shadow: var(--shadow-md);
+  --pricing-card-shadow-hover: var(--card-shadow-hover);
+  --pricing-name-color: var(--color-text-primary);
+  --pricing-amount-color: var(--color-primary);
+  --pricing-period-color: var(--color-text-muted);
+  --pricing-feature-color: var(--color-text-primary);
+  --pricing-feature-border: var(--color-border-subtle);
+  --pricing-check-color: var(--color-primary);
+  --pricing-accent: var(--color-primary);
+  --pricing-accent-fg: var(--color-text-on-primary);
+
+  /* Layout */
+  --pricing-grid-gap: 1.5rem;
+  --pricing-card-min: 16rem;
+  --pricing-card-max: 19rem;
+  --pricing-popular-raise: -1.0625rem;
+
+  /* Header */
+  --pricing-header-padding: 1.5rem 1.25rem 1.125rem;
+  --pricing-name-size: 1.25rem;
+  --pricing-icon-size: 4.5rem;
+  --pricing-icon-gap: 1.25rem auto;
+  --pricing-amount-size: 3rem;
+  --pricing-period-size: 0.875rem;
+
+  /* Features */
+  --pricing-feature-padding: 0.9rem 0.9375rem;
+  --pricing-feature-size: 0.875rem;
+  --pricing-check-gap: 0.625rem;
+  --pricing-check-icon: "\f00c"; /* Font Awesome "check" */
+  --pricing-check-font: "Font Awesome 6 Free";
+  --pricing-check-weight: 900;
+
+  /* Button */
+  --pricing-button-margin: 1.5rem auto 2.25rem;
+  --pricing-button-padding: 0.625rem 1.125rem;
+  --pricing-button-size: 0.875rem;
+  --pricing-button-border-width: var(--border-width-medium);
+  --pricing-button-radius: var(--radius-sm);
+
+  /* Ribbon */
+  --pricing-ribbon-width: 2.125rem;
+  --pricing-ribbon-padding: 0.5rem 0 1.5rem;
+  --pricing-ribbon-notch: 0.75rem;
+  --pricing-ribbon-offset: 1rem;
+  --pricing-ribbon-font-size: 0.875rem;
+
+  /* Hover */
+  --pricing-lift: -0.5rem;
+}
+
+/* ---------- Section ---------- */
+.pricing {
+  padding-block: var(--section-padding);
+  background-color: var(--pricing-bg);
+}
+
+/* ---------- Grid ---------- */
+/* auto-fit wraps cards onto new rows as space runs out; align-items:start
+   lets the popular card sit higher than its neighbours */
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--pricing-card-min), var(--pricing-card-max)));
+  justify-content: center;
+  align-items: start;
+  gap: var(--pricing-grid-gap);
+}
+
+/* ---------- Card ---------- */
+.pricing__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--pricing-card-bg);
+  box-shadow: var(--pricing-card-shadow);
+  transition:
+    translate var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.pricing__card--popular {
+  translate: 0 var(--pricing-popular-raise);
+}
+
+/* Lift on real hover devices or keyboard focus */
+.pricing__card:focus-within {
+  translate: 0 var(--pricing-lift);
+  box-shadow: var(--pricing-card-shadow-hover);
+}
+
+@media (hover: hover) {
+  .pricing__card:hover {
+    translate: 0 var(--pricing-lift);
+    box-shadow: var(--pricing-card-shadow-hover);
+  }
+
+  /* Popular card lifts relative to its raised position */
+  .pricing__card--popular:hover {
+    translate: 0 calc(var(--pricing-popular-raise) + var(--pricing-lift));
+  }
+}
+
+.pricing__card--popular:focus-within {
+  translate: 0 calc(var(--pricing-popular-raise) + var(--pricing-lift));
+}
+
+/* ---------- Header ---------- */
+.pricing__header {
+  padding: var(--pricing-header-padding);
+}
+
+.pricing__name {
+  color: var(--pricing-name-color);
+  font-size: var(--pricing-name-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.pricing__icon {
+  width: var(--pricing-icon-size);
+  height: var(--pricing-icon-size);
+  margin: var(--pricing-icon-gap);
+  object-fit: contain;
+}
+
+.pricing__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing__amount {
+  color: var(--pricing-amount-color);
+  font-size: var(--pricing-amount-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.pricing__period {
+  color: var(--pricing-period-color);
+  font-size: var(--pricing-period-size);
+}
+
+/* ---------- Features ---------- */
+.pricing__features {
+  border-block-start: var(--border-width-thin) solid var(--pricing-feature-border);
+}
+
+.pricing__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--pricing-check-gap);
+  padding: var(--pricing-feature-padding);
+  color: var(--pricing-feature-color);
+  font-size: var(--pricing-feature-size);
+  text-align: start;
+  border-block-end: var(--border-width-thin) solid var(--pricing-feature-border);
+}
+
+/* Lines sit only between rows (and above the first), never under the last */
+.pricing__feature:last-child {
+  border-block-end: none;
+}
+
+/* Check mark drawn with the bundled Font Awesome font, no extra markup */
+.pricing__feature::before {
+  content: var(--pricing-check-icon);
+  color: var(--pricing-check-color);
+  font-family: var(--pricing-check-font);
+  font-weight: var(--pricing-check-weight);
+}
+
+/* ---------- Button ---------- */
+.pricing__button {
+  display: block;
+  width: fit-content;
+  margin: var(--pricing-button-margin);
+  padding: var(--pricing-button-padding);
+  color: var(--pricing-accent);
+  border: var(--pricing-button-border-width) solid var(--pricing-accent);
+  border-radius: var(--pricing-button-radius);
+  font-size: var(--pricing-button-size);
+  font-weight: var(--font-weight-bold);
+  transition:
+    color var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.pricing__button:hover,
+.pricing__button:focus-visible {
+  color: var(--pricing-accent-fg);
+  background-color: var(--pricing-accent);
+}
+
+/* ---------- Ribbon ---------- */
+/* Vertical banner hanging from the top edge; the bottom notch is cut with
+   clip-path. writing-mode turns the label sideways like the design. */
+.pricing__ribbon {
+  position: absolute;
+  top: 0;
+  inset-inline-end: var(--pricing-ribbon-offset);
+  width: var(--pricing-ribbon-width);
+  padding: var(--pricing-ribbon-padding);
+  color: var(--pricing-accent-fg);
+  background-color: var(--pricing-accent);
+  font-size: var(--pricing-ribbon-font-size);
+  font-weight: var(--font-weight-bold);
+  writing-mode: vertical-rl;
+  text-align: center;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    50% calc(100% - var(--pricing-ribbon-notch)),
+    0 100%
+  );
+}
+
+/* ---------- Small screens ---------- */
+/* Once cards stack, the raised offset would just look misaligned */
+@media (max-width: 991px) {
+  .pricing__card--popular {
+    translate: none;
+  }
+
+  .pricing__card--popular:hover,
+  .pricing__card--popular:focus-within {
+    translate: 0 var(--pricing-lift);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pricing__card,
+  .pricing__button {
+    transition: none;
+  }
+}

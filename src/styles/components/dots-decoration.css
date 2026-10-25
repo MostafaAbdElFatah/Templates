@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Dots Decoration (components/dots-decoration.css)
+   Reusable dotted-pattern accents on a section's opposite edges
+   (top-right and bottom-left). Below --dots-breakpoint they slide
+   off-screen progressively.
+   Usage: <section class="pricing dots-decoration">
+   Depends on: tokens/components.css (--dots-*)
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+.dots-decoration {
+  /* Kept here (not in tokens/) because url() paths resolve relative to
+     the stylesheet; this file and tokens/ share the same depth anyway */
+  --dots-image: url("../../assets/imgs/decorations/dots.png");
+}
+
+/* ---------- Host section ---------- */
+/* position + overflow anchor and clip the dots. isolation creates a local
+   stacking context, so the dots' negative z-index puts them behind the
+   content but still above the section background (without it they'd slip
+   behind the background and vanish). */
+.dots-decoration {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* ---------- Dots ---------- */
+.dots-decoration::before,
+.dots-decoration::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: var(--dots-size);
+  height: var(--dots-size);
+  background-image: var(--dots-image);
+  background-size: cover;
+  opacity: var(--dots-opacity);
+  pointer-events: none;
+}
+
+/* Logical insets keep the sides correct in RTL layouts */
+.dots-decoration::before {
+  top: var(--dots-offset-top);
+  inset-inline-end: var(--dots-offset-x);
+}
+
+.dots-decoration::after {
+  bottom: var(--dots-offset-bottom);
+  inset-inline-start: var(--dots-offset-x);
+}

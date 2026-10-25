@@ -45,6 +45,7 @@
 @import url("components/section-heading.css") layer(components);
 @import url("components/section-title.css") layer(components);
 @import url("components/article-card.css") layer(components);
+@import url("components/dots-decoration.css") layer(components);
 
 /* ---------- Pages ---------- */
 /* Page-specific sections can override shared components when a page needs it */
@@ -58,6 +59,7 @@
 @import url("pages/home/skills.css") layer(pages);
 @import url("pages/home/work-steps.css") layer(pages);
 @import url("pages/home/events.css") layer(pages);
+@import url("pages/home/pricing.css") layer(pages);
 /* @import url("pages/home/portfolio.css") layer(pages);
 @import url("pages/home/about.css") layer(pages);
 @import url("pages/home/contact.css") layer(pages); */
