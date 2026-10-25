@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Top Videos (pages/home/videos.css)
+   A ranked playlist beside its featured video preview.
+   Depends on: tokens/semantic-*.css, tokens/spacing.css,
+               tokens/typography.css, tokens/components.css
+   ========================================================================== */
+
+/* ---------- Section variables ---------- */
+.videos {
+  --videos-bg: var(--color-bg-page);
+  --videos-panel-bg: var(--color-bg-sunken);
+  --videos-list-bg: var(--color-bg-surface);
+  --videos-list-heading-bg: var(--color-bg-surface-subtle);
+  --videos-text: var(--color-text-primary);
+  --videos-meta: var(--color-text-muted);
+  --videos-border: var(--color-border-subtle);
+
+  --videos-section-padding: clamp(4.5rem, 6vw, 5rem);
+  --videos-heading-gap: clamp(3rem, 4vw, 3.875rem);
+  --videos-panel-width: 100%;
+  --videos-list-width: 14.5rem;
+  --videos-panel-padding: 0.5rem;
+  --videos-list-heading-padding: 0.75rem 1rem;
+  --videos-item-padding: 0.75rem 1rem;
+  --videos-item-min-height: 4.2rem;
+  --videos-item-gap: 0.125rem;
+  --videos-preview-ratio: 16 / 9;
+  --videos-caption-gap: 6.25rem;
+  --videos-caption-padding: 0.75rem 1rem;
+  --videos-font-size: var(--font-size-base);
+
+  padding-block: var(--videos-section-padding);
+  background-color: var(--videos-bg);
+}
+
+/* Reuse the site's boxed heading while tuning only this section's spacing. */
+.videos .section-title {
+  --section-title-margin-bottom: var(--videos-heading-gap);
+}
+
+/* ---------- Playlist and preview ---------- */
+.videos__panel {
+  display: grid;
+  grid-template-columns: minmax(0, var(--videos-list-width)) minmax(0, 1fr);
+  max-width: var(--videos-panel-width);
+  margin-inline: auto;
+  border: var(--border-width-thin) solid var(--videos-border);
+  background-color: var(--videos-panel-bg);
+}
+
+.videos__playlist {
+  min-width: 0;
+  background-color: var(--videos-list-bg);
+}
+
+.videos__playlist-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--videos-list-heading-padding);
+  background-color: var(--videos-list-heading-bg);
+}
+
+.videos__playlist-title {
+  margin: 0;
+  color: var(--videos-text);
+  font-size: var(--videos-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-base);
+}
+
+.videos__playlist-heading i {
+  color: var(--videos-text);
+}
+
+.videos__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.videos__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--videos-item-min-height);
+  padding: var(--videos-item-padding);
+  border-block-start: var(--border-width-thin) solid var(--videos-border);
+}
+
+.videos__item-title,
+.videos__duration {
+  color: var(--videos-text);
+  font-size: var(--videos-font-size);
+  line-height: var(--line-height-tight);
+}
+
+.videos__duration {
+  margin-block-start: var(--videos-item-gap);
+  color: var(--videos-meta);
+}
+
+/* ---------- Featured video ---------- */
+.videos__preview {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: var(--videos-panel-padding);
+}
+
+.videos__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--videos-preview-ratio);
+  object-fit: cover;
+}
+
+.videos__caption {
+  margin-block-start: var(--videos-caption-gap);
+  padding: var(--videos-caption-padding);
+  background-color: var(--videos-list-bg);
+  color: var(--videos-text);
+  font-size: var(--videos-font-size);
+  line-height: var(--line-height-base);
+}
+
+/* Keep the playlist and preview readable when the desktop columns no longer fit. */
+@media (max-width: 48rem) {
+  .videos {
+    --videos-caption-gap: 2rem;
+  }
+
+  .videos__panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

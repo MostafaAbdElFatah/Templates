@@ -63,6 +63,7 @@
 @import url("pages/home/work-steps.css") layer(pages);
 @import url("pages/home/events.css") layer(pages);
 @import url("pages/home/pricing.css") layer(pages);
+@import url("pages/home/videos.css") layer(pages);
 
 /* ---------- Utilities ---------- */
 /* Highest layer so a utility class always wins over component styles */
