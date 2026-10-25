@@ -140,7 +140,19 @@
   background-color: var(--events-input-bg);
   border: none;
   border-radius: var(--events-control-radius);
+  outline: none;
 }
+
+.events__input[type="email"]::placeholder {
+  transition: opacity var(--transition-normal);
+}
+
+.events__input[type="email"]:focus::placeholder {
+  opacity: 0;
+}
+
+
+
 
 .events__button {
   padding-inline: var(--events-button-padding);
