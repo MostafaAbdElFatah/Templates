@@ -86,6 +86,7 @@
 }
 
 .videos__item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,14 +97,43 @@
   transition: background-color var(--transition-fast);
 }
 
+/* The left rail reveals from the top; the right rail reveals from the bottom. */
+.videos__item::before {
+  position: absolute;
+  inset-block: 0;
+  inline-size: var(--border-width-thin);
+  background-color: var(--color-primary);
+  content: "";
+  pointer-events: none;
+  transform: scaleY(0);
+  transition: transform var(--transition-fast);
+}
+
+.videos__item::before {
+  inset-inline-start: 0;
+  transform-origin: top;
+}
+
+
 /* Highlight the item and its title on devices with a true hover pointer. */
 @media (hover: hover) {
   .videos__item:hover {
     background-color: var(--color-bg-hover);
   }
 
+  .videos__item:hover::before {
+    transform: scaleY(1);
+  }
+
   .videos__item:hover .videos__item-title {
     color: var(--color-primary);
+  }
+}
+
+/* Keep the hover state while removing motion for visitors who request it. */
+@media (prefers-reduced-motion: reduce) {
+  .videos__item::before {
+    transition: none;
   }
 }
 

@@ -9,6 +9,13 @@
   /* Two speeds only, so interactions across the site feel consistent */
   --transition-fast: 200ms ease;
   --transition-normal: 300ms ease;
+  --transition-slow: 400ms ease;
+  --transition-slower: 500ms ease;
+  --transition-600: 600ms ease;
+  --transition-700: 700ms ease;
+  --transition-800: 800ms ease;
+  --transition-900: 900ms ease;
+  --transition-1000: 1000ms ease;
 
   /* ---------- Looping animations ---------- */
   /* Slow float for the hero illustration, quicker bounce for the scroll hint */

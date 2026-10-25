@@ -46,7 +46,12 @@
   --scrollbar-thumb-radius: 999px;
   --border-width-thin: 1px;
   /* Outlined buttons and boxed headings */
+  --border-width-thin: 1px;
   --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
+  --border-width-bold: 6px;
+  --border-width-extra-bold: 8px;
   --radius-sm: 4px;
   /* Fully rounded ends for pill-shaped inputs and buttons */
   --radius-pill: 999px;

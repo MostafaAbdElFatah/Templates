@@ -1,0 +1,121 @@
+/* ============================================================================
+   Statistics (pages/home/statistics.css)
+   A quiet metric strip with opposing side-rule hover motion.
+   ============================================================================ */
+
+.statistics {
+  --statistics-bg: var(--color-bg-surface-subtle);
+  --statistics-overlay: rgba(255, 255, 255, 0.95);
+  --statistics-card-bg: var(--color-bg-elevated);
+  --statistics-card-fg: var(--color-text-primary);
+  --statistics-accent: var(--color-primary);
+  --statistics-card-width: clamp(12rem, 19vw, 15rem);
+  --statistics-card-height: 9.75rem;
+  --statistics-grid-gap: clamp(0.75rem, 2vw, 1.5rem);
+  --statistics-card-padding: 1.25rem;
+  --statistics-icon-size: 1.5rem;
+  --statistics-value-size: clamp(2rem, 3vw, 2.5rem);
+  --statistics-label-size: 0.875rem;
+  --statistics-rule-width: clamp(
+    var(--border-width-medium),
+    0.25vw,
+    var(--border-width-heavy)
+  );
+  --statistics-rule-scale: 0;
+  --statistics-motion: var(--transition-800);
+  --statistics-rule-origin-start: top;
+  --statistics-rule-origin-end: bottom;
+
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--section-padding);
+  background-color: var(--statistics-bg);
+  background-image:
+    linear-gradient(var(--statistics-overlay), var(--statistics-overlay)),
+    url("../../../assets/imgs/statistics/stats.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.statistics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, var(--statistics-card-width)));
+  justify-content: center;
+  gap: var(--statistics-grid-gap);
+}
+
+.statistics__card {
+  position: relative;
+  display: flex;
+  min-height: var(--statistics-card-height);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--statistics-card-padding);
+  color: var(--statistics-card-fg);
+  text-align: center;
+  background-color: var(--statistics-card-bg);
+}
+
+.statistics__card::before,
+.statistics__card::after {
+  position: absolute;
+  inset-block: 0;
+  width: var(--statistics-rule-width);
+  content: "";
+  background-color: var(--statistics-accent);
+  scale: 1 var(--statistics-rule-scale);
+  transition: scale var(--statistics-motion);
+}
+
+.statistics__card::before {
+  inset-inline-start: 0;
+  transform-origin: var(--statistics-rule-origin-start);
+}
+
+.statistics__card::after {
+  inset-inline-end: 0;
+  transform-origin: var(--statistics-rule-origin-end);
+}
+
+.statistics__card:is(:hover, :focus-within) {
+  --statistics-rule-scale: 1;
+}
+
+.statistics__icon {
+  margin-block-end: 0.5rem;
+  color: var(--statistics-card-fg);
+  font-size: var(--statistics-icon-size);
+}
+
+.statistics__value {
+  font-size: var(--statistics-value-size);
+  line-height: var(--line-height-tight);
+}
+
+.statistics__label {
+  margin-block-start: 0.5rem;
+  color: var(--statistics-accent);
+  font-size: var(--statistics-label-size);
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 767px) {
+  .statistics__grid {
+    grid-template-columns: repeat(2, minmax(0, var(--statistics-card-width)));
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics__grid {
+    grid-template-columns: minmax(0, var(--statistics-card-width));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statistics__card::before,
+  .statistics__card::after {
+    transition-duration: 0s;
+  }
+}
