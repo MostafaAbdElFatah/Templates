@@ -17,15 +17,16 @@
 
   --videos-section-padding: clamp(4.5rem, 6vw, 5rem);
   --videos-heading-gap: clamp(3rem, 4vw, 3.875rem);
+  --videos-container-max-width: 90rem;
   --videos-panel-width: 100%;
-  --videos-list-width: 14.5rem;
+  --videos-playlist-column: 3fr;
+  --videos-preview-column: 7fr;
   --videos-panel-padding: 0.5rem;
   --videos-list-heading-padding: 0.75rem 1rem;
   --videos-item-padding: 0.75rem 1rem;
   --videos-item-min-height: 4.2rem;
   --videos-item-gap: 0.125rem;
   --videos-preview-ratio: 16 / 9;
-  --videos-caption-gap: 6.25rem;
   --videos-caption-padding: 0.75rem 1rem;
   --videos-font-size: var(--font-size-base);
 
@@ -38,10 +39,18 @@
   --section-title-margin-bottom: var(--videos-heading-gap);
 }
 
+/* Give the video section more room than the standard page container. */
+.videos > .container {
+  width: 100%;
+  max-width: var(--videos-container-max-width);
+}
+
 /* ---------- Playlist and preview ---------- */
 .videos__panel {
   display: grid;
-  grid-template-columns: minmax(0, var(--videos-list-width)) minmax(0, 1fr);
+  grid-template-columns:
+    minmax(0, var(--videos-playlist-column))
+    minmax(0, var(--videos-preview-column));
   max-width: var(--videos-panel-width);
   margin-inline: auto;
   border: var(--border-width-thin) solid var(--videos-border);
@@ -117,7 +126,7 @@
 }
 
 .videos__caption {
-  margin-block-start: var(--videos-caption-gap);
+  margin-block-start: auto;
   padding: var(--videos-caption-padding);
   background-color: var(--videos-list-bg);
   color: var(--videos-text);
@@ -127,10 +136,6 @@
 
 /* Keep the playlist and preview readable when the desktop columns no longer fit. */
 @media (max-width: 48rem) {
-  .videos {
-    --videos-caption-gap: 2rem;
-  }
-
   .videos__panel {
     grid-template-columns: minmax(0, 1fr);
   }
