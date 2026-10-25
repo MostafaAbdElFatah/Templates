@@ -33,6 +33,16 @@
   --events-dots-size: 12rem;
   --events-dots-offset-top: 20%;
   --events-dots-offset-bottom: 20%;
+  /* Slide-out: 0 at viewports >= 1300px, then the dots move off-screen as
+     the viewport narrows (fully hidden around 768px). clamp() caps it
+     between "fully visible" (0) and "fully hidden" (-size). */
+  --events-dots-breakpoint: 1300px;
+  --events-dots-slide-rate: 0.45;
+  --events-dots-offset-x: clamp(
+    calc(var(--events-dots-size) * -1),
+    calc((100vw - var(--events-dots-breakpoint)) * var(--events-dots-slide-rate)),
+    0px
+  );
 
   /* Countdown */
   --events-unit-gap: 0.5rem;
@@ -60,9 +70,13 @@
 }
 
 /* ---------- Section ---------- */
-/* position + overflow keep the dotted decorations anchored and clipped */
+/* position + overflow keep the dotted decorations anchored and clipped.
+   isolation creates a local stacking context, so the dots' negative z-index
+   puts them behind the content but still above the section background
+   (without it they'd slip behind the background and vanish). */
 .events {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   padding-block: var(--section-padding);
   background-color: var(--events-bg);
@@ -73,6 +87,7 @@
 .events::after {
   content: "";
   position: absolute;
+  z-index: -1;
   width: var(--events-dots-size);
   height: var(--events-dots-size);
   background-image: var(--events-dots-image);
@@ -83,12 +98,12 @@
 
 .events::before {
   top: var(--events-dots-offset-top);
-  inset-inline-end: 0;
+  inset-inline-end: var(--events-dots-offset-x);
 }
 
 .events::after {
   bottom: var(--events-dots-offset-bottom);
-  inset-inline-start: 0;
+  inset-inline-start: var(--events-dots-offset-x);
 }
 
 /* ---------- Main layout ---------- */
