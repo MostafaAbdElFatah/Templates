@@ -1,4 +1,4 @@
- /* ============================================================================
+/* ============================================================================
    Pricing Plans (pages/home/pricing.css)
    Three plan cards: name, icon, price, feature list and an outlined CTA.
    The "popular" card is raised and carries a vertical ribbon in its corner.
@@ -23,6 +23,7 @@
   --pricing-check-color: var(--color-primary);
   --pricing-accent: var(--color-primary);
   --pricing-accent-fg: var(--color-text-on-primary);
+  --pricing-color-overlay: rgb(0 0 0 / 5%);
 
   /* Dots decoration: pin the dots to the edges at every viewport
      (overrides the global slide-out from tokens/components.css) */
@@ -62,7 +63,7 @@
   --pricing-ribbon-padding: 0.5rem 0 1.5rem;
   --pricing-ribbon-notch: 0.75rem;
   --pricing-ribbon-offset: 1rem;
-  --pricing-ribbon-font-size: 0.875rem;
+  --pricing-ribbon-font-size: 1.25rem;
 
   /* Hover */
   --pricing-lift: -0.5rem;
@@ -79,7 +80,10 @@
    lets the popular card sit higher than its neighbours */
 .pricing__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--pricing-card-min), var(--pricing-card-max)));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--pricing-card-min), var(--pricing-card-max))
+  );
   justify-content: center;
   align-items: start;
   gap: var(--pricing-grid-gap);
@@ -132,8 +136,53 @@
 
 /* ---------- Header ---------- */
 .pricing__header {
+  position: relative;
+  isolation: isolate;
   padding: var(--pricing-header-padding);
 }
+
+.pricing__card > div {
+  position: relative;
+  isolation: isolate;
+}
+
+.pricing__header::before,
+.pricing__card > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  z-index: -1;
+  background-color: var(--pricing-color-overlay);
+  transition: var(--transition-normal);
+}
+
+.pricing__header::before {
+  left: 0;
+  background-color: var(--pricing-color-overlay);
+}
+
+.pricing__card > div::before {
+  right: 0;
+}
+
+.pricing__card:hover .pricing__header::before,
+.pricing__card:hover > div::before {
+  width: 100%;
+}
+
+/* .pricing__header::before {
+  content: "";
+  position: absolute;
+  background-color: var(--pricing-color-overlay);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: -1;
+  transition: var(--transition-normal);
+} */
 
 .pricing__name {
   color: var(--pricing-name-color);
@@ -168,7 +217,8 @@
 
 /* ---------- Features ---------- */
 .pricing__features {
-  border-block-start: var(--border-width-thin) solid var(--pricing-feature-border);
+  border-block-start: var(--border-width-thin) solid
+    var(--pricing-feature-border);
 }
 
 .pricing__feature {
@@ -223,7 +273,7 @@
 .pricing__ribbon {
   position: absolute;
   top: 0;
-  inset-inline-end: var(--pricing-ribbon-offset);
+  inset-block-start: 5%;
   width: var(--pricing-ribbon-width);
   padding: var(--pricing-ribbon-padding);
   color: var(--pricing-accent-fg);
@@ -243,7 +293,7 @@
 
 /* ---------- Small screens ---------- */
 /* Once cards stack, the raised offset would just look misaligned */
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .pricing__card--popular {
     translate: none;
   }
@@ -260,4 +310,4 @@
   .pricing__button {
     transition: none;
   }
-} 
+}
