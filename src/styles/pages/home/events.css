@@ -24,32 +24,32 @@
   --events-button-fg: var(--button-primary-fg);
 
   /* Layout */
-  --events-gap: clamp(2rem, 6vw, 5rem);
+  --events-gap: var(--space-fluid-xl);
   --events-image-width: min(100%, 24rem);
   --events-info-width: min(100%, clamp(20rem, 26rem, 30rem));
 
   /* Countdown */
-  --events-unit-gap: 0.5rem;
+  --events-unit-gap: var(--space-8);
   --events-unit-min-width: 4rem;
   --events-unit-border-width: var(--border-width-thin);
-  --events-value-padding: 0.75rem 0.5rem;
+  --events-value-padding: var(--space-12) var(--space-8);
   --events-value-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
   --events-label-padding: 0.4rem;
   --events-label-size: 0.8125rem;
 
   /* Text */
   --events-title-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
-  --events-title-margin: 1.875rem 0 1.25rem;
+  --events-title-margin: var(--space-30) 0 var(--space-20);
   --events-text-line-height: var(--line-height-relaxed);
 
   /* Subscribe form */
   --events-form-width: min(100%, 37.5rem);
   --events-form-margin-top: clamp(3rem, 6vw, 3.75rem);
-  --events-form-padding: 1.875rem 2.5rem;
-  --events-form-gap: 0.625rem;
+  --events-form-padding: var(--space-30) var(--space-40);
+  --events-form-gap: var(--space-10);
   --events-form-radius: 3rem;
-  --events-input-padding: 1.25rem;
-  --events-button-padding: 1.25rem;
+  --events-input-padding: var(--space-20);
+  --events-button-padding: var(--space-20);
   --events-control-radius: var(--radius-pill);
 }
 

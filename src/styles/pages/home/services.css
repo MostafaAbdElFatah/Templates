@@ -34,31 +34,31 @@
   --services-border-color: var(--color-primary);
 
   /* Height of the wavy edges at the top and bottom of the background band */
-  --services-wave-height: clamp(3rem, 8vw, 7.5rem);
+  --services-wave-height: var(--wave-edge-height);
   /* Width of one wave; the shape repeats horizontally. Smaller = narrower waves.
      Top and bottom are independent so each edge can have its own rhythm.
      Fluid: scales with the viewport, clamped so waves never get too squeezed
      on phones or too stretched on wide screens. */
-  --services-wave-top-width: clamp(20rem, 60vw, 60rem);
-  --services-wave-bottom-width: clamp(10rem, 30vw, 30rem);
+  --services-wave-top-width: var(--wave-edge-top-width);
+  --services-wave-bottom-width: var(--wave-edge-bottom-width);
   /* Wave shapes (black = visible). Each is one full period that starts and
      ends at the same height with a flat tangent, so tiles join seamlessly.
      preserveAspectRatio="none" lets them stretch to the size set above.
      Top: asymmetric (steep rise, long gentle fall). Bottom: even sine. */
-  --services-wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 100C240 100 300 20 540 20S1200 100 1440 100V120H0Z'/%3E%3C/svg%3E");
-  --services-wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 20C360 20 360 100 720 100S1080 20 1440 20V0H0Z'/%3E%3C/svg%3E");
+  --services-wave-top: var(--wave-edge-top-shape);
+  --services-wave-bottom: var(--wave-edge-bottom-shape);
 
-  --services-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --services-gap: var(--space-fluid-md);
 
   /* Card */
   --services-card-pad-top: clamp(2.5rem, 4vw, 3.5rem);
   --services-icon-size: clamp(3rem, 2.5rem + 1.5vw, 4rem);
-  --services-title-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --services-title-size: var(--font-size-fluid-lg);
 
   /* Hover */
-  --services-lift: -1rem;
+  --services-lift: calc(var(--space-16) * -1);
   --services-scale: 1.04;
-  --services-border-width: 4px;
+  --services-border-width: var(--border-width-heavy);
 
   /* Footer badge: width of the slant on the number and on the grey stripe */
   --services-slant: 1.25rem;
@@ -66,12 +66,12 @@
   /* Fixed badge width so the stripe behind it can be positioned without
      measuring the text; fits any two-digit counter value */
   --services-number-width: 5.5rem;
-  --services-title-margin-block: 1.25rem 2.25rem;
-  --services-number-padding: 0.6rem calc(var(--services-slant) + 1.25rem) 0.6rem 1rem;
-  --services-number-font-size: 1.5rem;
-  --services-link-padding-inline: 1rem;
+  --services-title-margin-block: var(--space-20) var(--space-36);
+  --services-number-padding: 0.6rem calc(var(--services-slant) + var(--space-20)) 0.6rem var(--space-16);
+  --services-number-font-size: var(--font-size-2xl);
+  --services-link-padding-inline: var(--space-16);
   --services-link-font-size: 0.95rem;
-  --services-mask-fill: var(--black);
+  --services-mask-fill: var(--mask-fill);
 }
 
 /* The background is a pseudo-element so its wavy edges can be cut with a mask

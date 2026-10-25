@@ -11,7 +11,7 @@
   --articles-bg: var(--color-bg-surface);
   /* Cards never shrink below this before the grid drops a column */
   --articles-card-min: 250px;
-  --articles-gap: 40px;
+  --articles-gap: var(--space-40);
 }
 
 /* ---------- Section ---------- */

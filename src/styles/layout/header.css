@@ -15,9 +15,9 @@
   /* Accent (not text-accent): the logo is large bold text, so the brighter
      brand blue still meets the 3:1 large-text contrast ratio */
   --header-logo-fg: var(--color-accent);
-  --header-padding: 20px;
+  --header-padding: var(--space-20);
   /* Space between the logo and the nav once the header stacks */
-  --header-gap-sm: 10px;
+  --header-gap-sm: var(--space-10);
 
   position: sticky;
   top: 0;

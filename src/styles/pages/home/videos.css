@@ -21,13 +21,13 @@
   --videos-playlist-column: 3fr;
   --videos-preview-column: 7fr;
   --videos-list-max-height: calc(39.375cqi - 0.5625rem);
-  --videos-panel-padding: 0.5rem;
-  --videos-list-heading-padding: 0.75rem 1rem;
-  --videos-item-padding: 0.75rem 1rem;
+  --videos-panel-padding: var(--space-8);
+  --videos-list-heading-padding: var(--space-12) var(--space-16);
+  --videos-item-padding: var(--space-12) var(--space-16);
   --videos-item-min-height: 4.2rem;
-  --videos-item-gap: 0.125rem;
+  --videos-item-gap: var(--space-2);
   --videos-preview-ratio: 16 / 9;
-  --videos-caption-padding: 0.75rem 1rem;
+  --videos-caption-padding: var(--space-12) var(--space-16);
   --videos-font-size: var(--font-size-base);
 
   padding-block: var(--videos-section-padding);

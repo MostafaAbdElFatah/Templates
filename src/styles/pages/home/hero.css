@@ -20,18 +20,24 @@
   --hero-arrow-fg-hover: var(--color-primary-hover);
   /* Height of the panel's right edge: 76% leaves the diagonal cut below it */
   --hero-slant: 76%;
+  /* Height of the panel's left edge */
+  --hero-slant-start: 96%;
   /* Fills the first screen below the sticky header */
   --hero-min-height: calc(100vh - var(--header-height));
-  --hero-gap: clamp(2rem, 5vw, 4rem);
+  --hero-gap: var(--space-fluid-lg);
+  /* Space between the two-column row and the section's bottom cut */
+  --hero-inner-margin-bottom: 10vh;
   /* Caps line length of the intro copy for readability */
   --hero-text-max-width: 500px;
   --hero-image-max-width: 600px;
-  --hero-title-gap: 0.5rem;
+  /* Illustration cap once the columns stack */
+  --hero-image-max-width-stacked: 50vw;
+  --hero-title-gap: var(--space-8);
   /* Distance of the scroll-down arrow from the section's bottom edge */
-  --hero-arrow-offset: clamp(1rem, 2vw, 1.5rem);
+  --hero-arrow-offset: var(--space-fluid-sm);
   /* Travel distances for the float / bounce animations */
-  --hero-float-distance: 16px;
-  --hero-bounce-distance: 10px;
+  --hero-float-distance: var(--space-16);
+  --hero-bounce-distance: var(--space-10);
   --hero-panel-skew: -12deg;
   --hero-title-letter-spacing: -1px;
   /* Font sizes: title 24px on phones up to 40px on desktop */
@@ -56,7 +62,7 @@
   z-index: -1;
   background-color: var(--hero-bg);
   /* Right edge stops at --hero-slant, left edge reaches the bottom: diagonal cut */
-  clip-path: polygon(0 0, 100% 0, 100% var(--hero-slant), 0 96%);
+  clip-path: polygon(0 0, 100% 0, 100% var(--hero-slant), 0 var(--hero-slant-start));
   /*
     or can use this insteaded of  polygon
     transform: skewY(var(--hero-panel-skew));
@@ -70,7 +76,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--hero-gap);
-  margin-bottom: 10vh;
+  margin-bottom: var(--hero-inner-margin-bottom);
 }
 
 .hero__text,
@@ -89,7 +95,7 @@
   }
   .hero__image {
     order: -1;
-    max-width: 50vw;
+    max-width: var(--hero-image-max-width-stacked);
   }
 }
 

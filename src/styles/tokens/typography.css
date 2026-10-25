@@ -18,6 +18,23 @@
      at 1200px (widest container) and stays there */
   --font-size-nav: clamp(0.875rem, 0.708rem + 0.556vw, 1.125rem);
 
+  /* ---------- Static size scale ---------- */
+  /* Shared fixed sizes for labels, badges, icons and small headings */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 2rem;     /* 32px */
+  --font-size-4xl: 3rem;     /* 48px */
+
+  /* ---------- Fluid size scale ---------- */
+  /* Card titles and contact icons (services, footer) */
+  --font-size-fluid-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  /* Small footer/body copy */
+  --font-size-fluid-sm: clamp(0.8rem, 0.8rem + 0.2vw, 1rem);
+
   /* ---------- Line heights ---------- */
   /* Tight for headings, relaxed for airy body copy */
   --line-height-tight: 1.2;

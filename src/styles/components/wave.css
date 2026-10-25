@@ -14,22 +14,22 @@
   --wave-bg: var(--color-bg-sunken);
 
   /* Height of the wavy edges. */
-  --wave-height: clamp(3rem, 8vw, 7.5rem);
+  --wave-height: var(--wave-edge-height);
 
   /* Width of one wave; the shape repeats horizontally. Smaller = narrower
      waves. Top and bottom are independent. Fluid: scales with the viewport,
      clamped so waves never get too squeezed or too stretched. */
-  --wave-top-width: clamp(20rem, 60vw, 60rem);
-  --wave-bottom-width: clamp(10rem, 30vw, 30rem);
+  --wave-top-width: var(--wave-edge-top-width);
+  --wave-bottom-width: var(--wave-edge-bottom-width);
 
   /* Wave shapes (black = visible). Each is one full period that starts and
      ends at the same height with a flat tangent, so tiles join seamlessly.
      Top: asymmetric (steep rise, long gentle fall). Bottom: even sine. */
-  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 100C240 100 300 20 540 20S1200 100 1440 100V120H0Z'/%3E%3C/svg%3E");
-  --wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 20C360 20 360 100 720 100S1080 20 1440 20V0H0Z'/%3E%3C/svg%3E");
+  --wave-top: var(--wave-edge-top-shape);
+  --wave-bottom: var(--wave-edge-bottom-shape);
 
   /* Mask fill for the solid middle; any opaque color works. */
-  --wave-mask-fill: #000;
+  --wave-mask-fill: var(--mask-fill);
 
   /* Active edge heights; the modifiers below switch them on. */
   --wave-top-height: 0px;

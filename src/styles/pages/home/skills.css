@@ -6,13 +6,13 @@
 /* ---------- Local variables ---------- */
 .skills {
   --skills-bg: var(--color-bg-page);
-  --skills-gap: clamp(2rem, 6vw, 5rem);
+  --skills-gap: var(--space-fluid-xl);
   --skills-image-width: min(100%, 32rem);
   --skills-list-width: min(100%, 40rem);
-  --skills-item-gap: 1.25rem;
-  --skills-label-gap: 0.5rem;
-  --skills-label-size: 1.125rem;
-  --skills-value-size: 0.75rem;
+  --skills-item-gap: var(--space-20);
+  --skills-label-gap: var(--space-8);
+  --skills-label-size: var(--font-size-lg);
+  --skills-value-size: var(--font-size-xs);
   --skills-value-padding: 0.2rem 0.4rem;
   --skills-value-border: var(--color-border-default);
   --skills-value-fg: var(--color-primary);
@@ -52,7 +52,7 @@
   display: grid;
   gap: var(--skills-item-gap);
   width: var(--skills-list-width);
-    flex: 1;
+  flex: 1;
 }
 
 .skills__label {

@@ -25,13 +25,15 @@
 
   /* Zigzag top edge: tooth height (each tooth is twice as wide as it is tall) */
   --gallery-edge-size: 14px;
+  /* Zigzag background tile (width × height) for the top and bottom edges */
+  --gallery-zigzag-size: 40px 20px;
 
   /* Grid: items never shrink below this before the grid drops a column */
   --gallery-item-min: 300px;
-  --gallery-gap: 20px;
+  --gallery-gap: var(--space-20);
 
   /* Frame: white border around each image */
-  --gallery-frame-padding: 15px;
+  --gallery-frame-padding: var(--space-15);
   /* Keeps every thumbnail square whatever the source image size */
   --gallery-image-ratio: 1 / 1;
 
@@ -42,7 +44,7 @@
   /* Flash: grows from a point in the center to past the edges, then fades */
   --gallery-flash-scale-start: 0;
   --gallery-flash-scale-end: 2;
-  --gallery-flash-duration: 0.7s;
+  --gallery-flash-duration: var(--duration-700);
   --gallery-flash-easing: ease-out;
 }
 
@@ -99,8 +101,8 @@
   /* Set the first and second background layers to 40px wide
    and 20px high. */
   background-size:
-    40px 20px,
-    40px 20px;
+    var(--gallery-zigzag-size),
+    var(--gallery-zigzag-size);
 
   /* Position the first background layer at the bottom
    and the second background layer at the top. */

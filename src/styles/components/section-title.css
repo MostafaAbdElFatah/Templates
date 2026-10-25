@@ -17,23 +17,23 @@
   --section-title-dot-bg: var(--color-primary);
 
   /* Box */
-  --section-title-border-width: 2px;
-  --section-title-padding-block: 10px;
-  --section-title-padding-inline: 20px;
+  --section-title-border-width: var(--border-width-medium);
+  --section-title-padding-block: var(--space-10);
+  --section-title-padding-inline: var(--space-20);
   /* 22px on phones up to 30px on desktop */
   --section-title-font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
   /* Space between the title and the section content below it */
-  --section-title-margin-bottom: clamp(3rem, 6vw, 5rem);
+  --section-title-margin-bottom: var(--section-heading-gap);
 
   /* Dots */
   --section-title-dot-size: 12px;
   /* How far each dot sits outside the box before hover */
-  --section-title-dot-offset: -30px;
-  --section-title-dot-radius: 50%;
+  --section-title-dot-offset: calc(var(--space-30) * -1);
+  --section-title-dot-radius: var(--radius-circle);
 
   /* Motion: the text color change waits for the fill to finish */
-  --section-title-fill-duration: 500ms;
-  --section-title-fill-easing: linear;
+  --section-title-fill-duration: var(--duration-slower);
+  --section-title-fill-easing: var(--ease-linear);
 }
 
 /* ---------- Box ---------- */

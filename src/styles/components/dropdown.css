@@ -17,15 +17,15 @@
   --dropdown-link-fg: var(--color-text-accent);
   --dropdown-link-bg-hover: var(--color-bg-hover);
   --dropdown-link-font-size: var(--font-size-nav);
-  --dropdown-padding: 30px;
-  --dropdown-padding-sm: 15px;
-  --dropdown-gap: 40px;
-  --dropdown-accent-width: 3px;
-  --dropdown-border-width: 1px;
-  --dropdown-link-padding: 15px;
+  --dropdown-padding: var(--space-30);
+  --dropdown-padding-sm: var(--space-15);
+  --dropdown-gap: var(--space-40);
+  --dropdown-accent-width: var(--border-width-thick);
+  --dropdown-border-width: var(--border-width-thin);
+  --dropdown-link-padding: var(--space-15);
   /* Tighter rows on small screens so the stacked list stays compact */
-  --dropdown-link-padding-sm: 10px;
-  --dropdown-icon-gap: 10px;
+  --dropdown-link-padding-sm: var(--space-10);
+  --dropdown-icon-gap: var(--space-10);
   /* Distance the panel slides up from while it fades in */
   --dropdown-offset: 50px;
   /* Above the header's own children; the header itself owns the page-level z-index */
@@ -34,7 +34,7 @@
   --dropdown-columns: 2;
   --dropdown-rows: 5;
   --dropdown-column-min: 200px;
-  --dropdown-column-gap: 30px;
+  --dropdown-column-gap: var(--space-30);
 }
 
 /* ---------- Panel ---------- */

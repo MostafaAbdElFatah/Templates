@@ -15,17 +15,17 @@
   --team-name-color-hover: var(--color-text-accent);
   /* --team-name-color: var(--color-text-accent);
   --team-name-color-hover: var(--color-text-muted); */
-  --team-card-lift: -0.75rem;
+  --team-card-lift: calc(var(--space-12) * -1);
   --team-card-scale: 1.03;
   /* Duration/easing for the right-to-left overlay sweeps */
-  --team-sweep: 600ms cubic-bezier(0.65, 0, 0.35, 1);
+  --team-sweep: var(--duration-600) cubic-bezier(0.65, 0, 0.35, 1);
   --team-muted: var(--color-text-secondary);
   --team-social-color: var(--color-text-muted);
   --team-social-hover: var(--color-text-accent);
   --team-image-shadow: var(--shadow-md);
   --team-image-shadow-hover: var(--shadow-lg);
   --team-grid-min: 270px;
-  --team-grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --team-grid-gap: var(--space-fluid-md);
   --team-card-radius: 0.75rem;
   --team-image-radius: 0.75rem;
   /* Share of the photo that hangs outside the card panel */
@@ -34,10 +34,21 @@
   --team-card-pad-top: clamp(2.5rem, 5vw, 3.75rem);
   --team-card-pad-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
   --team-body-gap: 0.65rem;
-  --team-social-facebook: var(--brand-facebook);
-  --team-social-twitter: var(--brand-twitter);
-  --team-social-linkedin: var(--brand-linkedin);
-  --team-social-youtube: var(--brand-youtube);
+  --team-body-margin-top: var(--space-fluid-sm);
+  --team-body-padding-inline: var(--space-20);
+  --team-name-size: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
+  --team-role-size: 0.95em;
+  /* Extra hit-area stretch below the lifted card (see .team__card::after) */
+  --team-hit-extend: var(--space-8);
+  --team-image-scale: 1.04;
+  --team-socials-gap: var(--space-fluid-xs);
+  --team-social-size: 2rem;
+  --team-social-radius: var(--radius-circle);
+  --team-social-scale: 1.15;
+  --team-social-facebook: var(--color-brand-facebook);
+  --team-social-twitter: var(--color-brand-twitter);
+  --team-social-linkedin: var(--color-brand-linkedin);
+  --team-social-youtube: var(--color-brand-youtube);
 }
 
 .team {
@@ -87,7 +98,7 @@
 }
 
 .team__card:hover::after {
-  inset-block-end: calc(var(--team-card-lift) - 0.5rem);
+  inset-block-end: calc(var(--team-card-lift) - var(--team-hit-extend));
 }
 
 /* Panel overlay: the hover colour is a gradient layer anchored to the right
@@ -173,7 +184,7 @@
 
 .team__card:hover .team__image,
 .team__card:focus-within .team__image {
-  transform: scale(1.04);
+  transform: scale(var(--team-image-scale));
 }
 
 /* ---------- Copy ---------- */
@@ -183,16 +194,16 @@
   grid-area: body;
   display: grid;
   gap: var(--team-body-gap);
-  margin-block-start: clamp(1rem, 2vw, 1.5rem);
+  margin-block-start: var(--team-body-margin-top);
   padding-inline-start: calc(
-    (100% - var(--team-socials-col)) * var(--team-image-out) + 1.25rem
+    (100% - var(--team-socials-col)) * var(--team-image-out) + var(--team-body-padding-inline)
   );
-  padding-inline-end: 1.25rem;
+  padding-inline-end: var(--team-body-padding-inline);
 }
 
 .team__name {
   color: var(--team-name-color);
-  font-size: clamp(1.15rem, 1rem + 0.4vw, 1.35rem);
+  font-size: var(--team-name-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   transition: color var(--transition-normal);
@@ -205,7 +216,7 @@
 
 .team__role {
   color: var(--team-muted);
-  font-size: 0.95em;
+  font-size: var(--team-role-size);
 }
 
 /* ---------- Socials rail ---------- */
@@ -215,7 +226,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  gap: var(--team-socials-gap);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -224,10 +235,10 @@
 .team__socials a {
   display: grid;
   place-items: center;
-  width: 2rem;
+  width: var(--team-social-size);
   aspect-ratio: 1;
   color: var(--team-social-color);
-  border-radius: 50%;
+  border-radius: var(--team-social-radius);
   transition:
     color var(--transition-fast),
     transform var(--transition-fast);
@@ -259,7 +270,7 @@
 
 .team__socials a:hover {
   color: var(--team-social-hover);
-  transform: scale(1.15);
+  transform: scale(var(--team-social-scale));
 }
 
 .team__socials a:focus-visible {

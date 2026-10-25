@@ -5,17 +5,19 @@
 
 .statistics {
   --statistics-bg: var(--color-bg-surface-subtle);
-  --statistics-overlay: rgba(255, 255, 255, 0.95);
+  --statistics-overlay: color-mix(in srgb, var(--white) 95%, transparent);
   --statistics-card-bg: var(--color-bg-elevated);
   --statistics-card-fg: var(--color-text-primary);
   --statistics-accent: var(--color-primary);
   --statistics-card-width: clamp(12rem, 19vw, 15rem);
   --statistics-card-height: 9.75rem;
   --statistics-grid-gap: clamp(0.75rem, 2vw, 1.5rem);
-  --statistics-card-padding: 1.25rem;
-  --statistics-icon-size: 1.5rem;
+  --statistics-card-padding: var(--space-20);
+  --statistics-icon-size: var(--font-size-2xl);
+  --statistics-icon-gap: var(--space-8);
   --statistics-value-size: clamp(2rem, 3vw, 2.5rem);
-  --statistics-label-size: 0.875rem;
+  --statistics-label-size: var(--font-size-sm);
+  --statistics-label-gap: var(--space-8);
   --statistics-rule-width: clamp(
     var(--border-width-medium),
     0.25vw,
@@ -83,7 +85,7 @@
 }
 
 .statistics__icon {
-  margin-block-end: 0.5rem;
+  margin-block-end: var(--statistics-icon-gap);
   color: var(--statistics-card-fg);
   font-size: var(--statistics-icon-size);
 }
@@ -94,7 +96,7 @@
 }
 
 .statistics__label {
-  margin-block-start: 0.5rem;
+  margin-block-start: var(--statistics-label-gap);
   color: var(--statistics-accent);
   font-size: var(--statistics-label-size);
   font-style: italic;

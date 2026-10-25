@@ -4,6 +4,7 @@
    on the right. All section-only values stay local to this section.
    ============================================================================ */
 
+/* ---------- Local variables ---------- */
 .discount {
   --discount-min-height: 100vh;
   --discount-pitch-bg: var(--color-primary);
@@ -18,12 +19,18 @@
   --discount-button-fg: var(--button-primary-fg);
   --discount-column-width: 50%;
   --discount-content-width: min(100%, 32rem);
-  --discount-content-padding: clamp(2rem, 6vw, 5rem);
+  --discount-content-padding: var(--space-fluid-xl);
   --discount-form-width: min(100%, 15rem);
-  --discount-form-gap: 1.25rem;
-  --discount-input-padding: 0.75rem;
+  --discount-form-gap: var(--space-20);
+  --discount-input-padding: var(--space-12);
+  --discount-control-min-height: 2.5rem;
   --discount-message-height: 10rem;
   --discount-illustration-size: min(100%, 16rem);
+  --discount-title-size: clamp(1.5rem, 2vw, 2rem);
+  --discount-text-margin-top: var(--space-24);
+  --discount-illustration-margin-top: var(--space-24);
+  /* Each half's height once the columns stack */
+  --discount-stacked-min-height: 50vh;
 
   min-height: var(--discount-min-height);
 }
@@ -59,20 +66,20 @@
 .discount__title,
 .discount__form-title {
   white-space: nowrap;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: var(--discount-title-size);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
 
 .discount__text {
-  margin-block-start: 1.5rem;
+  margin-block-start: var(--discount-text-margin-top);
   font-size: var(--font-size-base);
   line-height: var(--line-height-relaxed);
 }
 
 .discount__illustration {
   width: var(--discount-illustration-size);
-  margin: 1.5rem auto 0;
+  margin: var(--discount-illustration-margin-top) auto 0;
 }
 
 .discount__form-panel {
@@ -88,7 +95,7 @@
 
 .discount__input {
   width: 100%;
-  min-height: 2.5rem;
+  min-height: var(--discount-control-min-height);
   padding: var(--discount-input-padding);
   border: 0;
   border-block-end: var(--border-width-thin) solid var(--discount-input-border);
@@ -104,7 +111,7 @@
 }
 
 .discount__button {
-  min-height: 2.5rem;
+  min-height: var(--discount-control-min-height);
   border: 0;
   border-radius: 0;
   background-color: var(--discount-button-bg);
@@ -126,6 +133,6 @@
   .discount__pitch,
   .discount__form-panel {
     width: 100%;
-    min-height: 50vh;
+    min-height: var(--discount-stacked-min-height);
   }
 }

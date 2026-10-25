@@ -44,7 +44,6 @@
   --scrollbar-width: 12px;
   --scrollbar-thumb-border-width: 3px;
   --scrollbar-thumb-radius: 999px;
-  --border-width-thin: 1px;
   /* Outlined buttons and boxed headings */
   --border-width-thin: 1px;
   --border-width-medium: 2px;
@@ -53,8 +52,23 @@
   --border-width-bold: 6px;
   --border-width-extra-bold: 8px;
   --radius-sm: 4px;
+  /* Cards and outlined buttons (article cards, features link, work-steps cards) */
+  --radius-md: 6px;
+  /* Avatars, dots and other perfectly round shapes */
+  --radius-circle: 50%;
   /* Fully rounded ends for pill-shaped inputs and buttons */
   --radius-pill: 999px;
+
+  /* ---------- Wave edges ---------- */
+  /* Shared by components/wave.css and pages/home/services.css.
+     Shapes are one full period each (black = visible), so tiles join seamlessly. */
+  --wave-edge-height: clamp(3rem, 8vw, 7.5rem);
+  --wave-edge-top-width: clamp(20rem, 60vw, 60rem);
+  --wave-edge-bottom-width: clamp(10rem, 30vw, 30rem);
+  --wave-edge-top-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 100C240 100 300 20 540 20S1200 100 1440 100V120H0Z'/%3E%3C/svg%3E");
+  --wave-edge-bottom-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 20C360 20 360 100 720 100S1080 20 1440 20V0H0Z'/%3E%3C/svg%3E");
+  /* Any opaque color works for mask layers; only alpha matters */
+  --mask-fill: var(--black);
 
   /* ---------- Dots decoration ---------- */
   /* Shared by every section using .dots-decoration (events, pricing) */

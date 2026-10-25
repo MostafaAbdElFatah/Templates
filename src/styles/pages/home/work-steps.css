@@ -24,28 +24,28 @@
   --work-steps-card-border: var(--color-bg-surface);
   --work-steps-title-color: var(--color-text-primary);
   --work-steps-text-color: var(--color-text-muted);
-  --work-steps-flash-color: rgb(0 0 0 / 3%);
+  --work-steps-flash-color: color-mix(in srgb, var(--black) 3%, transparent);
 
   /* Layout */
-  --work-steps-gap: clamp(2rem, 6vw, 5rem);
+  --work-steps-gap: var(--space-fluid-xl);
   --work-steps-image-width: min(100%, 31rem);
   --work-steps-list-width: min(100%, 36rem);
-  --work-steps-list-gap: 1.25rem;
+  --work-steps-list-gap: var(--space-20);
 
   /* Card */
-  --work-steps-card-padding: 1.5rem clamp(1.25rem, 3vw, 2rem) 1.75rem;
+  --work-steps-card-padding: var(--space-24) clamp(1.25rem, 3vw, 2rem) var(--space-28);
   --work-steps-card-gap: clamp(1.25rem, 3vw, 2rem);
-  --work-steps-card-border-width: 2px;
-  --work-steps-card-radius: 6px;
+  --work-steps-card-border-width: var(--border-width-medium);
+  --work-steps-card-radius: var(--radius-md);
   --work-steps-icon-size: clamp(3.25rem, 2.75rem + 1.5vw, 4rem);
   --work-steps-title-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
-  --work-steps-text-gap: 0.75rem;
+  --work-steps-text-gap: var(--space-12);
   --work-steps-text-line-height: 1.9;
 
   /* Hover */
-  --work-steps-lift: -4px;
+  --work-steps-lift: calc(var(--space-4) * -1);
   --work-steps-shadow-hover: var(--shadow-md);
-  --work-steps-flash-duration: 0.4s;
+  --work-steps-flash-duration: var(--duration-slow);
 }
 
 /* ---------- Section ---------- */
@@ -108,7 +108,7 @@
   background-color: var(--work-steps-flash-color);
   scale: 0;
   pointer-events: none;
-  transition: scale var(--work-steps-flash-duration) ease;
+  transition: scale var(--work-steps-flash-duration) var(--ease-default);
 }
 
 /* Keyboard focus always triggers the effect */

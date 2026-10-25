@@ -5,17 +5,33 @@
    ========================================================================== */
 
 :root {
+  /* ---------- Durations ---------- */
+  /* Raw timings for animations or transitions that need their own easing */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 400ms;
+  --duration-slower: 500ms;
+  --duration-600: 600ms;
+  --duration-700: 700ms;
+  --duration-800: 800ms;
+  --duration-900: 900ms;
+  --duration-1000: 1000ms;
+
+  /* ---------- Easings ---------- */
+  --ease-default: ease;
+  --ease-linear: linear;
+
   /* ---------- Transitions ---------- */
-  /* Two speeds only, so interactions across the site feel consistent */
-  --transition-fast: 200ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 400ms ease;
-  --transition-slower: 500ms ease;
-  --transition-600: 600ms ease;
-  --transition-700: 700ms ease;
-  --transition-800: 800ms ease;
-  --transition-900: 900ms ease;
-  --transition-1000: 1000ms ease;
+  /* Duration + default easing, ready to drop into a transition shorthand */
+  --transition-fast: var(--duration-fast) var(--ease-default);
+  --transition-normal: var(--duration-normal) var(--ease-default);
+  --transition-slow: var(--duration-slow) var(--ease-default);
+  --transition-slower: var(--duration-slower) var(--ease-default);
+  --transition-600: var(--duration-600) var(--ease-default);
+  --transition-700: var(--duration-700) var(--ease-default);
+  --transition-800: var(--duration-800) var(--ease-default);
+  --transition-900: var(--duration-900) var(--ease-default);
+  --transition-1000: var(--duration-1000) var(--ease-default);
 
   /* ---------- Looping animations ---------- */
   /* Slow float for the hero illustration, quicker bounce for the scroll hint */

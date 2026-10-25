@@ -8,7 +8,7 @@
 /* ---------- Local variables ---------- */
 .footer {
   /* Colors reuse the global palette; all layout and type values stay local. */
-  --footer-bg: #191919;
+  --footer-bg: var(--gray-950);
   --footer-fg: var(--gray-50);
   --footer-copy: var(--gray-400);
   --footer-accent: var(--sky-500);
@@ -17,30 +17,30 @@
   --footer-social-hover: var(--gray-850);
   --footer-gallery-frame: var(--gray-50);
 
-  --footer-main-padding-block: clamp(2rem, 5vw, 4rem);
+  --footer-main-padding-block: var(--space-fluid-lg);
   --footer-content-padding-inline: clamp(1rem, 3vw, 2rem);
   --footer-content-width: 68rem;
-  --footer-grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --footer-grid-gap: var(--space-fluid-md);
   --footer-column-min: 12rem;
   --footer-brand-size: calc(var(--font-size-logo) * 1.5);
   --footer-description-width: 25ch;
-  --footer-description-font-size: clamp(0.8rem, 0.8rem + 0.2vw, 1rem);
-  --footer-body-size: : clamp(0.8rem, 0.8rem + 0.2vw, 1rem);
+  --footer-description-font-size: var(--font-size-fluid-sm);
+  --footer-body-size: var(--font-size-fluid-sm);
   --footer-small-size: var(--footer-body-size);
   --footer-line-height: var(--line-height-relaxed);
   --footer-social-size: 3rem;
   --footer-social-icon-size: var(--footer-small-size);
-  --footer-social-gap: clamp(0.75rem, 1.5vw, 1.25rem);
-  --footer-section-gap: clamp(1rem, 2vw, 1.5rem);
+  --footer-social-gap: var(--space-fluid-xs);
+  --footer-section-gap: var(--space-fluid-sm);
   --footer-list-row-padding: clamp(0.5rem, 1vw, 0.75rem);
   --footer-link-icon-gap: clamp(0.5rem, 1vw, 0.75rem);
-  --footer-contact-gap: clamp(1rem, 2vw, 1.5rem);
+  --footer-contact-gap: var(--space-fluid-sm);
   --footer-contact-icon-gap: clamp(1rem, 1.5vw, 1.25rem);
-  --footer-contact-font-size:: clamp(0.8rem, 0.8rem + 0.2vw, 1rem);
-  --footer-contact-icon-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --footer-contact-font-size: var(--font-size-fluid-sm);
+  --footer-contact-icon-size: var(--font-size-fluid-lg);
   --footer-gallery-columns: 3;
   --footer-gallery-gap: clamp(0.5rem, 1vw, 0.75rem);
-  --footer-gallery-frame-width: calc(var(--border-width-thin) * 3);
+  --footer-gallery-frame-width: var(--border-width-thick);
   --footer-gallery-image-ratio: 1 / 1;
   --footer-copyright-padding-block: calc(var(--container-padding) + 1vh);
   --footer-transition: var(--transition-normal);

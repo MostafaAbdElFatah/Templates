@@ -26,10 +26,10 @@
 
   /* Grid: cards never shrink below this before the grid drops a column */
   --features-card-min: 260px;
-  --features-gap: 40px;
+  --features-gap: var(--space-40);
 
   /* Card */
-  --features-card-border-width: 1px;
+  --features-card-border-width: var(--border-width-thin);
 
   /* Media: near-square ratio matches the design's tall photo area */
   --features-image-ratio: 7 / 6;
@@ -42,28 +42,28 @@
   --features-media-shape-hover: polygon(0 0, 100% 0, 100% 100%, 0 70%);
 
   /* Body */
-  --features-body-padding-block: 30px;
-  --features-body-padding-inline: 30px;
+  --features-body-padding-block: var(--space-30);
+  --features-body-padding-inline: var(--space-30);
   /* 28px on phones up to 36px on desktop */
   --features-title-size: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);
   /* Space under the title: holds the accent bar plus breathing room */
   --features-title-gap: 45px;
-  --features-text-gap: 40px;
+  --features-text-gap: var(--space-40);
   --features-text-line-height: 2;
 
   /* Title accent bar */
   --features-bar-width: 60%;
   --features-bar-height: 5px;
-  --features-bar-offset: 15px;
+  --features-bar-offset: var(--space-15);
   /* On hover the bar stretches to the full width of the title text */
   --features-bar-width-hover: 100%;
 
   /* Button: 20px bold counts as large text, so the base accent shade meets 3:1 */
-  --features-link-size: 1.25rem;
-  --features-link-border-width: 2px;
-  --features-link-padding-block: 4px;
-  --features-link-padding-inline: 30px;
-  --features-link-radius: 6px;
+  --features-link-size: var(--font-size-xl);
+  --features-link-border-width: var(--border-width-medium);
+  --features-link-padding-block: var(--space-4);
+  --features-link-padding-inline: var(--space-30);
+  --features-link-radius: var(--radius-md);
 }
 
 /* ---------- Highlight modifiers ---------- */

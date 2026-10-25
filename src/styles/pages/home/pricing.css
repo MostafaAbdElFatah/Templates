@@ -23,50 +23,51 @@
   --pricing-check-color: var(--color-primary);
   --pricing-accent: var(--color-primary);
   --pricing-accent-fg: var(--color-text-on-primary);
-  --pricing-color-overlay: rgb(0 0 0 / 5%);
+  --pricing-color-overlay: color-mix(in srgb, var(--black) 5%, transparent);
 
   /* Dots decoration: pin the dots to the edges at every viewport
      (overrides the global slide-out from tokens/components.css) */
   --dots-offset-x: 0px;
 
   /* Layout */
-  --pricing-grid-gap: 1.75rem;
+  --pricing-grid-gap: var(--space-28);
   --pricing-card-min: 16rem;
   --pricing-card-max: 21.375rem;
   --pricing-popular-raise: -1.1875rem;
 
   /* Header */
-  --pricing-header-padding: 1.75rem 1.25rem 1.5rem;
-  --pricing-name-size: 1.25rem;
+  --pricing-header-padding: var(--space-28) var(--space-20) var(--space-24);
+  --pricing-name-size: var(--font-size-xl);
   --pricing-icon-size: 5rem;
-  --pricing-icon-gap: 2rem auto;
-  --pricing-amount-size: 3rem;
-  --pricing-period-size: 0.875rem;
+  --pricing-icon-gap: var(--space-32) auto;
+  --pricing-amount-size: var(--font-size-4xl);
+  --pricing-period-size: var(--font-size-sm);
 
   /* Features */
-  --pricing-feature-padding: 1.1rem 0.9375rem;
-  --pricing-feature-size: 0.875rem;
-  --pricing-check-gap: 0.625rem;
+  --pricing-feature-padding: 1.1rem var(--space-15);
+  --pricing-feature-size: var(--font-size-sm);
+  --pricing-check-gap: var(--space-10);
   --pricing-check-icon: "\f00c"; /* Font Awesome "check" */
   --pricing-check-font: "Font Awesome 7 Free";
   --pricing-check-weight: 900;
 
   /* Button */
-  --pricing-button-margin: 1.75rem auto 2.25rem;
-  --pricing-button-padding: 0.75rem 1.375rem;
-  --pricing-button-size: 0.875rem;
+  --pricing-button-margin: var(--space-28) auto var(--space-36);
+  --pricing-button-padding: var(--space-12) 1.375rem;
+  --pricing-button-size: var(--font-size-sm);
   --pricing-button-border-width: var(--border-width-medium);
   --pricing-button-radius: var(--radius-sm);
 
   /* Ribbon */
   --pricing-ribbon-width: 2.125rem;
-  --pricing-ribbon-padding: 0.5rem 0 1.5rem;
+  --pricing-ribbon-padding: var(--space-8) 0 var(--space-24);
   --pricing-ribbon-notch: 0.75rem;
-  --pricing-ribbon-offset: 1rem;
-  --pricing-ribbon-font-size: 1.25rem;
+  --pricing-ribbon-offset: var(--space-16);
+  --pricing-ribbon-top: 5%;
+  --pricing-ribbon-font-size: var(--font-size-xl);
 
   /* Hover */
-  --pricing-lift: -0.5rem;
+  --pricing-lift: calc(var(--space-8) * -1);
 }
 
 /* ---------- Section ---------- */
@@ -92,7 +93,7 @@
 /* Give this decision-focused section room to hold all three plans at desktop widths. */
 .pricing > .container {
   width: 100%;
-  max-width: 1170px;
+  max-width: var(--container-width-xl);
 }
 
 /* ---------- Card ---------- */
@@ -273,7 +274,7 @@
 .pricing__ribbon {
   position: absolute;
   top: 0;
-  inset-block-start: 5%;
+  inset-block-start: var(--pricing-ribbon-top);
   width: var(--pricing-ribbon-width);
   padding: var(--pricing-ribbon-padding);
   color: var(--pricing-accent-fg);

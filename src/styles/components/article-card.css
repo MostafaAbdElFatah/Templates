@@ -19,10 +19,10 @@
   --article-card-link: var(--color-text-accent);
 
   /* Shape & spacing */
-  --article-card-radius: 6px;
-  --article-card-padding: 20px;
-  --article-card-text-gap: 10px;
-  --article-card-divider-width: 1px;
+  --article-card-radius: var(--radius-md);
+  --article-card-padding: var(--space-20);
+  --article-card-text-gap: var(--space-10);
+  --article-card-divider-width: var(--border-width-thin);
   /* Keeps every cover the same height whatever the source image size */
   --article-card-image-ratio: 16 / 10;
 
@@ -32,10 +32,10 @@
   /* Hover */
   --article-card-hover-scale: 1.05;
   /* Arrow loop: how far it travels and how long one trip takes */
-  --article-card-icon-shift: 10px;
-  --article-card-hover-lift: -10px;
-  --article-card-icon-duration: 600ms;
-  --article-card-icon-easing: linear;
+  --article-card-icon-shift: var(--space-10);
+  --article-card-hover-lift: calc(var(--space-10) * -1);
+  --article-card-icon-duration: var(--duration-600);
+  --article-card-icon-easing: var(--ease-linear);
   /* 1 = travel toward the right (LTR); flipped to -1 for RTL below */
   --article-card-icon-direction: 1;
 }

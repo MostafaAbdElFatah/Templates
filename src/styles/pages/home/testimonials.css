@@ -20,13 +20,15 @@
   --testimonials-card-padding: clamp(1.25rem, 2.3vw, 1.75rem);
   --testimonials-card-radius: 0.85rem;
   --testimonials-avatar-size: clamp(4.25rem, 8vw, 5.5rem);
-  --testimonials-copy-gap: 0.5rem;
+  --testimonials-copy-gap: var(--space-8);
   --testimonials-role-size: 0.9em;
   --testimonials-quote-size: 0.95em;
   --testimonials-avatar-border-width: 10px;
-  --testimonials-avatar-radius: 50%;
+  --testimonials-avatar-radius: var(--radius-circle);
   --testimonials-name-size: clamp(1rem, 0.9rem + 0.25vw, 1.2rem);
   --testimonials-star-spacing: 0.08em;
+  --testimonials-rating-line-height: 1;
+  --testimonials-quote-max-width: 42ch;
 }
 
 /* ---------- Section surface ---------- */
@@ -116,7 +118,7 @@
 .testimonials__rating {
   color: var(--testimonials-star);
   letter-spacing: var(--testimonials-star-spacing);
-  line-height: 1;
+  line-height: var(--testimonials-rating-line-height);
 }
 
 .testimonials__rating-muted {
@@ -124,7 +126,7 @@
 }
 
 .testimonials__quote {
-  max-width: 42ch;
+  max-width: var(--testimonials-quote-max-width);
   font-size: var(--testimonials-quote-size);
   line-height: var(--line-height-relaxed);
 }

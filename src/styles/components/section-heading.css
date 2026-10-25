@@ -4,41 +4,56 @@
    Depends on: tokens/semantic-*.css
    ========================================================================== */
 
+/* ---------- Local variables ---------- */
+.section-heading {
+  /* Colors alias semantic tokens, so they still follow the active theme */
+  --section-heading-title-fg: var(--color-text-disabled);
+  --section-heading-subtitle-fg: var(--color-text-secondary);
+
+  /* Faded title */
+  /* 56px to 100px */
+  --section-heading-title-size: clamp(3.5rem, 9vw, 6.25rem);
+  --section-heading-title-weight: 800;
+  --section-heading-title-line-height: 1;
+  --section-heading-title-tracking: -3px;
+
+  /* Subtitle */
+  /* Negative offset tucks the subtitle into the oversized title */
+  --section-heading-subtitle-offset: calc(var(--space-30) * -1);
+  --section-heading-subtitle-size: clamp(1rem, 2vw, 1.25rem);
+}
+
 /* ---------- Wrapper ---------- */
 .section-heading {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  margin-bottom: var(--section-heading-gap);
   text-align: center;
 }
 
 /* ---------- Faded title ---------- */
 .section-heading > h2:first-child {
   margin: 0;
-  color: var(--color-text-disabled);
-  /* 56px to 100px */
-  font-size: clamp(3.5rem, 9vw, 6.25rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -3px;
+  color: var(--section-heading-title-fg);
+  font-size: var(--section-heading-title-size);
+  font-weight: var(--section-heading-title-weight);
+  line-height: var(--section-heading-title-line-height);
+  letter-spacing: var(--section-heading-title-tracking);
   text-transform: capitalize;
 }
 
 /* ---------- Subtitle ---------- */
 /* Negative margin tucks the subtitle into the oversized title for the layered look */
 .section-heading > h2:first-child + p {
-  margin: -30px 0 0;
-  color: var(--color-text-secondary);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 400;
-  line-height: 1.5;
+  margin: var(--section-heading-subtitle-offset) 0 0;
+  color: var(--section-heading-subtitle-fg);
+  font-size: var(--section-heading-subtitle-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
 }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 767px) {
-  .section-heading > h2:first-child {
-    letter-spacing: -1.5px;
-  }
-
-  .section-heading > h2:first-child + p {
-    margin-top: -20px;
+  .section-heading {
+    --section-heading-title-tracking: -1.5px;
+    --section-heading-subtitle-offset: calc(var(--space-20) * -1);
   }
 }

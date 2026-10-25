@@ -14,11 +14,11 @@
   --nav-bg-hover: var(--color-bg-hover);
   --nav-indicator-bg: var(--color-primary);
   /* Link padding sets the bar height, so the hover background fills it */
-  --nav-link-padding: 20px;
+  --nav-link-padding: var(--space-20);
   /* Tighter on small screens so all links fit on one centered row */
-  --nav-link-padding-sm: 10px;
+  --nav-link-padding-sm: var(--space-10);
   /* Thickness of the top bar that grows on hover/focus */
-  --nav-indicator-height: 3px;
+  --nav-indicator-height: var(--border-width-thick);
 }
 
 /* ---------- List ---------- */

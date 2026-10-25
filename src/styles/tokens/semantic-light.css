@@ -62,6 +62,7 @@
 
   /* ---------- Third-party brands ---------- */
   --color-brand-facebook: var(--brand-facebook);
+  --color-brand-linkedin: var(--brand-linkedin);
   --color-brand-twitter: var(--brand-twitter);
   --color-brand-youtube: var(--brand-youtube);
 
