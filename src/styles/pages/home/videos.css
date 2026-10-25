@@ -89,6 +89,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
   min-height: var(--videos-item-min-height);
   padding: var(--videos-item-padding);
   border-block-start: var(--border-width-thin) solid var(--videos-border);
