@@ -17,10 +17,10 @@
 
   --videos-section-padding: clamp(4.5rem, 6vw, 5rem);
   --videos-heading-gap: clamp(3rem, 4vw, 3.875rem);
-  --videos-container-max-width: 90rem;
   --videos-panel-width: 100%;
   --videos-playlist-column: 3fr;
   --videos-preview-column: 7fr;
+  --videos-list-max-height: calc(39.375cqi - 0.5625rem);
   --videos-panel-padding: 0.5rem;
   --videos-list-heading-padding: 0.75rem 1rem;
   --videos-item-padding: 0.75rem 1rem;
@@ -39,15 +39,10 @@
   --section-title-margin-bottom: var(--videos-heading-gap);
 }
 
-/* Give the video section more room than the standard page container. */
-.videos > .container {
-  width: 100%;
-  max-width: var(--videos-container-max-width);
-}
-
 /* ---------- Playlist and preview ---------- */
 .videos__panel {
   display: grid;
+  container-type: inline-size;
   grid-template-columns:
     minmax(0, var(--videos-playlist-column))
     minmax(0, var(--videos-preview-column));
@@ -83,8 +78,10 @@
 }
 
 .videos__list {
+  max-height: var(--videos-list-max-height);
   margin: 0;
   padding: 0;
+  overflow-y: auto;
   list-style: none;
 }
 
@@ -95,6 +92,18 @@
   min-height: var(--videos-item-min-height);
   padding: var(--videos-item-padding);
   border-block-start: var(--border-width-thin) solid var(--videos-border);
+  transition: background-color var(--transition-fast);
+}
+
+/* Highlight the item and its title on devices with a true hover pointer. */
+@media (hover: hover) {
+  .videos__item:hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  .videos__item:hover .videos__item-title {
+    color: var(--color-primary);
+  }
 }
 
 .videos__item-title,
@@ -102,6 +111,10 @@
   color: var(--videos-text);
   font-size: var(--videos-font-size);
   line-height: var(--line-height-tight);
+}
+
+.videos__item-title {
+  transition: color var(--transition-fast);
 }
 
 .videos__duration {
@@ -136,6 +149,10 @@
 
 /* Keep the playlist and preview readable when the desktop columns no longer fit. */
 @media (max-width: 48rem) {
+  .videos {
+    --videos-list-max-height: calc(56.25cqi - 0.5625rem);
+  }
+
   .videos__panel {
     grid-template-columns: minmax(0, 1fr);
   }
