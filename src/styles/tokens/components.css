@@ -46,4 +46,6 @@
   --scrollbar-thumb-radius: 999px;
   --border-width-thin: 1px;
   --radius-sm: 4px;
+  /* Fully rounded ends for pill-shaped inputs and buttons */
+  --radius-pill: 999px;
 }

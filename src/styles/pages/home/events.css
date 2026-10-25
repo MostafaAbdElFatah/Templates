@@ -1,0 +1,214 @@
+/* ============================================================================
+   Latest Events (pages/home/events.css)
+   Event teaser: illustration on the left, countdown + title + copy on the
+   right, and a pill-shaped newsletter form centred below. Dotted decorations
+   sit on the section's opposite edges (top-right and bottom-left).
+   Usage: <section class="events"> … </section> (see index.html)
+   Depends on: tokens/spacing.css, tokens/semantic-*.css, tokens/components.css,
+               tokens/typography.css, tokens/motion.css
+   ============================================================================ */
+
+/* ---------- Local variables ---------- */
+.events {
+  /* Colours alias semantic/component tokens so they follow the active theme */
+  --events-bg: var(--color-bg-page);
+  --events-title-color: var(--color-text-primary);
+  --events-text-color: var(--color-text-muted);
+  --events-unit-border: var(--color-border-subtle);
+  --events-value-color: var(--color-primary);
+  --events-label-color: var(--color-text-primary);
+  --events-form-bg: var(--color-bg-surface-subtle);
+  --events-input-bg: var(--input-bg);
+  --events-button-bg: var(--button-primary-bg);
+  --events-button-bg-hover: var(--button-primary-bg-hover);
+  --events-button-fg: var(--button-primary-fg);
+
+  /* Layout */
+  --events-gap: clamp(2rem, 6vw, 5rem);
+  --events-image-width: min(100%, 24rem);
+  --events-info-width: min(100%, clamp(20rem, 26rem, 30rem));
+
+  /* Dotted decorations */
+  --events-dots-image: url("../../../assets/imgs/decorations/dots.png");
+  --events-dots-size: 12rem;
+  --events-dots-offset-top: 20%;
+  --events-dots-offset-bottom: 20%;
+
+  /* Countdown */
+  --events-unit-gap: 0.5rem;
+  --events-unit-min-width: 4rem;
+  --events-unit-border-width: var(--border-width-thin);
+  --events-value-padding: 0.75rem 0.5rem;
+  --events-value-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --events-label-padding: 0.4rem;
+  --events-label-size: 0.8125rem;
+
+  /* Text */
+  --events-title-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --events-title-margin: 1.875rem 0 1.25rem;
+  --events-text-line-height: var(--line-height-relaxed);
+
+  /* Subscribe form */
+  --events-form-width: min(100%, 37.5rem);
+  --events-form-margin-top: clamp(3rem, 6vw, 3.75rem);
+  --events-form-padding: 1.875rem 2.5rem;
+  --events-form-gap: 0.625rem;
+  --events-form-radius: 3rem;
+  --events-input-padding: 1.25rem;
+  --events-button-padding: 1.25rem;
+  --events-control-radius: var(--radius-pill);
+}
+
+/* ---------- Section ---------- */
+/* position + overflow keep the dotted decorations anchored and clipped */
+.events {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-padding);
+  background-color: var(--events-bg);
+}
+
+/* ---------- Dotted decorations ---------- */
+.events::before,
+.events::after {
+  content: "";
+  position: absolute;
+  width: var(--events-dots-size);
+  height: var(--events-dots-size);
+  background-image: var(--events-dots-image);
+  background-size: cover;
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.events::before {
+  top: var(--events-dots-offset-top);
+  inset-inline-end: 0;
+}
+
+.events::after {
+  bottom: var(--events-dots-offset-bottom);
+  inset-inline-start: 0;
+}
+
+/* ---------- Main layout ---------- */
+.events__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--events-gap);
+}
+
+.events__image {
+  width: var(--events-image-width);
+}
+
+.events__info {
+  width: var(--events-info-width);
+  text-align: center;
+}
+
+/* ---------- Countdown ---------- */
+.events__countdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--events-unit-gap);
+}
+
+.events__unit {
+  display: flex;
+  flex-direction: column;
+  min-width: var(--events-unit-min-width);
+  border: var(--events-unit-border-width) solid var(--events-unit-border);
+}
+
+.events__value {
+  padding: var(--events-value-padding);
+  color: var(--events-value-color);
+  font-size: var(--events-value-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  border-block-end: var(--events-unit-border-width) solid
+    var(--events-unit-border);
+}
+
+.events__label {
+  padding: var(--events-label-padding);
+  color: var(--events-label-color);
+  font-size: var(--events-label-size);
+}
+
+/* ---------- Event text ---------- */
+.events__title {
+  margin: var(--events-title-margin);
+  color: var(--events-title-color);
+  font-size: var(--events-title-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.events__text {
+  color: var(--events-text-color);
+  line-height: var(--events-text-line-height);
+}
+
+/* ---------- Subscribe form ---------- */
+.events__subscribe {
+  display: flex;
+  gap: var(--events-form-gap);
+  width: var(--events-form-width);
+  margin: var(--events-form-margin-top) auto 0;
+  padding: var(--events-form-padding);
+  background-color: var(--events-form-bg);
+  border-radius: var(--events-form-radius);
+}
+
+.events__input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--events-input-padding);
+  background-color: var(--events-input-bg);
+  border: none;
+  border-radius: var(--events-control-radius);
+}
+
+.events__button {
+  padding-inline: var(--events-button-padding);
+  color: var(--events-button-fg);
+  background-color: var(--events-button-bg);
+  border: none;
+  border-radius: var(--events-control-radius);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+}
+
+.events__button:hover,
+.events__button:focus-visible {
+  background-color: var(--events-button-bg-hover);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 991px) {
+  .events__content {
+    flex-direction: column;
+  }
+}
+
+/* Stack the form so the button never squeezes the input on phones */
+@media (max-width: 480px) {
+  .events__subscribe {
+    flex-direction: column;
+  }
+
+  .events__button {
+    padding-block: var(--events-button-padding);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .events__button {
+    transition: none;
+  }
+}

@@ -10,7 +10,7 @@
   /* Keeps content off the viewport edge on small screens */
   --container-padding: 1rem;
   /* Fluid so sections breathe on desktop without wasting space on phones */
-  --section-padding: clamp(3.5rem, 7vw, 5rem);
+  --section-padding: clamp(5rem, 10vw, 8rem);
 
   /* ---------- Header offset ---------- */
   /* Global because full-height sections (e.g. hero) subtract it */
