@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Scallop (components/scallop.css)
+   Decorative scalloped edge drawn with radial gradients on pseudo-elements.
+   Apply .scallop plus .scallop--top and/or .scallop--bottom to a container.
+   Depends on: tokens/semantic-*.css (--color-bg-surface)
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+
+.scallop {
+  /* Color alias follows the active theme */
+  --scallop-color: var(--color-bg-surface);
+
+  /* Scallop radius; the tile width is derived as double this. */
+  --scallop-size: 20px;
+}
+
+/* ---------- Base ---------- */
+
+.scallop {
+  /* Make the container the positioning context for the edges. */
+  position: relative;
+}
+
+/* ---------- Shared edge styles ---------- */
+
+.scallop--top::before,
+.scallop--bottom::after {
+  content: "";
+
+  /* Full width, fixed height; the side is set by the modifiers below. */
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--scallop-size);
+
+  /* Sit above the container's content, but don't block clicks. */
+  z-index: 1;
+  pointer-events: none;
+
+  /* Set the tile to twice as wide as it is high. */
+  background-size: calc(var(--scallop-size) * 2) var(--scallop-size);
+
+  /* Repeat the tile horizontally only. */
+  background-repeat: repeat-x;
+}
+
+/* ---------- Modifier: top edge ---------- */
+
+.scallop--top::before {
+  /* Pin the edge to the top of the container. */
+  top: 0;
+
+  /* Create a circle centered on the bottom of the tile. The inside is
+     transparent and the outside is filled, forming the scallops. */
+  background-image: radial-gradient(
+    circle at 50% 100%,
+    transparent calc(var(--scallop-size) - 1px),
+    var(--scallop-color) var(--scallop-size)
+  );
+
+  /* Position the background layer at the top. */
+  background-position: top;
+}
+
+/* ---------- Modifier: bottom edge ---------- */
+
+.scallop--bottom::after {
+  /* Pin the edge to the bottom of the container. */
+  bottom: 0;
+
+  /* Create a circle centered on the top of the tile. The inside is
+     transparent and the outside is filled, forming the scallops. */
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    transparent calc(var(--scallop-size) - 1px),
+    var(--scallop-color) var(--scallop-size)
+  );
+
+  /* Position the background layer at the bottom. */
+  background-position: bottom;
+}
+
+
+
+/* <!--
+  Scallop Utility Usage:
+
+  1. Add scallop--top to display a decorative scalloped edge at the top.
+  2. Add scallop--bottom to display a decorative scalloped edge at the bottom.
+  3. Combine both classes to display scalloped edges at both the top and bottom.
+
+  Examples:
+-->
+
+<!-- Scalloped edge at the top only -->
+<section class="scallop scallop--top">
+  ...
+</section>
+
+<!-- Scalloped edge at the bottom only -->
+<section class="scallop scallop--bottom">
+  ...
+</section>
+
+<!-- Scalloped edges at both the top and bottom -->
+<section class="scallop scallop--top scallop--bottom">
+  ...
+</section> */

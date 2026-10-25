@@ -1,4 +1,4 @@
-/* ============================================================================
+ /* ============================================================================
    Pricing Plans (pages/home/pricing.css)
    Three plan cards: name, icon, price, feature list and an outlined CTA.
    The "popular" card is raised and carries a vertical ribbon in its corner.
@@ -24,31 +24,35 @@
   --pricing-accent: var(--color-primary);
   --pricing-accent-fg: var(--color-text-on-primary);
 
+  /* Dots decoration: pin the dots to the edges at every viewport
+     (overrides the global slide-out from tokens/components.css) */
+  --dots-offset-x: 0px;
+
   /* Layout */
-  --pricing-grid-gap: 1.5rem;
+  --pricing-grid-gap: 1.75rem;
   --pricing-card-min: 16rem;
-  --pricing-card-max: 19rem;
-  --pricing-popular-raise: -1.0625rem;
+  --pricing-card-max: 21.375rem;
+  --pricing-popular-raise: -1.1875rem;
 
   /* Header */
-  --pricing-header-padding: 1.5rem 1.25rem 1.125rem;
+  --pricing-header-padding: 1.75rem 1.25rem 1.5rem;
   --pricing-name-size: 1.25rem;
-  --pricing-icon-size: 4.5rem;
-  --pricing-icon-gap: 1.25rem auto;
+  --pricing-icon-size: 5rem;
+  --pricing-icon-gap: 2rem auto;
   --pricing-amount-size: 3rem;
   --pricing-period-size: 0.875rem;
 
   /* Features */
-  --pricing-feature-padding: 0.9rem 0.9375rem;
+  --pricing-feature-padding: 1.1rem 0.9375rem;
   --pricing-feature-size: 0.875rem;
   --pricing-check-gap: 0.625rem;
   --pricing-check-icon: "\f00c"; /* Font Awesome "check" */
-  --pricing-check-font: "Font Awesome 6 Free";
+  --pricing-check-font: "Font Awesome 7 Free";
   --pricing-check-weight: 900;
 
   /* Button */
-  --pricing-button-margin: 1.5rem auto 2.25rem;
-  --pricing-button-padding: 0.625rem 1.125rem;
+  --pricing-button-margin: 1.75rem auto 2.25rem;
+  --pricing-button-padding: 0.75rem 1.375rem;
   --pricing-button-size: 0.875rem;
   --pricing-button-border-width: var(--border-width-medium);
   --pricing-button-radius: var(--radius-sm);
@@ -79,6 +83,12 @@
   justify-content: center;
   align-items: start;
   gap: var(--pricing-grid-gap);
+}
+
+/* Give this decision-focused section room to hold all three plans at desktop widths. */
+.pricing > .container {
+  width: 100%;
+  max-width: 1170px;
 }
 
 /* ---------- Card ---------- */
@@ -250,4 +260,4 @@
   .pricing__button {
     transition: none;
   }
-}
+} 

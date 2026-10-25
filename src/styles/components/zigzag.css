@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Spikes (components/zigzag.css)
+   Decorative zigzag edge drawn with conic gradients on pseudo-elements.
+   Apply .zigzag plus .zigzag--top and/or .zigzag--bottom to a container.
+   Depends on: tokens/semantic-*.css (--color-bg-sunken, --color-bg-surface)
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+
+.zigzag {
+  /* Colors alias global semantic/card tokens, so they follow the active theme */
+  --zigzag-bg: var(--color-bg-sunken);
+  --zigzag-edge-bg: var(--color-bg-surface);
+
+  /* Spike height; the tile width is derived as double this. */
+  --zigzag-height: 20px;
+}
+
+/* ---------- Base ---------- */
+
+.zigzag {
+  /* Make the container the positioning context for the edges. */
+  position: relative;
+}
+
+/* ---------- Shared edge styles ---------- */
+
+.zigzag--top::before,
+.zigzag--bottom::after {
+  content: "";
+
+  /* Full width, fixed height; the side is set by the modifiers below. */
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--zigzag-height);
+
+  /* Sit above the container's content, but don't block clicks. */
+  z-index: 1;
+  pointer-events: none;
+
+  /* Set the tile to twice as wide as it is high. */
+  background-size: calc(var(--zigzag-height) * 2) var(--zigzag-height);
+
+  /* Repeat the tile horizontally only. */
+  background-repeat: repeat-x;
+}
+
+/* ---------- Modifier: top edge ---------- */
+
+.zigzag--top::before {
+  /* Pin the edge to the top of the container. */
+  top: 0;
+
+  /* Create a repeating conic gradient starting at 135 degrees,
+     positioned at the top of the element. Each 90-degree wedge
+     alternates between the two colors to form the triangles. */
+  background-image: repeating-conic-gradient(
+    from 135deg at top,
+    var(--zigzag-bg) 0deg 90deg,
+    var(--zigzag-edge-bg) 90deg 180deg
+  );
+
+  /* Position the background layer at the top. */
+  background-position: top;
+}
+
+/* ---------- Modifier: bottom edge ---------- */
+
+.zigzag--bottom::after {
+  /* Pin the edge to the bottom of the container. */
+  bottom: 0;
+
+  /* Create a repeating conic gradient starting at -45 degrees,
+     positioned at the bottom of the element. Each 90-degree wedge
+     alternates between the two colors to form the triangles. */
+  background-image: repeating-conic-gradient(
+    from -45deg at bottom,
+    var(--zigzag-bg) 0deg 90deg,
+    var(--zigzag-edge-bg) 90deg 180deg
+  );
+
+  /* Position the background layer at the bottom. */
+  background-position: bottom;
+}
+
+
+/* <!--
+  Spikes Utility Usage:
+
+  1. Add zigzag--top to display decorative zigzag at the top.
+  2. Add zigzag--bottom to display decorative zigzag at the bottom.
+  3. Combine both classes to display zigzag at both the top and bottom.
+
+  Examples:
+-->
+
+<!-- Spikes at the top only -->
+<section class="zigzag zigzag--top"></section>
+<section class="zigzag zigzag--top">
+  ...
+</section>
+
+
+<!-- Spikes at the bottom only -->
+<section class="zigzag zigzag--bottom">
+  ...
+</section>
+
+<!-- Spikes at both the top and bottom -->
+<section class="zigzag zigzag--top zigzag--bottom">
+  ...
+</section> */

@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Wave (components/wave.css)
+   Section background band with wavy edges, cut with a CSS mask so the
+   content inside stays untouched.
+   Apply .wave plus .wave--top and/or .wave--bottom to a container.
+   Depends on: tokens/spacing.css (--section-padding),
+               tokens/semantic-*.css (--color-bg-surface-subtle)
+   ========================================================================== */
+
+/* ---------- Local variables ---------- */
+
+.wave {
+  /* Background color follows the active theme */
+  --wave-bg: var(--color-bg-sunken);
+
+  /* Height of the wavy edges. */
+  --wave-height: clamp(3rem, 8vw, 7.5rem);
+
+  /* Width of one wave; the shape repeats horizontally. Smaller = narrower
+     waves. Top and bottom are independent. Fluid: scales with the viewport,
+     clamped so waves never get too squeezed or too stretched. */
+  --wave-top-width: clamp(20rem, 60vw, 60rem);
+  --wave-bottom-width: clamp(10rem, 30vw, 30rem);
+
+  /* Wave shapes (black = visible). Each is one full period that starts and
+     ends at the same height with a flat tangent, so tiles join seamlessly.
+     Top: asymmetric (steep rise, long gentle fall). Bottom: even sine. */
+  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 100C240 100 300 20 540 20S1200 100 1440 100V120H0Z'/%3E%3C/svg%3E");
+  --wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 20C360 20 360 100 720 100S1080 20 1440 20V0H0Z'/%3E%3C/svg%3E");
+
+  /* Mask fill for the solid middle; any opaque color works. */
+  --wave-mask-fill: #000;
+
+  /* Active edge heights; the modifiers below switch them on. */
+  --wave-top-height: 0px;
+  --wave-bottom-height: 0px;
+
+  /* Color outside the wave (the cut-out areas).
+     Top is the area above the top wave, bottom is below the bottom wave. */
+  --wave-outside: var(--color-bg-surface);
+}
+
+/* ---------- Base ---------- */
+
+.wave {
+  /* Make the container the positioning context for the background. */
+  position: relative;
+
+  /* Keep the z-index: -1 background inside this container. */
+  isolation: isolate;
+
+  /* Extra block padding keeps the content clear of the active waves. */
+  padding-block: var(--wave-top-height) var(--wave-bottom-height);
+
+  /* Paints behind the wave layer, so it only shows through the cut-outs.
+     Split at 50% so the top and bottom can have different colors. */
+  background: var(--wave-outside);
+}
+
+/* Three mask layers: top wave, solid middle, bottom wave. The middle overlaps
+   the waves by 1px each side to avoid hairline gaps from sub-pixel rounding.
+   An edge whose height is 0 draws nothing. */
+.wave::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--wave-bg);
+
+  -webkit-mask-image:
+    var(--wave-top), linear-gradient(var(--wave-mask-fill) 0 0),
+    var(--wave-bottom);
+  mask-image:
+    var(--wave-top), linear-gradient(var(--wave-mask-fill) 0 0),
+    var(--wave-bottom);
+
+  -webkit-mask-size:
+    var(--wave-top-width) var(--wave-top-height),
+    100% calc(100% - var(--wave-top-height) - var(--wave-bottom-height) + 2px),
+    var(--wave-bottom-width) var(--wave-bottom-height);
+  mask-size:
+    var(--wave-top-width) var(--wave-top-height),
+    100% calc(100% - var(--wave-top-height) - var(--wave-bottom-height) + 2px),
+    var(--wave-bottom-width) var(--wave-bottom-height);
+
+  /* The middle starts 1px inside the top wave, so it also works when
+     only one edge is active. */
+  -webkit-mask-position:
+    top,
+    0 calc(var(--wave-top-height) - 1px),
+    bottom;
+  mask-position:
+    top,
+    0 calc(var(--wave-top-height) - 1px),
+    bottom;
+
+  -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;
+  mask-repeat: repeat-x, no-repeat, repeat-x;
+}
+
+/* ---------- Modifier: top edge ---------- */
+
+.wave--top {
+  /* Switch on the top wave. */
+  --wave-top-height: var(--wave-height);
+}
+
+/* ---------- Modifier: bottom edge ---------- */
+
+.wave--bottom {
+  /* Switch on the bottom wave. */
+  --wave-bottom-height: var(--wave-height);
+}
+
+/* ---------- Usage ----------
+   <section class="wave wave--top">...</section>
+   <section class="wave wave--bottom">...</section>
+   <section class="wave wave--top wave--bottom">...</section>
+
+   Longer top wave: style="--wave-top-width: 80rem"
+   Taller waves:    style="--wave-height: 10rem"
+*/
+
+/* <!--
+  Wave Utility Usage:
+
+  1. Add wave--top to display a decorative wave-shaped edge at the top.
+  2. Add wave--bottom to display a decorative wave-shaped edge at the bottom.
+  3. Combine both classes to display wave-shaped edges at both the top and bottom.
+
+  Examples:
+-->
+
+<!-- Wave-shaped edge at the top only -->
+<section class="wave wave--top">
+  ...
+</section>
+
+<!-- Wave-shaped edge at the bottom only -->
+<section class="wave wave--bottom">
+  ...
+</section>
+
+<!-- Wave-shaped edges at both the top and bottom -->
+<section class="wave wave--top wave--bottom">
+  ...
+</section> */
