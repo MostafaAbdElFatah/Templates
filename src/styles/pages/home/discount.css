@@ -1,0 +1,131 @@
+/* ============================================================================
+   Discount Request (pages/home/discount.css)
+   Full-height split layout: promotional copy on the left and a compact form
+   on the right. All section-only values stay local to this section.
+   ============================================================================ */
+
+.discount {
+  --discount-min-height: 100vh;
+  --discount-pitch-bg: var(--color-primary);
+  --discount-pitch-overlay: color-mix(in srgb, var(--color-primary) 97%, transparent);
+  --discount-pitch-fg: var(--color-text-on-primary);
+  --discount-form-bg: var(--color-bg-surface);
+  --discount-form-fg: var(--color-text-primary);
+  --discount-input-bg: var(--color-bg-surface-subtle);
+  --discount-input-border: var(--color-border-subtle);
+  --discount-button-bg: var(--button-primary-bg);
+  --discount-button-bg-hover: var(--button-primary-bg-hover);
+  --discount-button-fg: var(--button-primary-fg);
+  --discount-column-width: 50%;
+  --discount-content-width: min(100%, 32rem);
+  --discount-content-padding: clamp(2rem, 6vw, 5rem);
+  --discount-form-width: min(100%, 15rem);
+  --discount-form-gap: 1.25rem;
+  --discount-input-padding: 0.75rem;
+  --discount-message-height: 10rem;
+  --discount-illustration-size: min(100%, 16rem);
+
+  min-height: var(--discount-min-height);
+}
+
+.discount__content {
+  display: flex;
+  min-height: inherit;
+}
+
+.discount__pitch,
+.discount__form-panel {
+  display: grid;
+  width: var(--discount-column-width);
+  place-items: center;
+  padding: var(--discount-content-padding);
+}
+
+.discount__pitch {
+  color: var(--discount-pitch-fg);
+  text-align: center;
+  background-color: var(--discount-pitch-bg);
+  background-image:
+    linear-gradient(var(--discount-pitch-overlay), var(--discount-pitch-overlay)),
+    url("../../../assets/imgs/discount/discount-background1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.discount__pitch-content {
+  width: var(--discount-content-width);
+}
+
+.discount__title,
+.discount__form-title {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.discount__text {
+  margin-block-start: 1.5rem;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+}
+
+.discount__illustration {
+  width: var(--discount-illustration-size);
+  margin: 1.5rem auto 0;
+}
+
+.discount__form-panel {
+  color: var(--discount-form-fg);
+  background-color: var(--discount-form-bg);
+}
+
+.discount__form {
+  display: grid;
+  width: var(--discount-form-width);
+  gap: var(--discount-form-gap);
+}
+
+.discount__input {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: var(--discount-input-padding);
+  border: 0;
+  border-block-end: var(--border-width-thin) solid var(--discount-input-border);
+  border-radius: 0;
+  background-color: var(--discount-input-bg);
+  font-size: var(--font-size-base);
+  outline: none;
+}
+
+.discount__input--message {
+  min-height: var(--discount-message-height);
+  resize: vertical;
+}
+
+.discount__button {
+  min-height: 2.5rem;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--discount-button-bg);
+  color: var(--discount-button-fg);
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  transition: background-color var(--transition-fast);
+}
+
+.discount__button:hover {
+  background-color: var(--discount-button-bg-hover);
+}
+
+@media (max-width: 48rem) {
+  .discount__content {
+    flex-direction: column;
+  }
+
+  .discount__pitch,
+  .discount__form-panel {
+    width: 100%;
+    min-height: 50vh;
+  }
+}
