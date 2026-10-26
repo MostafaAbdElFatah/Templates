@@ -31,6 +31,7 @@
   /* Share of the photo that hangs outside the card panel */
   --team-image-out: 0.2;
   --team-socials-col: clamp(2.75rem, 5vw, 3.5rem);
+  --team-card-shadow: var(--card-shadow);
   --team-card-pad-top: clamp(2.5rem, 5vw, 3.75rem);
   --team-card-pad-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
   --team-body-gap: 0.65rem;
@@ -53,6 +54,18 @@
 
 .team {
   padding-block: var(--section-padding);
+}
+
+[data-theme="dark"] .team {
+    --team-card-bg: var(--color-bg-sunken );
+    --team-card-bg-hover: var(--color-bg-elevated);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .team {
+    --team-card-bg: var(--color-bg-sunken );
+    --team-card-bg-hover: var(--color-bg-elevated);
+  }
 }
 
 /* ---------- Grid ---------- */
@@ -114,7 +127,8 @@
   inset-inline-start: calc(
     (100% - var(--team-socials-col)) * var(--team-image-out)
   );
-  background-color: var(--team-card-bg);
+  background-color:  var(--team-card-bg);
+  box-shadow: var(--team-card-shadow);
   background-image: linear-gradient(
     var(--team-card-bg-hover),
     var(--team-card-bg-hover)
@@ -126,6 +140,7 @@
   border-radius: var(--team-card-radius);
   transition: background-size var(--team-sweep);
 }
+
 
 .team__card:hover::before,
 .team__card:focus-within::before {
