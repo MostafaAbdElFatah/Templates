@@ -26,6 +26,17 @@
   --skills-transition: width var(--transition-normal);
 }
 
+/* Keep the track visible against the section in dark mode */
+[data-theme="dark"] .skills {
+  --skills-track-bg: var(--color-bg-elevated);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .skills {
+    --skills-track-bg: var(--color-bg-elevated);
+  }
+}
+
 /* ---------- Section ---------- */
 .skills {
   padding-block: var(--section-padding);
