@@ -70,6 +70,16 @@
   --pricing-lift: calc(var(--space-8) * -1);
 }
 
+[data-theme="dark"] .pricing {
+  --pricing-color-overlay: rgb(var(--black-rgb) / 20%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .pricing {
+    --pricing-color-overlay: rgb(var(--black-rgb) / 20%);
+  }
+}
+
 /* ---------- Section ---------- */
 .pricing {
   padding-block: var(--section-padding);
