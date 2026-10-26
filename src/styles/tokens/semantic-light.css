@@ -113,4 +113,7 @@
   --shadow-sm: 0 2px 4px 0 var(--shadow-color);
   --shadow-md: 0 4px 12px 0 var(--shadow-color);
   --shadow-lg: 0 12px 30px 0 var(--shadow-color);
+  /* Dark-only card elevation; initial = unset, so var() fallbacks apply */
+  --shadow-raised: initial;
+  --shadow-raised-hover: initial;
 }

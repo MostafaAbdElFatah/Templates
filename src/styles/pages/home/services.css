@@ -22,8 +22,8 @@
   /* Colours alias global card/semantic tokens, so they follow the active theme */
   --services-bg: var(--color-bg-sunken);
   --services-card-bg: var(--card-bg);
-  --services-card-shadow: var(--card-shadow);
-  --services-card-shadow-hover: var(--card-shadow-hover);
+  --services-card-shadow: var(--shadow-raised, var(--card-shadow));
+  --services-card-shadow-hover: var(--shadow-raised-hover, var(--card-shadow-hover));
   --services-icon-color: var(--color-border-default);
   --services-title-color: var(--color-text-accent);
   --services-footer-bg: var(--color-bg-surface-subtle);

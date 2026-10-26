@@ -13,8 +13,8 @@
   /* Colours alias semantic/component tokens so they follow the active theme */
   --pricing-bg: var(--color-bg-sunken);
   --pricing-card-bg: var(--card-bg);
-  --pricing-card-shadow: var(--shadow-md);
-  --pricing-card-shadow-hover: var(--card-shadow-hover);
+  --pricing-card-shadow: var(--shadow-raised, var(--shadow-md));
+  --pricing-card-shadow-hover: var(--shadow-raised-hover, var(--card-shadow-hover));
   --pricing-name-color: var(--color-text-primary);
   --pricing-amount-color: var(--color-primary);
   --pricing-period-color: var(--color-text-muted);

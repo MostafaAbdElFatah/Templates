@@ -14,8 +14,8 @@
   /* Colors alias global semantic/card tokens, so they follow the active theme */
   --gallery-bg: var(--color-bg-sunken);
   --gallery-frame-bg: var(--card-bg);
-  --gallery-frame-shadow: var(--card-shadow);
-  --gallery-frame-shadow-hover: var(--card-shadow-hover);
+  --gallery-frame-shadow: var(--shadow-raised, var(--card-shadow));
+  --gallery-frame-shadow-hover: var(--shadow-raised-hover, var(--card-shadow-hover));
   --gallery-media-bg: var(--color-bg-surface-subtle);
   --gallery-light: var(--color-overlay-light);
   /* Gaps between the zigzag teeth let the section color show through */

@@ -167,6 +167,18 @@
   background-color: var(--events-button-bg-hover);
 }
 
+/* ---------- Dark theme ---------- */
+/* Form blends into the section; the input and button carry the contrast */
+[data-theme="dark"] .events {
+  --events-form-bg: var(--events-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .events {
+    --events-form-bg: var(--events-bg);
+  }
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 991px) {
   .events__content {

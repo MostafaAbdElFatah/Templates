@@ -39,6 +39,17 @@
   background-size: cover;
 }
 
+/* Dark theme: tint the photo with the sunken background instead of white */
+[data-theme="dark"] .statistics {
+  --statistics-overlay: color-mix(in srgb, var(--color-bg-sunken) 95%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .statistics {
+    --statistics-overlay: color-mix(in srgb, var(--color-bg-sunken) 95%, transparent);
+  }
+}
+
 .statistics__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, var(--statistics-card-width)));

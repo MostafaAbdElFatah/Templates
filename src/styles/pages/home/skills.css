@@ -17,7 +17,7 @@
   --skills-value-border: var(--color-border-default);
   --skills-value-fg: var(--color-primary);
   --skills-track-height: 1.875rem;
-  --skills-track-bg: var(--color-bg-surface-subtle);
+  --skills-track-bg: var(--skills-bg);
   --skills-progress-bg: var(--color-primary);
   --skills-progress-html: 80%;
   --skills-progress-css: 85%;

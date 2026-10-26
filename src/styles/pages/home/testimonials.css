@@ -8,8 +8,8 @@
   --testimonials-bg: var(--color-bg-sunken);
   --testimonials-card-bg: var(--card-bg);
   --testimonials-card-fg: var(--card-fg);
-  --testimonials-card-shadow: var(--card-shadow);
-  --testimonials-card-shadow-hover: var(--card-shadow-hover);
+  --testimonials-card-shadow: var(--shadow-raised, var(--card-shadow));
+  --testimonials-card-shadow-hover: var(--shadow-raised-hover, var(--card-shadow-hover));
   --testimonials-avatar-ring: var(--color-bg-surface-subtle);
   --testimonials-muted: var(--color-text-muted);
   --testimonials-star: var(--color-warning);

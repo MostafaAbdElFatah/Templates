@@ -44,7 +44,9 @@
 
   /* Hover */
   --work-steps-lift: calc(var(--space-4) * -1);
-  --work-steps-shadow-hover: var(--shadow-md);
+  /* Resting shadow only exists in dark mode; light keeps the flat card */
+  --work-steps-shadow: var(--shadow-raised, none);
+  --work-steps-shadow-hover: var(--shadow-raised-hover, var(--shadow-md));
   --work-steps-flash-duration: var(--duration-slow);
 }
 
@@ -89,6 +91,7 @@
   background-color: var(--work-steps-card-bg);
   border: var(--work-steps-card-border-width) solid var(--work-steps-card-border);
   border-radius: var(--work-steps-card-radius);
+  box-shadow: var(--work-steps-shadow);
   transition:
     translate var(--transition-normal),
     box-shadow var(--transition-normal);
