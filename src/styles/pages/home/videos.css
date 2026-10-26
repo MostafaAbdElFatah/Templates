@@ -7,7 +7,7 @@
 
 /* ---------- Section variables ---------- */
 .videos {
-  --videos-bg: var(--color-bg-page);
+  --videos-bg: var(--color-bg-surface);
   --videos-panel-bg: var(--color-bg-sunken);
   --videos-list-bg: var(--color-bg-surface);
   --videos-list-heading-bg: var(--color-bg-surface-subtle);
@@ -37,6 +37,20 @@
 /* Reuse the site's boxed heading while tuning only this section's spacing. */
 .videos .section-title {
   --section-title-margin-bottom: var(--videos-heading-gap);
+}
+
+[data-theme="dark"] .videos__panel {
+  /* --videos-list-bg: var(--gray-850); */
+  --videos-panel-bg: var(--gray-850);
+  --videos-list-heading-bg: var(--gray-850);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .videos__panel {
+    /* --videos-list-bg: var(--gray-850); */
+    --videos-panel-bg: var(--gray-850);
+    --videos-list-heading-bg: var(--gray-850);
+  }
 }
 
 /* ---------- Playlist and preview ---------- */
@@ -113,7 +127,6 @@
   inset-inline-start: 0;
   transform-origin: top;
 }
-
 
 /* Highlight the item and its title on devices with a true hover pointer. */
 @media (hover: hover) {
