@@ -5,7 +5,7 @@
 
 /* ---------- Local variables ---------- */
 .skills {
-  --skills-bg: var(--color-bg-page);
+  --skills-bg: var(--color-bg-surface);
   --skills-gap: var(--space-fluid-xl);
   --skills-image-width: min(100%, 32rem);
   --skills-list-width: min(100%, 40rem);

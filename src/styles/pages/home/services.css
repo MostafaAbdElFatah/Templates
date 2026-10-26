@@ -84,7 +84,7 @@
 .services {
   position: relative;
   isolation: isolate;
-  background-color: var(--color-bg-page);
+  background-color: var(--color-bg-surface);
   padding-block: calc(var(--section-padding) + var(--services-wave-height));
 }
 

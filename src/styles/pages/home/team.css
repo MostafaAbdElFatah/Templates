@@ -54,7 +54,7 @@
 
 .team {
   padding-block: var(--section-padding);
-  background-color: var(--color-bg-page);
+  background-color: var(--color-bg-surface);
 }
 
 [data-theme="dark"] .team {

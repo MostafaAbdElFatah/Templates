@@ -11,7 +11,7 @@
 /* ---------- Local variables ---------- */
 .events {
   /* Colours alias semantic/component tokens so they follow the active theme */
-  --events-bg: var(--color-bg-page);
+  --events-bg: var(--color-bg-surface);
   --events-title-color: var(--color-text-primary);
   --events-text-color: var(--color-text-muted);
   --events-unit-border: var(--color-border-subtle);

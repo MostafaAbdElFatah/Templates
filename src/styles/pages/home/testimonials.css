@@ -13,7 +13,7 @@
   --testimonials-avatar-ring: var(--color-bg-surface-subtle);
   --testimonials-muted: var(--color-text-muted);
   --testimonials-star: var(--color-warning);
-  --testimonials-scallop-color: var(--color-bg-page);
+  --testimonials-scallop-color: var(--color-bg-surface);
   --testimonials-scallop-size: 20px;
   --testimonials-grid-min: 280px;
   --testimonials-grid-gap: clamp(1rem, 2vw, 1.75rem);
