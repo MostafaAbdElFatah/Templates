@@ -65,11 +65,16 @@
 }
 
 /* ---------- Small screens ---------- */
-/* The header stacks (logo above nav) at ≤480px, so it grows taller:
-   logo 20px × 1.5 + 10px gap + nav (14px × 1.5 + 2 × 10px padding) ≈ 81px.
-   Breakpoint is a literal: custom properties can't be used in media queries */
-@media (max-width: 480px) {
+/* The header stacks the logo and toggle above the nav at ≤720px. */
+/* Breakpoint is a literal: custom properties can't be used in media queries */
+@media (max-width: 720px) {
   :root {
-    --header-height: 82px;
+    --header-height: 96px;
+  }
+}
+
+@media (max-width: 300px) {
+  :root {
+    --header-height: 128px;
   }
 }

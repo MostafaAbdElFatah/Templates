@@ -82,14 +82,18 @@
 
 /* ---------- Small screens ---------- */
 /* Breakpoint is a literal: custom properties can't be used in media queries */
-@media (max-width: 480px) {
+@media (max-width: 720px) {
+  .nav {
+    width: 100%;
+  }
+
   .nav__list {
+    flex-wrap: wrap;
     justify-content: center;
   }
 
-  /* Tighter links so the whole menu fits on one row; font size is already
-     at its 14px minimum here via the fluid --font-size-nav */
+  /* Tighter links keep the menu compact on narrow screens. */
   .nav__link {
-    padding: var(--nav-link-padding-sm);
+    padding: var(--space-8);
   }
 }

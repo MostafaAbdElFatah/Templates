@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f00" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#ffffff">
 
     <title>Template 3</title>
 
+    <script src="src/scripts/theme-toggle.js"></script>
 
     <link rel="stylesheet" href="src/styles/main.css">
 
@@ -101,6 +102,22 @@
                     </li>
                 </ul>
             </nav>
+
+            <button class="theme-toggle" type="button" role="switch" aria-label="Dark theme" aria-checked="false"
+                title="Switch to dark theme" data-theme-toggle>
+                <span class="theme-toggle__track" aria-hidden="true">
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3.5"></circle>
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42">
+                        </path>
+                    </svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none">
+                        <path d="M20.2 15.4A8.7 8.7 0 0 1 8.6 3.8 8.8 8.8 0 1 0 20.2 15.4Z"></path>
+                    </svg>
+                    <span class="theme-toggle__thumb"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -977,7 +994,7 @@
                                 <span class="videos__item-title">Ys Series All Games Ending</span>
                                 <time class="videos__duration" datetime="PT8M10S">08:10</time>
                             </li>
-                             <li class="videos__item">
+                            <li class="videos__item">
                                 <span class="videos__item-title">How To Create Sub Domain</span>
                                 <time class="videos__duration" datetime="PT5M18S">05:18</time>
                             </li>
@@ -1009,11 +1026,8 @@
                     </aside>
 
                     <figure class="videos__preview">
-                        <img
-                            class="videos__image"
-                            src="src/assets/imgs/videos/video-preview.jpg"
-                            alt="A squad of game characters moving through a colorful landscape"
-                            loading="lazy">
+                        <img class="videos__image" src="src/assets/imgs/videos/video-preview.jpg"
+                            alt="A squad of game characters moving through a colorful landscape" loading="lazy">
                         <figcaption class="videos__caption">
                             Everything About The Virtual Hosts
                         </figcaption>
