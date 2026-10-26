@@ -168,14 +168,14 @@
 }
 
 /* ---------- Dark theme ---------- */
-/* Form blends into the section; the input and button carry the contrast */
+/* The elevated surface keeps the subscribe form distinct from the section */
 [data-theme="dark"] .events {
-  --events-form-bg: var(--events-bg);
+  --events-form-bg: var(--color-bg-elevated);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .events {
-    --events-form-bg: var(--events-bg);
+    --events-form-bg: var(--color-bg-elevated);
   }
 }
 

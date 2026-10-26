@@ -95,8 +95,8 @@
 
   /* Black shadows vanish on near-black sections, so raised cards get a faint
      light rim + glow instead. Light mode leaves these unset (see semantic-light.css). */
-  --shadow-raised: 0 0 0 1px rgb(255 255 255 / 8%), 0 4px 14px 0 rgb(255 255 255 / 6%);
-  --shadow-raised-hover: 0 0 0 1px rgb(255 255 255 / 14%), 0 12px 30px 0 rgb(255 255 255 / 10%);
+  --shadow-raised: 0 0 0 1px rgb(255 255 255 / 16%), 0 4px 14px 0 rgb(255 255 255 / 12%);
+  --shadow-raised-hover: 0 0 0 1px rgb(255 255 255 / 24%), 0 12px 30px 0 rgb(255 255 255 / 18%);
 }
 
 /* ---------- OS preference fallback (no JS / no saved preference) ---------- */
@@ -191,7 +191,7 @@
 
     /* Black shadows vanish on near-black sections, so raised cards get a faint
        light rim + glow instead. Light mode leaves these unset (see semantic-light.css). */
-    --shadow-raised: 0 0 0 1px rgb(255 255 255 / 8%), 0 4px 14px 0 rgb(255 255 255 / 6%);
-    --shadow-raised-hover: 0 0 0 1px rgb(255 255 255 / 14%), 0 12px 30px 0 rgb(255 255 255 / 10%);
+    --shadow-raised: 0 0 0 1px rgb(255 255 255 / 16%), 0 4px 14px 0 rgb(255 255 255 / 12%);
+    --shadow-raised-hover: 0 0 0 1px rgb(255 255 255 / 24%), 0 12px 30px 0 rgb(255 255 255 / 18%);
   }
 }

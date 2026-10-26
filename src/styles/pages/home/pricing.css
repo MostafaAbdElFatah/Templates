@@ -72,11 +72,15 @@
 
 [data-theme="dark"] .pricing {
   --pricing-color-overlay: rgb(var(--black-rgb) / 20%);
+  --pricing-card-shadow: var(--card-shadow);
+  --pricing-card-shadow-hover: var(--card-shadow-hover);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .pricing {
     --pricing-color-overlay: rgb(var(--black-rgb) / 20%);
+    --pricing-card-shadow: var(--card-shadow);
+    --pricing-card-shadow-hover: var(--card-shadow-hover);
   }
 }
 
