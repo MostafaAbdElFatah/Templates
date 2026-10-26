@@ -23,7 +23,10 @@
   --services-bg: var(--color-bg-sunken);
   --services-card-bg: var(--card-bg);
   --services-card-shadow: var(--shadow-raised, var(--card-shadow));
-  --services-card-shadow-hover: var(--shadow-raised-hover, var(--card-shadow-hover));
+  --services-card-shadow-hover: var(
+    --shadow-raised-hover,
+    var(--card-shadow-hover)
+  );
   --services-icon-color: var(--color-border-default);
   --services-title-color: var(--color-text-accent);
   --services-footer-bg: var(--color-bg-surface-subtle);
@@ -67,7 +70,8 @@
      measuring the text; fits any two-digit counter value */
   --services-number-width: 5.5rem;
   --services-title-margin-block: var(--space-20) var(--space-36);
-  --services-number-padding: 0.6rem calc(var(--services-slant) + var(--space-20)) 0.6rem var(--space-16);
+  --services-number-padding: 0.6rem
+    calc(var(--services-slant) + var(--space-20)) 0.6rem var(--space-16);
   --services-number-font-size: var(--font-size-2xl);
   --services-link-padding-inline: var(--space-16);
   --services-link-font-size: 0.95rem;
@@ -80,6 +84,7 @@
 .services {
   position: relative;
   isolation: isolate;
+  background-color: var(--color-bg-page);
   padding-block: calc(var(--section-padding) + var(--services-wave-height));
 }
 
@@ -91,10 +96,20 @@
   z-index: -1;
   inset: 0;
   background-color: var(--services-bg);
-  -webkit-mask-image: var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0), var(--services-wave-bottom);
-  mask-image: var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0), var(--services-wave-bottom);
-  -webkit-mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
-  mask-size: var(--services-wave-top-width) var(--services-wave-height), 100% calc(100% - 2 * var(--services-wave-height) + 2px), var(--services-wave-bottom-width) var(--services-wave-height);
+  -webkit-mask-image:
+    var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0),
+    var(--services-wave-bottom);
+  mask-image:
+    var(--services-wave-top), linear-gradient(var(--services-mask-fill) 0 0),
+    var(--services-wave-bottom);
+  -webkit-mask-size:
+    var(--services-wave-top-width) var(--services-wave-height),
+    100% calc(100% - 2 * var(--services-wave-height) + 2px),
+    var(--services-wave-bottom-width) var(--services-wave-height);
+  mask-size:
+    var(--services-wave-top-width) var(--services-wave-height),
+    100% calc(100% - 2 * var(--services-wave-height) + 2px),
+    var(--services-wave-bottom-width) var(--services-wave-height);
   -webkit-mask-position: top, center, bottom;
   mask-position: top, center, bottom;
   -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;

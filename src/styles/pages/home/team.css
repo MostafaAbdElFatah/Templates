@@ -54,16 +54,17 @@
 
 .team {
   padding-block: var(--section-padding);
+  background-color: var(--color-bg-page);
 }
 
 [data-theme="dark"] .team {
-    --team-card-bg: var(--color-bg-sunken );
-    --team-card-bg-hover: var(--color-bg-elevated);
+  --team-card-bg: var(--color-bg-sunken);
+  --team-card-bg-hover: var(--color-bg-elevated);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .team {
-    --team-card-bg: var(--color-bg-sunken );
+    --team-card-bg: var(--color-bg-sunken);
     --team-card-bg-hover: var(--color-bg-elevated);
   }
 }
@@ -127,7 +128,7 @@
   inset-inline-start: calc(
     (100% - var(--team-socials-col)) * var(--team-image-out)
   );
-  background-color:  var(--team-card-bg);
+  background-color: var(--team-card-bg);
   box-shadow: var(--team-card-shadow);
   background-image: linear-gradient(
     var(--team-card-bg-hover),
@@ -140,7 +141,6 @@
   border-radius: var(--team-card-radius);
   transition: background-size var(--team-sweep);
 }
-
 
 .team__card:hover::before,
 .team__card:focus-within::before {
@@ -211,7 +211,8 @@
   gap: var(--team-body-gap);
   margin-block-start: var(--team-body-margin-top);
   padding-inline-start: calc(
-    (100% - var(--team-socials-col)) * var(--team-image-out) + var(--team-body-padding-inline)
+    (100% - var(--team-socials-col)) * var(--team-image-out) +
+      var(--team-body-padding-inline)
   );
   padding-inline-end: var(--team-body-padding-inline);
 }

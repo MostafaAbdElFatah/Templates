@@ -50,6 +50,7 @@
   isolation: isolate;
   min-height: var(--hero-min-height);
   align-content: center;
+  background-color: var(--color-bg-page);
 }
 
 /* ---------- Slanted background panel ---------- */
