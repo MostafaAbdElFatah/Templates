@@ -50,7 +50,7 @@
   isolation: isolate;
   min-height: var(--hero-min-height);
   align-content: center;
-  background-color: var(--color-bg-page);
+  background-color: var(--color-bg-surface);
 }
 
 /* ---------- Slanted background panel ---------- */
@@ -63,7 +63,12 @@
   z-index: -1;
   background-color: var(--hero-bg);
   /* Right edge stops at --hero-slant, left edge reaches the bottom: diagonal cut */
-  clip-path: polygon(0 0, 100% 0, 100% var(--hero-slant), 0 var(--hero-slant-start));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% var(--hero-slant),
+    0 var(--hero-slant-start)
+  );
   /*
     or can use this insteaded of  polygon
     transform: skewY(var(--hero-panel-skew));
@@ -183,7 +188,8 @@
   100% {
     transform: translateY(0);
   }
-  40%, 60% {
-    transform: translateY(calc(var(--hero-bounce-distance) * -1 ));
+  40%,
+  60% {
+    transform: translateY(calc(var(--hero-bounce-distance) * -1));
   }
 }
