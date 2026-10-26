@@ -5,7 +5,7 @@
 
 .statistics {
   --statistics-bg: var(--color-bg-surface-subtle);
-  --statistics-overlay: color-mix(in srgb, var(--white) 95%, transparent);
+  --statistics-overlay: rgb(var(--white-rgb) / 95%);
   --statistics-card-bg: var(--color-bg-elevated);
   --statistics-card-fg: var(--color-text-primary);
   --statistics-accent: var(--color-primary);

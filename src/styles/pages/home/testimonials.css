@@ -5,7 +5,7 @@
 
 /* ---------- Local variables ---------- */
 .testimonials {
-  --testimonials-bg: var(--color-bg-surface-subtle);
+  --testimonials-bg: var(--color-bg-sunken);
   --testimonials-card-bg: var(--card-bg);
   --testimonials-card-fg: var(--card-fg);
   --testimonials-card-shadow: var(--card-shadow);

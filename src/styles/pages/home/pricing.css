@@ -23,7 +23,7 @@
   --pricing-check-color: var(--color-primary);
   --pricing-accent: var(--color-primary);
   --pricing-accent-fg: var(--color-text-on-primary);
-  --pricing-color-overlay: color-mix(in srgb, var(--black) 5%, transparent);
+  --pricing-color-overlay: rgb(var(--black-rgb) / 5%);
 
   /* Dots decoration: pin the dots to the edges at every viewport
      (overrides the global slide-out from tokens/components.css) */

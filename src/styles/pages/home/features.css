@@ -22,7 +22,7 @@
   --features-card-fg: var(--card-fg);
   --features-card-border: var(--card-border);
   --features-text: var(--color-text-muted);
-  --features-link-fg-hover: var(--color-text-on-highlight);
+  --features-link-fg-hover: var(--white);
 
   /* Grid: cards never shrink below this before the grid drops a column */
   --features-card-min: 260px;
@@ -34,7 +34,7 @@
   /* Media: near-square ratio matches the design's tall photo area */
   --features-image-ratio: 7 / 6;
   /* How strongly the highlight color tints the photo */
-  --features-overlay-strength: 70%;
+  --features-overlay-strength: 0.7;
   /* Diagonal cut: rest = low on the left, high on the right;
      hover = high on the left, low on the right.
      Both shapes have the same number of points so clip-path can animate between them */
@@ -151,17 +151,15 @@
   object-fit: cover;
 }
 
-/* Tint layer: highlight color mixed with transparency so the photo shows through.
+/* Tint layer: solid highlight color faded with opacity so the photo shows through
+   (opacity keeps the tint working in older browsers).
    pointer-events: none so the layer never blocks interaction */
 .features__media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: color-mix(
-    in srgb,
-    var(--features-accent) var(--features-overlay-strength),
-    transparent
-  );
+  background-color: var(--features-accent);
+  opacity: var(--features-overlay-strength);
   pointer-events: none;
 }
 

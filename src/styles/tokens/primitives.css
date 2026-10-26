@@ -37,9 +37,23 @@
   --sky-700: #0277bd;   /* derived */
   --blue-500: #1787e0;
   --blue-600: #0b6cbf;  /* derived */
+  --blue-550: #287ec7;  /* derived: blue-600 mixed with 12% white (dark-mode hover) */
+  --blue-700: #0a5fa8;  /* derived: blue-600 mixed with 12% black (light-mode hover) */
   --slate-700: #2c4755; /* carried over from the previous template palette (footer, accents) */
   --amber-500: #ffc107;
   --amber-800: #8a5a00; /* derived */
+
+  /* ---------- RGB channels ---------- */
+  /* Space-separated channels for translucent colors: rgb(var(--x-rgb) / 20%).
+     Keeps translucent colors working in older browsers.
+     Must stay in sync with the hex values above. */
+  --white-rgb: 255 255 255;
+  --black-rgb: 0 0 0;
+  --red-500-rgb: 244 64 54;
+  --teal-500-rgb: 0 150 136;
+  --sky-500-rgb: 3 169 244;
+  --blue-600-rgb: 11 108 191;
+  --amber-500-rgb: 255 193 7;
 
   /* ---------- Brand (third-party) ---------- */
   /* Brand guidelines require exact values; exposed as --color-brand-* in semantic-light.css */

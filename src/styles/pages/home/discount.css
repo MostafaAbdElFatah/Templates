@@ -8,7 +8,7 @@
 .discount {
   --discount-min-height: 100vh;
   --discount-pitch-bg: var(--color-primary);
-  --discount-pitch-overlay: color-mix(in srgb, var(--color-primary) 97%, transparent);
+  --discount-pitch-overlay: rgb(var(--color-primary-rgb) / 97%);
   --discount-pitch-fg: var(--color-text-on-primary);
   --discount-form-bg: var(--color-bg-surface);
   --discount-form-fg: var(--color-text-primary);

@@ -24,7 +24,7 @@
   --work-steps-card-border: var(--color-bg-surface);
   --work-steps-title-color: var(--color-text-primary);
   --work-steps-text-color: var(--color-text-muted);
-  --work-steps-flash-color: color-mix(in srgb, var(--black) 3%, transparent);
+  --work-steps-flash-color: rgb(var(--black-rgb) / 3%);
 
   /* Layout */
   --work-steps-gap: var(--space-fluid-xl);

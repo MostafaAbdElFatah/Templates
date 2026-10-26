@@ -46,12 +46,14 @@
 
   /* ---------- Brand & focus ---------- */
   --color-primary: var(--blue-600);
+  /* Channels of --color-primary for translucent fills: rgb(var(--color-primary-rgb) / 50%) */
+  --color-primary-rgb: var(--blue-600-rgb);
   /* Darken on hover in light mode so the state reads as "pressed into" the page */
-  --color-primary-hover: color-mix(in srgb, var(--blue-600), var(--black) 12%);
+  --color-primary-hover: var(--blue-700);
   --color-accent: var(--blue-500);
   --color-focus-ring: var(--blue-600);
   /* Mixed from the ring color so the soft halo always matches its hue */
-  --color-focus-ring-soft: color-mix(in srgb, var(--blue-600) 60%, transparent);
+  --color-focus-ring-soft: rgb(var(--blue-600-rgb) / 60%);
 
   /* ---------- Secondary (deep brand surface) ---------- */
   /* Constant across themes: used for the footer and decorative accent shapes */
@@ -70,17 +72,17 @@
   /* *-text variants are darker shades so status text stays readable on light surfaces */
   --color-danger: var(--red-500);
   --color-danger-text: var(--red-600);
-  --color-danger-bg: color-mix(in srgb, var(--red-500) 12%, transparent);
-  --color-danger-ring-soft: color-mix(in srgb, var(--red-500) 60%, transparent);
+  --color-danger-bg: rgb(var(--red-500-rgb) / 12%);
+  --color-danger-ring-soft: rgb(var(--red-500-rgb) / 60%);
   --color-success: var(--teal-500);
   --color-success-text: var(--teal-700);
-  --color-success-bg: color-mix(in srgb, var(--teal-500) 12%, transparent);
+  --color-success-bg: rgb(var(--teal-500-rgb) / 12%);
   --color-warning: var(--amber-500);
   --color-warning-text: var(--amber-800);
-  --color-warning-bg: color-mix(in srgb, var(--amber-500) 16%, transparent);
+  --color-warning-bg: rgb(var(--amber-500-rgb) / 16%);
   --color-info: var(--sky-500);
   --color-info-text: var(--sky-700);
-  --color-info-bg: color-mix(in srgb, var(--sky-500) 12%, transparent);
+  --color-info-bg: rgb(var(--sky-500-rgb) / 12%);
 
   /* ---------- Highlights (decorative accent palette) ---------- */
   /* Base shades tint images and draw decorative bars; *-text shades are darker
